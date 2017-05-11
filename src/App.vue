@@ -6,8 +6,8 @@
     <footer class="navigator">
       <section class="navigator-item">
         <router-link to="/home" class="box">
-            <i class="icon icon-shouye-shouye"></i>
-            <p class="text">首页</p>
+          <i class="icon icon-shouye-shouye"></i>
+          <p class="text">首页</p>
         </router-link>
       </section>
       <section class="navigator-item">
@@ -37,7 +37,6 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-
 #app
   .navigator
     position fixed
@@ -62,7 +61,7 @@
         &.router-link-exact-active
           color aqua
         &.router-link-active
-          color blue
+          color rgb(75,248,249)
         &>.icon
           font-size .5866667rem
         &>.text
