@@ -11,14 +11,19 @@
         <i class="icon-xiaoxi"></i>
       </section>
     </header>
+    <nav class="news-nav">
+      <news-menu></news-menu>
+    </nav>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import MsgCmp from '../../components/msgComponent/msgComponent.vue'
+  import NewsMenu from './newsMenu/newsMenu.vue'
   export default {
     components: {
-      'msgCmp': MsgCmp
+      'msgCmp': MsgCmp,
+      'newsMenu': NewsMenu
     }
 
   }
@@ -27,7 +32,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   .home-wrapper
-    .header
+    & > .header
       display flex
       justify-content space-between
       height 1.1733rem
@@ -39,5 +44,8 @@
         display inline-block
         line-height 1.1733rem
       & > .title
-        font-size 20px
+        font-size 18px
+    & > .news-nav
+      background rgb(248, 248, 248)
+      box-shadow 0px 0px 5px rgba(0,0,0,0.1)
 </style>
