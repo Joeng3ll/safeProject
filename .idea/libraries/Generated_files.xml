@@ -3,24 +3,32 @@
     <properties>
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/dist/src/config/env.js" />
+        <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.3b1d0313a4a8ff3a58e4.js" />
         <item url="file://$PROJECT_DIR$/dist/src/router/index.js" />
         <item url="file://$PROJECT_DIR$/dist/src/main.js" />
+        <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.5d74bb06bcee511bcbbb.js" />
         <item url="file://$PROJECT_DIR$/dist/src/service/getData.js" />
+        <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.9944fce9531207b4bbaa.js" />
+        <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.04c9e03ca88c806b420e.js" />
         <item url="file://$PROJECT_DIR$/dist/config/index.js" />
-        <item url="file://$PROJECT_DIR$/dist/src/config/fetch.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/config/fetch.js" />
         <item url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.9944fce9531207b4bbaa.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.04c9e03ca88c806b420e.js" />
+      <root url="file://$PROJECT_DIR$/dist/config/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/config/fetch.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/env.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.3b1d0313a4a8ff3a58e4.js" />
       <root url="file://$PROJECT_DIR$/dist/src/router/index.js" />
       <root url="file://$PROJECT_DIR$/dist/src/main.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.5d74bb06bcee511bcbbb.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/getData.js" />
-      <root url="file://$PROJECT_DIR$/dist/config/index.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/config/fetch.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
     </CLASSES>
     <SOURCES />
   </library>

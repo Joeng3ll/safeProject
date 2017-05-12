@@ -5,7 +5,7 @@
         <msg-cmp :msgCount="10"></msg-cmp>
       </section>
       <section class="title">
-        首页
+        首页{{newsList.length}}
       </section>
       <section class="scan">
         <i class="icon-xiaoxi"></i>
@@ -14,6 +14,9 @@
     <nav class="news-nav">
       <news-menu></news-menu>
     </nav>
+    <article>
+      {{newsList.length}}
+    </article>
   </div>
 </template>
 
