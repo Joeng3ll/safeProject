@@ -20,7 +20,13 @@
 <script type="text/ecmascript-6">
   import MsgCmp from '../../components/msgComponent/msgComponent.vue'
   import NewsMenu from './newsMenu/newsMenu.vue'
+  import fetch from '../../config/fetch'
   export default {
+    created () {
+      fetch.get('/toutiao/index?type=top&key=68e5b38d548adabc8b842a2ae29e3d40').then((res) => {
+        console.log(res)
+      })
+    },
     components: {
       'msgCmp': MsgCmp,
       'newsMenu': NewsMenu
@@ -47,5 +53,5 @@
         font-size 18px
     & > .news-nav
       background rgb(248, 248, 248)
-      box-shadow 0px 0px 5px rgba(0,0,0,0.1)
+      box-shadow 0px 0px 5px rgba(0, 0, 0, 0.1)
 </style>

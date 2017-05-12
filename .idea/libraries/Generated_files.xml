@@ -5,6 +5,8 @@
         <item url="file://$PROJECT_DIR$/dist/src/config/env.js" />
         <item url="file://$PROJECT_DIR$/dist/src/router/index.js" />
         <item url="file://$PROJECT_DIR$/dist/src/main.js" />
+        <item url="file://$PROJECT_DIR$/dist/config/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/config/fetch.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
         <item url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
       </sourceFilesUrls>
@@ -13,6 +15,8 @@
       <root url="file://$PROJECT_DIR$/dist/src/config/env.js" />
       <root url="file://$PROJECT_DIR$/dist/src/router/index.js" />
       <root url="file://$PROJECT_DIR$/dist/src/main.js" />
+      <root url="file://$PROJECT_DIR$/dist/config/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/config/fetch.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
       <root url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
     </CLASSES>
