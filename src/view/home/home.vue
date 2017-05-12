@@ -20,11 +20,16 @@
 <script type="text/ecmascript-6">
   import MsgCmp from '../../components/msgComponent/msgComponent.vue'
   import NewsMenu from './newsMenu/newsMenu.vue'
-  import fetch from '../../config/fetch'
+  import getData from '../../service/getData'
   export default {
+    data () {
+      return {
+        newsList: []
+      }
+    },
     created () {
-      fetch.get('/toutiao/index?type=top&key=68e5b38d548adabc8b842a2ae29e3d40').then((res) => {
-        console.log(res)
+      getData.getNews().then((res) => {
+        this.newsList = res
       })
     },
     components: {
