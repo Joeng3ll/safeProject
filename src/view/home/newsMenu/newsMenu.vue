@@ -61,6 +61,6 @@
         & > .item
           display inline-block
           padding 0 .35rem 0 0
-          font-size 14px
+          font-size 16px
           line-height 1.1733rem
 </style>

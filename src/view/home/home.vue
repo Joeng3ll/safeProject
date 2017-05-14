@@ -34,11 +34,44 @@
           </section>
         </aside>
         <!--新闻banner图结束-->
-        <!--二级菜单 表彰奖励、事故通报开始-->
+        <!--二级菜单开始-->
         <nav class="nav-wrapper">
-          
+          <!--表彰奖励-->
+          <section class="nav-item-box">
+            <div class="nav-item">
+              <div class="icon-box">
+                <i class="icon-iconfontjiangli icon"></i>
+              </div>
+              <div class="nav-text">
+                <p>表彰奖励</p>
+                <span>honor</span>
+              </div>
+            </div>
+          </section>
+          <!--事故通报-->
+          <section class="nav-item-box">
+            <div class="nav-item">
+              <div class="icon-box accident">
+                <i class="icon-jiaotongshigu icon"></i>
+              </div>
+              <div class="nav-text">
+                <p>事故通报</p>
+                <span>accident</span>
+              </div>
+            </div>
+          </section>
         </nav>
-        <!--二级菜单 表彰奖励、事故通报结束-->
+        <!--二级菜单结束-->
+        <!--新闻列表开始-->
+        <div class="news-list">
+          <section class="news-item">
+            <!--新闻主图-->
+            <img src="" alt="">
+            <!--新闻内容-->
+            
+          </section>
+        </div>
+        <!--新闻列表结束-->
       </div>
     </article>
   </div>
@@ -131,26 +164,61 @@
             font-size 0
             & > .swiper-pagination-bullet
               display inline-block
-              width .2rem
-              height .2rem
+              padding .12rem
               background #bbbbbb
               border-radius 100%
               &:not(:last-child)
                 margin-right .1rem
               &.swiper-pagination-bullet-active
+                border-radius 50%
                 background #fff
           & > .news-title
             width 100%
             background rgba(0, 0, 0, 0.4)
             & > .title-text
-              font-size 14px
+              font-size 16px
               white-space nowrap
               overflow hidden
               text-overflow ellipsis
+              letter-spacing .02rem
               padding .3rem 1.7rem .3rem .3rem
-            color #fff
+              color #f0f0f0
           & > .news-title
             position absolute
             bottom 0
 
+        &>.nav-wrapper
+          display flex
+          &>.nav-item-box
+            flex 1
+            text-align center
+            border-bottom .01rem solid #dddddd
+            &>.nav-item
+              display flex
+              justify-content center
+              padding .2933rem
+              &:first-child
+                border-left .01rem solid #dddddd
+              &>.icon-box
+                padding .2933rem
+                margin-right .2rem
+                background rgb(208,55,64)
+                border-radius 50%
+                &.accident
+                  background rgb(110,128,162)
+                &>.icon
+                  font-size 24px
+                  color #f0f0f0
+              &>.nav-text
+                display flex
+                flex-direction column
+                justify-content center
+                -webkit-justify-content center
+                align-items center
+                -webkit-align-items center
+                &>p
+                  font-size 16px
+                &>span
+                  margin-top .1rem
+                  color #ccc
 </style>
