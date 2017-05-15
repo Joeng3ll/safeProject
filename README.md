@@ -1,6 +1,8 @@
 # safeproject
 
-> vue全家桶项目 vue2.0+axios+vue-router+mint-ui
+> vue全家桶项目 vue2.0+axios+vue-router+mint-ui 
+
+持续更新中...
 
 ## Build Setup
 
