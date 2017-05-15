@@ -13,7 +13,7 @@
     </header>
     <!--新闻导航开始-->
     <nav class="news-nav">
-      <news-menu :newsTitleList="newsTitleList"></news-menu>
+      <news-menu :newsTitleList="newsTitleList" @changeNewsList="changeNewsList"></news-menu>
     </nav>
     <!--新闻导航结束-->
     <article class="body" ref="newsBody">
@@ -63,32 +63,40 @@
         </nav>
         <!--二级菜单结束-->
         <!--新闻列表开始-->
-        <div class="news-list">
-          <section class="news-item" v-for="news in newsList">
-            <!--新闻主图-->
-            <div class="img-box"><img :src="news.thumbnail_pic_s" class="news-img"></div>
-            <!--新闻内容-->
-            <div class="news-content">
-              <p class="news-title">{{news.title}}</p>
-              <div class="news-footer">
-                <p class="news-from"></p>
-                <span class="news-date"></span>
+        <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
+          <div class="news-list">
+            <section class="news-item" v-for="news in newsList">
+              <!--新闻主图-->
+              <div class="img-box"><img :src="news.thumbnail_pic_s" class="news-img"></div>
+              <!--新闻内容-->
+              <div class="news-content">
+                <p class="news-title">{{news.title}}</p>
+                <div class="news-footer">
+                  <p class="news-from">{{news.author_name}}</p>
+                  <span class="news-date">{{news.date}}</span>
+                </div>
               </div>
-            </div>
-          </section>
-        </div>
+            </section>
+          </div>
+        </mt-loadmore>
         <!--新闻列表结束-->
       </div>
     </article>
+    <!--loading-->
+    <loading ref="loadCpt"></loading>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import MsgCmp from '../../components/msgComponent/msgComponent.vue'
+  import Loading from '../../components/loading/loading.vue'
   import NewsMenu from './newsMenu/newsMenu.vue'
   import getData from '../../service/getData'
   import Swiper from 'swiper'
   import BScroll from 'better-scroll'
+  import {Loadmore} from 'mint-ui'
+  import Vue from 'vue'
+  Vue.component(Loadmore.name, Loadmore)
   const newsTitleList = ['头条', '社会', '国内', '国际', '娱乐', '体育', '军事', '科技', '财经', '时尚']
   const newsListPY = ['top', 'shehui', 'guonei', 'guoji', 'yule', 'tiyu', 'junshi', 'keji', 'caijing', 'shishang']
   export default {
@@ -96,12 +104,16 @@
       return {
         newsTitleList: newsTitleList,
         currentNews: Object,
-        newsList: []
+        newsList: [],
+        currentNewsTitle: newsListPY[0],
+        allLoaded: false
       }
     },
     created () {
       getData.getNews(newsListPY[0]).then((res) => {
-        this.newsList = res
+        this.newsList = Object.assign(this.newsList, res)
+//       不显示已经在banner里出现的新闻
+        this.newsList.shift()
         this.currentNews = res[0]
         this.$nextTick(() => {
           this._initialBScroll()
@@ -118,7 +130,6 @@
         let $swipWrapper = this.$refs.swiperContainer.getElementsByClassName('swiper-wrapper')[0]
         let picNum = $pic.length
         $swipWrapper.style.width = picNum * 100 + '%'
-        console.log($pic.length)
         if (typeof this.swiper === 'undefined') {
           this.swiper = new Swiper(this.$refs.swiperContainer, {
             direction: 'horizontal',
@@ -133,12 +144,29 @@
         } else {
           this.bodyScroll.refresh()
         }
-        console.log(this.bodyScroll)
+      },
+      changeNewsList (newsTitle) {
+        this.currentNewsTitle = newsTitle
+        this.$refs.loadCpt.openLoading()
+        getData.getNews(newsTitle).then((res) => {
+          this.newsList = Object.assign(this.newsList, res)
+          this.newsList.shift()
+          this.currentNews = res[0]
+        }).then(() => {
+          this.$refs.loadCpt.closeLoading()
+        })
+      },
+      loadTop () {
+        this.changeNewsList(this.currentNewsTitle)
+        this.$refs.loadmore.onTopLoaded()
+      },
+      loadBottom () {
       }
     },
     components: {
       'msgCmp': MsgCmp,
-      'newsMenu': NewsMenu
+      'newsMenu': NewsMenu,
+      'loading': Loading
     }
 
   }
@@ -166,7 +194,6 @@
     & > .news-nav
       background rgb(248, 248, 248)
       box-shadow 0px 0px 5px rgba(0, 0, 0, 0.1)
-
     & > .body
       position: fixed
       width 100%
@@ -177,6 +204,7 @@
       z-index: -1
       background: #fff
       & > .slide-body
+        padding-bottom: 1.30667rem
         & > .news-banner
           width 100%
           height 5.5rem
@@ -254,23 +282,48 @@
                 & > span
                   margin-top .1rem
                   color #ccc
-
-        & > .news-list
-          & > .news-item
-            display flex
-            padding .3733rem .48rem
-            &:not(:last-child)
-              border-bottom 1px solid #f0f0f0
-            & > .img-box
-              width 3.75rem
-              height 2.8125rem
-              margin-right .2133rem
-              & > img
-                display inline-block
-                width 100%
-                height 100%
-            & > .news-content
-              & > .news-title
-                font-size 14px
+        & > .mint-loadmore
+          & > .mint-loadmore-content
+            & > .news-list
+              & > .news-item
+                position relative
+                font-size 0
+                padding .3733rem .48rem
+                &:not(:last-child)
+                  border-bottom 1px solid #f0f0f0
+                & > .img-box
+                  display inline-block
+                  width 35%
+                  height 2.6125rem
+                  & > img
+                    display inline-block
+                    width 100%
+                    height 100%
+                & > .news-content
+                  vertical-align top
+                  width 60%
+                  display inline-block
+                  padding .1rem 0 0 .24rem
+                  & > .news-title
+                    font-size 14px
+                    letter-spacing .01rem
+                    line-height 18px
+                  & > .news-footer
+                    width 55%
+                    font-size 12px
+                    color #ccc
+                    position absolute
+                    display flex
+                    align-items center
+                    justify-content space-between
+                    bottom .40667rem
+                    & > .news-from
+                      display inline-block
+                      width 30%
+                      white-space nowrap
+                      overflow hidden
+                      text-overflow ellipsis
+                    & > .news-date
+                      float right
 </style>
 
