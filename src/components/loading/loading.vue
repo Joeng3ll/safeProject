@@ -16,7 +16,7 @@
         this.isShow = true
         Indicator.open({
           text: '加载中...',
-          spinnerType: 'fading-circle'
+          spinnerType: 'double-bounce'
         })
       },
       closeLoading () {

@@ -63,7 +63,7 @@
         </nav>
         <!--二级菜单结束-->
         <!--新闻列表开始-->
-        <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
+        <mt-loadmore :top-method="loadTop" ref="loadmore">
           <div class="news-list">
             <section class="news-item" v-for="news in newsList">
               <!--新闻主图-->
@@ -107,6 +107,7 @@
         newsList: [],
         currentNewsTitle: newsListPY[0],
         allLoaded: false
+//        onTopLoaded: false
       }
     },
     created () {
@@ -147,7 +148,9 @@
       },
       changeNewsList (newsTitle) {
         this.currentNewsTitle = newsTitle
+//        if (this.currentNewsTitle !== newsTitle) {
         this.$refs.loadCpt.openLoading()
+//        }
         getData.getNews(newsTitle).then((res) => {
           this.newsList = Object.assign(this.newsList, res)
           this.newsList.shift()
@@ -159,8 +162,6 @@
       loadTop () {
         this.changeNewsList(this.currentNewsTitle)
         this.$refs.loadmore.onTopLoaded()
-      },
-      loadBottom () {
       }
     },
     components: {
