@@ -1,6 +1,6 @@
 # safeproject
 
-> A Vue.js project
+> vue全家桶项目 vue2.0+axios+vue-router+mint-ui
 
 ## Build Setup
 
