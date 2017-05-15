@@ -16,7 +16,7 @@
       <news-menu :newsTitleList="newsTitleList"></news-menu>
     </nav>
     <!--新闻导航结束-->
-    <article class="body">
+    <article class="body" ref="newsBody">
       <div class="slide-body">
         <!--新闻banner图开始-->
         <aside class="news-banner swiper-container" ref="swiperContainer">
@@ -64,11 +64,17 @@
         <!--二级菜单结束-->
         <!--新闻列表开始-->
         <div class="news-list">
-          <section class="news-item">
+          <section class="news-item" v-for="news in newsList">
             <!--新闻主图-->
-            <img src="" alt="">
+            <div class="img-box"><img :src="news.thumbnail_pic_s" class="news-img"></div>
             <!--新闻内容-->
-            
+            <div class="news-content">
+              <p class="news-title">{{news.title}}</p>
+              <div class="news-footer">
+                <p class="news-from"></p>
+                <span class="news-date"></span>
+              </div>
+            </div>
           </section>
         </div>
         <!--新闻列表结束-->
@@ -82,18 +88,24 @@
   import NewsMenu from './newsMenu/newsMenu.vue'
   import getData from '../../service/getData'
   import Swiper from 'swiper'
+  import BScroll from 'better-scroll'
   const newsTitleList = ['头条', '社会', '国内', '国际', '娱乐', '体育', '军事', '科技', '财经', '时尚']
   const newsListPY = ['top', 'shehui', 'guonei', 'guoji', 'yule', 'tiyu', 'junshi', 'keji', 'caijing', 'shishang']
   export default {
     data () {
       return {
         newsTitleList: newsTitleList,
-        currentNews: Object
+        currentNews: Object,
+        newsList: []
       }
     },
     created () {
       getData.getNews(newsListPY[0]).then((res) => {
+        this.newsList = res
         this.currentNews = res[0]
+        this.$nextTick(() => {
+          this._initialBScroll()
+        })
       })
       this.$nextTick(() => {
         this._initialSwiper()
@@ -113,6 +125,15 @@
             pagination: '.swiper-pagination'
           })
         }
+      },
+      _initialBScroll () {
+        let $newsBody = this.$refs.newsBody
+        if (this.bodyScroll === undefined) {
+          this.bodyScroll = new BScroll($newsBody, {click: true, scrollY: true})
+        } else {
+          this.bodyScroll.refresh()
+        }
+        console.log(this.bodyScroll)
       }
     },
     components: {
@@ -134,19 +155,31 @@
       background rgb(58, 153, 240)
       font-size 0
       color #fff
+
       & > section
         display inline-block
         line-height 1.1733rem
+
       & > .title
         font-size 18px
+
     & > .news-nav
       background rgb(248, 248, 248)
       box-shadow 0px 0px 5px rgba(0, 0, 0, 0.1)
+
     & > .body
+      position: fixed
+      width 100%
+      left 0
+      bottom: 0
+      top: 2.3466rem
+      padding-bottom: 1.30667rem
+      z-index: -1
+      background: #fff
       & > .slide-body
         & > .news-banner
           width 100%
-          height 6rem
+          height 5.5rem
           position relative
           font-size 0
           overflow hidden
@@ -158,13 +191,13 @@
               height 100%
           & > .swiper-pagination
             position absolute
-            bottom .35rem
+            bottom .4rem
             right .3rem
             z-index 100
             font-size 0
             & > .swiper-pagination-bullet
               display inline-block
-              padding .12rem
+              padding .08rem
               background #bbbbbb
               border-radius 100%
               &:not(:last-child)
@@ -187,38 +220,57 @@
             position absolute
             bottom 0
 
-        &>.nav-wrapper
+        & > .nav-wrapper
           display flex
-          &>.nav-item-box
+          & > .nav-item-box
             flex 1
             text-align center
             border-bottom .01rem solid #dddddd
-            &>.nav-item
+            & > .nav-item
               display flex
               justify-content center
               padding .2933rem
               &:first-child
                 border-left .01rem solid #dddddd
-              &>.icon-box
+              & > .icon-box
                 padding .2933rem
                 margin-right .2rem
-                background rgb(208,55,64)
+                background rgb(208, 55, 64)
                 border-radius 50%
                 &.accident
-                  background rgb(110,128,162)
-                &>.icon
+                  background rgb(110, 128, 162)
+                & > .icon
                   font-size 24px
                   color #f0f0f0
-              &>.nav-text
+              & > .nav-text
                 display flex
                 flex-direction column
                 justify-content center
                 -webkit-justify-content center
                 align-items center
                 -webkit-align-items center
-                &>p
+                & > p
                   font-size 16px
-                &>span
+                & > span
                   margin-top .1rem
                   color #ccc
+
+        & > .news-list
+          & > .news-item
+            display flex
+            padding .3733rem .48rem
+            &:not(:last-child)
+              border-bottom 1px solid #f0f0f0
+            & > .img-box
+              width 3.75rem
+              height 2.8125rem
+              margin-right .2133rem
+              & > img
+                display inline-block
+                width 100%
+                height 100%
+            & > .news-content
+              & > .news-title
+                font-size 14px
 </style>
+
