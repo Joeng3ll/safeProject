@@ -56,19 +56,21 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 │   ├── router  // 路由
 │   │    ├── route.js //路由配置信息
 │   │    └── index.js //路由信息
-│   ├── vuex
-│   │   ├── index.js  //状态管理信息 更新中..
-│   │   ├── action.js
+│   ├── vuex  //状态管理信息 更新中..
+│   │   ├── index.js  
+│   │   ├── action.js 
 │   │   ├── store.js
 │   │   └── types.js
-│   └── views
-│       ├── index.vue
-│       ├── movie
-│       │   ├── movie-detail.vue
-│       │   ├── movie-list.vue
-│       │   ├── movies.vue
-│       │   └── search-list.vue
-│       └── vuex-demo.vue
-├── static
-└── tree.md
+│   ├── config  // 更新中..
+│   │   ├── env.js  
+│   │   ├── fetch.js 
+│   │   ├── mUtils.js
+│   │   └── rem.js //移动端适配
+│   └── view 
+│       ├── home
+│       ├── interlocution
+│       ├── communication personal
+│       ├── personal
+│       └── ...更新中
+└──  static
 <code>
