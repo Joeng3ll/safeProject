@@ -28,9 +28,15 @@
 
 <script type="text/ecmascript-6">
   import MsgCmp from '../../components/msgComponent/msgComponent.vue'
+  import {getDriverInfo} from '../../service/getData'
   export default {
     components: {
       'msgCmp': MsgCmp
+    },
+    created () {
+      getDriverInfo().then(res => {
+        console.log(res)
+      })
     }
   }
 
@@ -63,4 +69,11 @@
       & > .title
         font-size 18px
 
+    & > .body
+      padding-top 1.1733rem
+      & > .body-item
+        width 100%
+        padding .48rem .56rem
+        margin-top .48rem
+        background #fff
 </style>

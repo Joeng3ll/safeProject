@@ -91,7 +91,7 @@
   import MsgCmp from '../../components/msgComponent/msgComponent.vue'
   import Loading from '../../components/loading/loading.vue'
   import NewsMenu from './newsMenu/newsMenu.vue'
-  import getData from '../../service/getData'
+  import {getNews} from '../../service/getData'
   import Swiper from 'swiper'
   import BScroll from 'better-scroll'
   import {Loadmore} from 'mint-ui'
@@ -112,7 +112,7 @@
     },
     created () {
 //      this.$refs.loadCpt.openLoading()
-      getData.getNews(newsListPY[0]).then((res) => {
+      getNews(newsListPY[0]).then((res) => {
         this.newsList = Object.assign(this.newsList, res)
 //       不显示已经在banner里出现的新闻
         this.newsList.shift()
@@ -152,7 +152,7 @@
 //        if (this.currentNewsTitle !== newsTitle) {
         this.$refs.loadCpt.openLoading()
 //        }
-        getData.getNews(newsTitle).then((res) => {
+        getNews(newsTitle).then((res) => {
           this.newsList = Object.assign(this.newsList, res)
           this.newsList.shift()
           this.currentNews = res[0]
