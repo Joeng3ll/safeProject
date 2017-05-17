@@ -4,9 +4,46 @@
  */
 import fetch from '../config/fetch'
 
+/*
+ * 测试环境下模拟异步请求获取数据
+ *
+ * */
+// let mockData = data => {
+//   return new Promise((resolve, reject) => {
+//     resolve(data)
+//   }, (reject) => {
+//     console.log('request error')
+//   })
+// }
+/*
+ * 如果真实环境则发出真正的请求
+ * */
+// if (process.NODE_ENV === 'development') {
+/*
+ *  获取首页新闻
+ * */
+//   var getNews = (newsType) => {
+//     return new Promise((resolve, reject) => {
+//       fetch.get(`/toutiao/index?type=${newsType}&key=68e5b38d548adabc8b842a2ae29e3d40`).then(res => {
+//         resolve(res.data.result.data)
+//       }, () => {
+//         console.log('request error')
+//       })
+//     })
+//   }
+// } else {
+//   var getNews = (newsType) => {
+//     return new Promise((resolve, reject) => {
+//       fetch.get(`/toutiao/index?type=${newsType}&key=68e5b38d548adabc8b842a2ae29e3d40`).then(res => {
+//         resolve(res.data.result.data)
+//       }, () => {
+//         console.log('request error')
+//       })
+//     })
+//   }
+// }
 export default {
-  // 获取新闻
-  getNews (newsType) {
+  getNews: (newsType) => {
     return new Promise((resolve, reject) => {
       fetch.get(`/toutiao/index?type=${newsType}&key=68e5b38d548adabc8b842a2ae29e3d40`).then(res => {
         resolve(res.data.result.data)
@@ -16,3 +53,14 @@ export default {
     })
   }
 }
+// var getNews = (newsType) => {
+//   return new Promise((resolve, reject) => {
+//     fetch.get(`/toutiao/index?type=${newsType}&key=68e5b38d548adabc8b842a2ae29e3d40`).then(res => {
+//       resolve(res.data.result.data)
+//     }, () => {
+//       console.log('request error')
+//     })
+//   })
+// }
+// export {getNews}
+

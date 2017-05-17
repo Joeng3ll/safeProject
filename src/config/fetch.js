@@ -20,14 +20,5 @@ export default {
         console.log('axios error')
       })
     })
-  },
-  test() {
-    return new Promise((resolve, reject) => {
-      vm.$http.get('http://music.163.com/api').then((res) => {
-        console.log(res)
-      }, () => {
-        console.log('error')
-      })
-    })
   }
 }

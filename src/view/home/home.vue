@@ -18,8 +18,8 @@
     <!--新闻导航结束-->
     <article class="body" ref="newsBody">
       <div class="slide-body">
-        <!--新闻banner图开始-->
         <mt-loadmore :top-method="loadTop" ref="loadmore">
+          <!--新闻banner图开始-->
           <aside class="news-banner swiper-container" ref="swiperContainer">
             <!--swiper滑动部分开始-->
             <div class="swiper-wrapper">
@@ -78,8 +78,8 @@
               </div>
             </section>
           </div>
+          <!--新闻列表结束-->
         </mt-loadmore>
-        <!--新闻列表结束-->
       </div>
     </article>
     <!--loading-->
@@ -111,6 +111,7 @@
       }
     },
     created () {
+//      this.$refs.loadCpt.openLoading()
       getData.getNews(newsListPY[0]).then((res) => {
         this.newsList = Object.assign(this.newsList, res)
 //       不显示已经在banner里出现的新闻
@@ -177,11 +178,11 @@
 <style lang="stylus" rel="stylesheet/stylus">
   .home-wrapper
     & > .header
-      position: fixed
-      z-index: 100
-      width: 100%
       display flex
       justify-content space-between
+      position fixed
+      z-index 100
+      width 100%
       height 1.1733rem
       background rgb(58, 153, 240)
       font-size 0
@@ -198,23 +199,20 @@
     & > .news-nav
       position fixed
       width 100%
-      top 1.1733rem
-      left 0
       z-index 100
+      top 1.1733rem
       background rgb(248, 248, 248)
       box-shadow 0px 0px 5px rgba(0, 0, 0, 0.1)
     & > .body
-      z-index -1
       width 100%
+      top: 2.3466rem
       padding-bottom: 1.30667rem
-      padding-top 2.3466rem
+      padding-top: 2.34rem
+      z-index: -1
       background: #fff
       & > .slide-body
         & > .mint-loadmore
           & > .mint-loadmore-content
-            & > .mint-loadmore-top
-              & > .mint-loadmore-text
-                color #ccc
             & > .news-banner
               width 100%
               height 5.5rem
