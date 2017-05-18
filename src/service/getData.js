@@ -3,6 +3,7 @@
  * 请求数据接口 获取各类数据方法
  */
 import driverInfo from './dataTemplate/driver'
+import attendance from './dataTemplate/attendance'
 import fetch from '../config/fetch'
 
 /*
@@ -53,5 +54,6 @@ if (process.NODE_ENV === 'development') {
   }
 
   var getDriverInfo = () => mockData(driverInfo)
+  var getAttendanceDays = () => mockData(attendance)
 }
-export {getNews, getDriverInfo}
+export {getNews, getDriverInfo, getAttendanceDays}

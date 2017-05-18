@@ -119,12 +119,15 @@
 //       不显示已经在banner里出现的新闻
         this.newsList.shift()
         this.currentNews = res[0]
-//        this.$nextTick(() => {
-//          this._initialBScroll()
-//        })
       })
       this.$nextTick(() => {
         this._initialSwiper()
+      })
+    },
+    mounted () {
+      this.$nextTick(() => {
+//         输出为0
+//        console.log(this.newsList[0])
       })
     },
     methods: {
