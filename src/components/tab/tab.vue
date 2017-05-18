@@ -1,6 +1,6 @@
 <template>
   <div class="tab-wrapper">
-    <div class="icon-box">
+    <div class="icon-box" :class="colorClass">
       <i class="icon" :class="iconClass"></i>
     </div>
     <p class="tab-name">{{text}}</p>
@@ -10,7 +10,7 @@
 
 <script type="text/ecmascript-6">
   export default {
-    props: ['iconClass', 'text']
+    props: ['iconClass', 'text', 'colorClass']
   }
 
 </script>
@@ -24,22 +24,32 @@
     background #fff
     font-size 0
     & > .icon-box
-      display inline-block
+      display inline-flex
+      justify-content center
+      align-items center
       width .8rem
       height .8rem
-      line-height .68rem
       margin-left .48rem
       margin-right .22rem
       background red
-      text-align center
       border-radius 15%
-      &>.icon
+      &.green
+        background rgb(108,182,72)
+      &.degreen
+        background rgb(41,179,139)
+      &.red
+        background rgb(237,100,123)
+      &.purple
+        background rgb(172,108,236)
+      &.grew
+        background rgb(97,112,144)
+      & > .icon
         font-size 22px
         color #fff
-    &>.tab-name
+    & > .tab-name
       font-size 16px
       display inline-block
-    &>.icon
+    & > .icon
       color #ccc
       position absolute
       right .48rem

@@ -7,6 +7,7 @@ import Home from '../view/home/home.vue'
 import Communication from '../view/communication/communication.vue'
 import Interlocution from '../view/interlocution/interlocution.vue'
 import Personal from '../view/personal/personal.vue'
+import Archives from '../view/personal/archives/archives.vue'
 // import Login from '../view/login/login.vue'
 
 export default [
@@ -14,18 +15,12 @@ export default [
   {path: '/home', component: Home},
   {path: '/communication', component: Communication},
   {path: '/interlocution', component: Interlocution},
-  {path: '/personal', component: Personal}
+  {
+    path: '/personal',
+    component: Personal,
+    children: [
+    {path: 'archives', component: Archives}
+    ]
+  }
 ]
-// export default [
-//   {
-//     path: '',
-//     component: APP,
-//     children: [
-//       {path: '', redirect: '/home'},
-//       {path: '/home', component: Home},
-//       {path: '/communication', component: Communication},
-//       {path: '/interlocution', component: Interlocution},
-//       {path: '/personal', component: Personal}
-//     ]
-//   }
-// ]
+

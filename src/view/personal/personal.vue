@@ -25,9 +25,25 @@
       </section>
       <!--我的信息结束-->
       <!--菜单栏开始-->
-      <tab :iconClass="archives.iconClass" :text="archives.text" class="menu-item"></tab>
+      <!--我的档案-->
+      <router-link to="/personal/archives">
+        <tab :iconClass="archives.iconClass" :text="archives.text" :colorClass="archives.colorClass"
+             class="menu-item"></tab>
+      </router-link>
+      <!--我的考勤记录-->
+      <tab :iconClass="workRecord.iconClass" :text="workRecord.text" :colorClass="workRecord.colorClass"
+           class="menu-item"></tab>
+      <!--我的事故记录-->
+      <tab :iconClass="accidentRecord.iconClass" :text="accidentRecord.text" :colorClass="accidentRecord.colorClass"
+           class="menu-item"></tab>
+      <!--我的培训-->
+      <tab :iconClass="training.iconClass" :text="training.text" :colorClass="training.colorClass"
+           class="menu-item"></tab>
+      <!--我的考试-->
+      <tab :iconClass="test.iconClass" :text="test.text" :colorClass="test.colorClass" class="menu-item"></tab>
       <!--菜单栏结束-->
     </article>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -37,32 +53,39 @@
   import Tab from '../../components/tab/tab.vue'
   import {getDriverInfo} from '../../service/getData'
   const archives = {
+    'colorClass': 'green',
     'iconClass': 'icon-dangan',
     'text': '我的档案'
   }
-  const work_record = {
+  const workRecord = {
+    'colorClass': 'degreen',
     'iconClass': 'icon-kaoqinyuanshijilu',
     'text': '我的考勤记录'
   }
-  const accident_record = {
-    'iconClass': 'icon-kaoqinyuanshijilu',
+  const accidentRecord = {
+    'colorClass': 'red',
+    'iconClass': 'icon-trafficaccident',
     'text': '我的事故记录'
   }
   const training = {
-    'iconClass': 'icon-kaoqinyuanshijilu',
+    'colorClass': 'purple',
+    'iconClass': 'icon-peixun',
     'text': '我的培训'
   }
-  const training = {
-    'iconClass': 'icon-kaoqinyuanshijilu',
-    'text': '我的培训'
+  const test = {
+    'colorClass': 'grew',
+    'iconClass': 'icon-kaoshi',
+    'text': '我的考试'
   }
   export default {
     data () {
       return {
         driver: Object,
         archives,
-        work_record,
-        accident_record
+        workRecord,
+        accidentRecord,
+        training,
+        test
       }
     },
     created () {
@@ -83,7 +106,7 @@
   .personal-wrapper
     position fixed
     top 0
-    bottom 1.30667rem
+    bottom 0
     width 100%
     left 0
     background #f0f0f0
@@ -112,6 +135,7 @@
         position relative
         padding .28rem .56rem
         margin-top .48rem
+        margin-bottom 1rem
         background #fff
         font-size 0
         & > .avator
@@ -139,6 +163,10 @@
           top 40%
           color #ccc
       & > .menu-item
-        margin-top .8rem
-
+        &:nth-child(2n+1)
+          margin-top 1rem
+        &:nth-child(2n)
+          margin-top .2rem
+        &:nth-child(1)
+          background green
 </style>
