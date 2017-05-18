@@ -6,10 +6,13 @@ var template =
     "birth_place": "浙江",
     "birth": "2017-05-17",
     "sfz_no": "1",
+    "star_level": 4,
     "address": "浙江绍兴",
     "postcode": "303303",
     "mobile": "17826808043",
     "email": "2726@qq.com",
+    "photo": "http://08.imgmini.eastday.com/mobile/20170518/20170518092658_4954e954900ab71c12a7910df7323870_1_mwpm_03200403.jpeg",
+    "driver_licence_photo": "http://08.imgmini.eastday.com/mobile/20170518/20170518092658_4954e954900ab71c12a7910df7323870_1_mwpm_03200403.jpeg",
     "org_id": "1",
     "emergency_contact": "父亲",
     "emergency_contact_mobile": "17826808043",
@@ -22,7 +25,7 @@ var template =
     "status": "1"
   }
 
-var driverInfo = JSON.stringify(Mock.mock(template))
+var driverInfo = Mock.mock(template)
 export default driverInfo;
 
 /eslint-disable/

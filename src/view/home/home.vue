@@ -8,7 +8,7 @@
         首页
       </section>
       <section class="scan icon-sec">
-        <i class="icon-xiaoxi"></i>
+        <i class="icon-saoyisao"></i>
       </section>
     </header>
     <!--新闻导航开始-->
