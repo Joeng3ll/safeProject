@@ -1,9 +1,16 @@
 <template>
-
+  <div class="interlocution-wrapper">
+    <footer-navigator></footer-navigator>
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
-    export default {}
+  import Footer from '../../components/footer/footer.vue'
+  export default {
+    components: {
+      'footerNavigator': Footer
+    }
+  }
 
 </script>
 

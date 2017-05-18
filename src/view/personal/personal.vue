@@ -26,31 +26,41 @@
       <!--我的信息结束-->
       <!--菜单栏开始-->
       <!--我的档案-->
-      <router-link to="/personal/archives">
+      <router-link to="/personal/archives" class="tab-box">
         <tab :iconClass="archives.iconClass" :text="archives.text" :colorClass="archives.colorClass"
              class="menu-item"></tab>
       </router-link>
       <!--我的考勤记录-->
-      <tab :iconClass="workRecord.iconClass" :text="workRecord.text" :colorClass="workRecord.colorClass"
-           class="menu-item"></tab>
+      <router-link to="/personal/workRecord" class="tab-box">
+        <tab :iconClass="workRecord.iconClass" :text="workRecord.text" :colorClass="workRecord.colorClass"
+             class="menu-item"></tab>
+      </router-link>
       <!--我的事故记录-->
-      <tab :iconClass="accidentRecord.iconClass" :text="accidentRecord.text" :colorClass="accidentRecord.colorClass"
-           class="menu-item"></tab>
+      <router-link to="/personal/accidentRecord" class="tab-box">
+        <tab :iconClass="accidentRecord.iconClass" :text="accidentRecord.text" :colorClass="accidentRecord.colorClass"
+             class="menu-item"></tab>
+      </router-link>
       <!--我的培训-->
-      <tab :iconClass="training.iconClass" :text="training.text" :colorClass="training.colorClass"
-           class="menu-item"></tab>
+      <router-link to="/personal/training" class="tab-box">
+        <tab :iconClass="training.iconClass" :text="training.text" :colorClass="training.colorClass"
+             class="menu-item"></tab>
+      </router-link>
       <!--我的考试-->
-      <tab :iconClass="test.iconClass" :text="test.text" :colorClass="test.colorClass" class="menu-item"></tab>
+      <router-link to="/personal/test" class="tab-box">
+        <tab :iconClass="test.iconClass" :text="test.text" :colorClass="test.colorClass" class="menu-item"></tab>
+      </router-link>
       <!--菜单栏结束-->
     </article>
     <router-view></router-view>
+    <footer-navigator></footer-navigator>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import MsgCmp from '../../components/msgComponent/msgComponent.vue'
-  import Star from '../../components/star/star.vue'
-  import Tab from '../../components/tab/tab.vue'
+  import Footer from 'components/footer/footer.vue'
+  import MsgCmp from 'components/msgComponent/msgComponent.vue'
+  import Star from 'components/star/star.vue'
+  import Tab from 'components/tab/tab.vue'
   import {getDriverInfo} from '../../service/getData'
   const archives = {
     'colorClass': 'green',
@@ -96,7 +106,8 @@
     components: {
       'msgCmp': MsgCmp,
       'star': Star,
-      'tab': Tab
+      'tab': Tab,
+      'footerNavigator': Footer
     }
   }
 
@@ -112,7 +123,6 @@
     background #f0f0f0
     & > .header
       position: fixed
-      z-index: 100
       width 100%
       display flex
       justify-content space-between
@@ -162,11 +172,11 @@
           right .48rem
           top 40%
           color #ccc
-      & > .menu-item
+      & > .tab-box
+        display block
         &:nth-child(2n+1)
           margin-top 1rem
         &:nth-child(2n)
           margin-top .2rem
-        &:nth-child(1)
-          background green
+
 </style>

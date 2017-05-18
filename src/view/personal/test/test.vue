@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
-    <!--页面内容-->
-    <router-view></router-view>
+  <div class="test-wrapper">
+
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   export default {}
+
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

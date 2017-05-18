@@ -82,12 +82,14 @@
         </mt-loadmore>
       </div>
     </article>
+    <footer-navigator></footer-navigator>
     <!--loading-->
     <loading ref="loadCpt"></loading>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import Footer from '../../components/footer/footer.vue'
   import MsgCmp from '../../components/msgComponent/msgComponent.vue'
   import Loading from '../../components/loading/loading.vue'
   import NewsMenu from './newsMenu/newsMenu.vue'
@@ -168,7 +170,8 @@
     components: {
       'msgCmp': MsgCmp,
       'newsMenu': NewsMenu,
-      'loading': Loading
+      'loading': Loading,
+      'footerNavigator': Footer
     }
 
   }
