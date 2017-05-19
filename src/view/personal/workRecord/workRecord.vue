@@ -3,8 +3,17 @@
     <header-cpt :text="header.text"></header-cpt>
     <article class="body">
       <!--日历插件开始-->
-      <div id="container"></div>
+      <div id="calendar-container"></div>
       <!--日历插件结束-->
+      <router-link to="/personal" class="nav-item">
+        <tab :text="hourTab.text" :iconClass="hourTab.iconClass" :colorClass="hourTab.colorClass"></tab>
+      </router-link>
+      <router-link to="/personal" class="nav-item">
+        <tab :text="haulTab.text" :iconClass="haulTab.iconClass" :colorClass="haulTab.colorClass"></tab>
+      </router-link>
+      <router-link to="/personal" class="nav-item">
+        <tab :text="haulTab.text" :iconClass="hourTab.iconClass" :colorClass="hourTab.colorClass"></tab>
+      </router-link>
     </article>
   </div>
 </template>
@@ -13,24 +22,31 @@
   import Header from 'components/header/header'
   import Calendar from 'mob-calendar'
   import {getAttendanceDays} from 'service/getData'
+  import Tab from 'components/tab/tab'
   //  头部dom组件信息
   const header = {
     text: '我的考勤记录'
   }
-  const testObj = [{
-    stamp: 1495728000000,
-    className: 'calendar-active'
-  }, {
-    stamp: 1493913600000,
-    className: 'calendar-active'
-  }]
+  //  TAB:我的工时记录
+  const hourTab = {
+    'iconClass': 'icon-gongshixitong',
+    'text': '我的工时记录',
+    'colorClass': 'red'
+  }
+  //  tab:我的运程记录
+  const haulTab = {
+    'iconClass': 'icon-daoluyunshuhuoyunliang',
+    'text': '我的运程记录',
+    'colorClass': 'red'
+  }
   export default {
     data () {
       return {
         header,
         attendanceDays: [],
         attendanceDaysFormat: [],
-        testObj
+        hourTab,
+        haulTab
       }
     },
     mounted () {
@@ -71,41 +87,36 @@
         if (this.calendar === undefined) {
           this.calendar = new Calendar({
             clickTarget: 'target',
-            container: 'container',
+            container: 'calendar-container',
             angle: 6,
             isMask: false,
             beginTime: [],
             endTime: [],
             recentTime: [2017, 5, 18],
             isSundayFirst: true,
-            isShowNeighbor: true,
+            isShowNeighbor: false,
             isToggleBtn: true,
             isChinese: true,
             monthType: 3,
             canViewDisabled: false,
 //            初次渲染时给特殊日期指定样式
-            beforeRenderArr: this.attendanceDaysFormat,
+            beforeRenderArr: _this.attendanceDaysFormat,
 //           选择某个日子的回调
             success: function (item, arr, cal) {
-              console.log(item, arr)
+              console.log(_this)
               cal.hideBackground()
             },
-//           日历切换后的回调
+//           日历切换后的回调 ?
             switchRender: function (year, month, cal) {
-              var data = [{
-                'stamp': 1507737600000,
-                'className': 'able1'
-              }]
-              cal.renderCallbackArr(data)
+              cal.renderCallbackArr(_this.attendanceDaysFormat)
             }
           })
-        } else {
-          this.calendar.renderCallbackArr(this.attendanceDaysFormat)
         }
       }
     },
     components: {
-      'headerCpt': Header
+      'headerCpt': Header,
+      'tab': Tab
     }
   }
 
@@ -119,14 +130,45 @@
     top 0
     left 0
     bottom 0
-    background #fff
+    background #f0f0f0
+    font-size 0
+    & > .body
+      & > #calendar-container
+        margin-bottom 1.5rem
+      & > .nav-item
+        display block
+        &:first-child
+          margin-top 1rem
+        & > .tab-wrapper
+          &:nth-child(1)
+            margin-top .2rem
 
   /*日历插件中样式*/
   /*考勤通过的日子*/
   .calendar-active
-    background red
+    color #000
+    & > i
+      background rgb(248, 153, 74)
 
   /*不在当前视图中考勤通过的日子*/
-  .able1
-    background green
+  #calendar-container
+    & > .calendar-block
+      & > .calendar-title
+        background #3a99f0
+        color #fff
+        & > span
+          color #fff
+
+  .calendar-item-body li
+    background #3a99f0 !important
+    font-size 12px
+    color #fff !important
+
+  /*日一二三四五六*/
+  .calendar-item
+    background #3a99f0 !important
+    color #f0f0f0 !important
+    & > .calendar-item-title span
+      font-size 12px
+      color #fff !important
 </style>
