@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <!--页面内容-->
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -10,5 +12,9 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+  /*.fade-enter-active, .fade-leave-active*/
+    /*trasition all 1s*/
 
+  /*.fade-enter, .fade-leave-active*/
+    /*opacity .2*/
 </style>

@@ -5,16 +5,17 @@
       <!--日历插件开始-->
       <div id="calendar-container"></div>
       <!--日历插件结束-->
-      <router-link to="/personal" class="nav-item">
+      <router-link to="/personal/workRecord/hourRecord" class="nav-item">
         <tab :text="hourTab.text" :iconClass="hourTab.iconClass" :colorClass="hourTab.colorClass"></tab>
       </router-link>
-      <router-link to="/personal" class="nav-item">
+      <router-link to="/personal/workRecord/haulRecord" class="nav-item">
         <tab :text="haulTab.text" :iconClass="haulTab.iconClass" :colorClass="haulTab.colorClass"></tab>
       </router-link>
-      <router-link to="/personal" class="nav-item">
-        <tab :text="haulTab.text" :iconClass="hourTab.iconClass" :colorClass="hourTab.colorClass"></tab>
+      <router-link to="/personal/workRecord/volumeRecord" class="nav-item">
+        <tab :text="volumeTab.text" :iconClass="volumeTab.iconClass" :colorClass="volumeTab.colorClass"></tab>
       </router-link>
     </article>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -35,8 +36,14 @@
   }
   //  tab:我的运程记录
   const haulTab = {
-    'iconClass': 'icon-daoluyunshuhuoyunliang',
+    'iconClass': 'icon-licheng',
     'text': '我的运程记录',
+    'colorClass': 'red'
+  }
+  //  tab:我的运量记录
+  const volumeTab = {
+    'iconClass': 'icon-daoluyunshuhuoyunliang',
+    'text': '我的运量记录',
     'colorClass': 'red'
   }
   export default {
@@ -46,7 +53,8 @@
         attendanceDays: [],
         attendanceDaysFormat: [],
         hourTab,
-        haulTab
+        haulTab,
+        volumeTab
       }
     },
     mounted () {

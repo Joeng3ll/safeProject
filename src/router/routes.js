@@ -12,6 +12,10 @@ import WorkRecord from 'view/personal/workRecord/workRecord'
 import AccidentRecord from 'view/personal/accidentRecord/accidentRecord.vue'
 import training from 'view/personal/training/training.vue'
 import test from 'view/personal/test/test.vue'
+import hourRecord from 'view/personal/workRecord/hourRecord'
+import haulRecord from 'view/personal/workRecord/haulRecord'
+import volumeRecord from 'view/personal/workRecord/volumeRecord'
+
 export default [
   {path: '', redirect: '/home'},
   {path: '/home', component: Home},
@@ -21,10 +25,24 @@ export default [
     path: '/personal',
     component: Personal,
     children: [
+      // 我的档案
       {path: 'archives', component: Archives},
-      {path: 'workRecord', component: WorkRecord},
+      // 我的考勤记录
+      {
+        path: 'workRecord',
+        component: WorkRecord,
+        children: [
+          // 工时记录、运程记录、运量记录
+          {path: 'hourRecord', component: hourRecord},
+          {path: 'haulRecord', component: haulRecord},
+          {path: 'volumeRecord', component: volumeRecord}
+        ]
+      },
+      // 我的事故记录
       {path: 'accidentRecord', component: AccidentRecord},
+      // 我的培训
       {path: 'training', component: training},
+      // 我的考试
       {path: 'test', component: test}
     ]
   }
