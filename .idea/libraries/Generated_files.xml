@@ -2,11 +2,12 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.786c64eae93e7f083602.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
+        <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.cbaa9d7d8280a879a033.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.ddd5956c62304c0e8067.js" />
-        <item url="file://$PROJECT_DIR$/dist/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
-        <item url="file://$PROJECT_DIR$/dist/docs/static/js/app.ddd5956c62304c0e8067.js" />
-        <item url="file://$PROJECT_DIR$/dist/config/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
+        <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.ac4ea2c1e44a9fb0d3f4.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -48,11 +49,18 @@
       <root url="file://$PROJECT_DIR$/dist/docs/dist/static/js/manifest.a98077878025eb6a9dc5.js" />
       <root url="file://$PROJECT_DIR$/dist/docs/dist/static/js/app.ddd5956c62304c0e8067.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/src/service/dataTemplate/hourRecord.js" />
-      <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
-      <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.ddd5956c62304c0e8067.js" />
+      <root url="file://$PROJECT_DIR$/dist/config/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/config/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/docs/static/js/app.ddd5956c62304c0e8067.js" />
       <root url="file://$PROJECT_DIR$/dist/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
       <root url="file://$PROJECT_DIR$/dist/docs/static/js/app.ddd5956c62304c0e8067.js" />
-      <root url="file://$PROJECT_DIR$/dist/config/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.786c64eae93e7f083602.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.cbaa9d7d8280a879a033.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.ddd5956c62304c0e8067.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.ac4ea2c1e44a9fb0d3f4.js" />
     </CLASSES>
     <SOURCES />
   </library>
