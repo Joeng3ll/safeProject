@@ -2,21 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e79c5e2-49ec-41d3-9199-3950949c43d5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/css/app.0390cddeba3a87a1c40191bb6f80daf6.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/css/app.0390cddeba3a87a1c40191bb6f80daf6.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/css/reset.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/fonts/iconfont.790ad04.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/fonts/iconfont.9aca329.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/fonts/iconfont.fffefc6.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/img/iconfont.ef92913.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/js/app.ddd5956c62304c0e8067.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/js/app.ddd5956c62304c0e8067.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/js/vendor.9efb9d0599992d6f9c18.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/js/vendor.9efb9d0599992d6f9c18.js.map" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/fonts/iconfont.790ad04.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/fonts/iconfont.9aca329.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/fonts/iconfont.fffefc6.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/css/app.0390cddeba3a87a1c40191bb6f80daf6.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/css/app.0390cddeba3a87a1c40191bb6f80daf6.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/css/reset.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/img/iconfont.ef92913.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/js/app.ddd5956c62304c0e8067.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/js/app.ddd5956c62304c0e8067.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/js/vendor.9efb9d0599992d6f9c18.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/js/vendor.9efb9d0599992d6f9c18.js.map" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,11 +36,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="iconfont.styl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="iconfont.styl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/common/stylus/iconfont.styl">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
               <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="309" lean-forward="false" selection-start-line="0" selection-start-column="309" selection-end-line="0" selection-end-column="309" />
               <folding />
             </state>
           </provider>
@@ -590,6 +599,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="docs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="safeProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="safeProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -728,19 +751,19 @@
       <workItem from="1494399932374" duration="17535000" />
       <workItem from="1494475268973" duration="254000" />
       <workItem from="1494475836026" duration="151000" />
-      <workItem from="1494480517408" duration="135141000" />
+      <workItem from="1494480517408" duration="135300000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153081000" />
+    <option name="totallyTimeSpent" value="153240000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="30" y="80" width="1188" height="695" extended-state="0" />
-    <editor active="false" />
+    <frame x="30" y="80" width="1188" height="695" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22793488" sideWeight="0.8036036" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22793488" sideWeight="0.8036036" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1210,18 +1233,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="309" lean-forward="false" selection-start-line="0" selection-start-column="309" selection-end-line="0" selection-end-column="309" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/common/stylus/iconfont.styl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="309" lean-forward="false" selection-start-line="0" selection-start-column="309" selection-end-line="0" selection-end-column="309" />
           <folding />
         </state>
       </provider>
