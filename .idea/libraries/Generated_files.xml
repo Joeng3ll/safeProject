@@ -9,6 +9,7 @@
         <item url="file://$PROJECT_DIR$/dist/src/config/fetch.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
         <item url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/hourRecord.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.3b1d0313a4a8ff3a58e4.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/env.js" />
         <item url="file://$PROJECT_DIR$/dist/src/router/index.js" />
@@ -27,6 +28,7 @@
       <root url="file://$PROJECT_DIR$/dist/src/config/fetch.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
       <root url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/hourRecord.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.3b1d0313a4a8ff3a58e4.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/env.js" />
       <root url="file://$PROJECT_DIR$/dist/src/router/index.js" />
