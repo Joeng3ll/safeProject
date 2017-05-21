@@ -51,7 +51,6 @@
       </router-link>
       <!--菜单栏结束-->
     </article>
-    <router-view></router-view>
     <footer-navigator></footer-navigator>
   </div>
 </template>

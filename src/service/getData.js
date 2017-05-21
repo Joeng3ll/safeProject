@@ -4,6 +4,7 @@
  */
 import driverInfo from './dataTemplate/driver'
 import attendance from './dataTemplate/attendance'
+import hourRecord from './dataTemplate/hourRecord'
 import fetch from '../config/fetch'
 
 /*
@@ -20,7 +21,8 @@ let mockData = data => {
  * */
 
 
-if (process.NODE_ENV === 'development') {
+if (process.env.NODE_ENV !== 'development') {
+  console.log('product')
   /*
    *  获取首页新闻
    * */
@@ -41,8 +43,16 @@ if (process.NODE_ENV === 'development') {
 
     })
   }
-} else {
+  /*
+   *获取 我的工时记录
+   * */
+  var getHourRecord = () => {
+    return new Promise((resolve, reject) => {
 
+    })
+  }
+} else {
+  console.log('development')
   var getNews = (newsType) => {
     return new Promise((resolve, reject) => {
       fetch.get(`/toutiao/index?type=${newsType}&key=68e5b38d548adabc8b842a2ae29e3d40`).then(res => {
@@ -55,5 +65,6 @@ if (process.NODE_ENV === 'development') {
 
   var getDriverInfo = () => mockData(driverInfo)
   var getAttendanceDays = () => mockData(attendance)
+  var getHourRecord = () => mockData(hourRecord)
 }
-export {getNews, getDriverInfo, getAttendanceDays}
+export {getNews, getDriverInfo, getAttendanceDays, getHourRecord}

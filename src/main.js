@@ -7,6 +7,7 @@ import './config/rem'
 import './common/stylus/index.styl'
 
 Vue.config.productionTip = false
+
 /* eslint-disable no-new */
 new Vue({
   router,

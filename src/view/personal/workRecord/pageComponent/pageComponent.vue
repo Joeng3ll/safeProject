@@ -20,6 +20,7 @@
         <slot name="state-item-three"></slot>
       </section>
     </aside>
+    <slot name="content"></slot>
   </div>
 </template>
 
@@ -35,7 +36,7 @@
     top 0
     left 0
     bottom 0
-    background #fff
+    background #f0f0f0
     & > .header
       position relative
       width 100%
@@ -56,7 +57,7 @@
       padding .36rem 0
       background rgb(58, 153, 240)
       font-size 0
-      &>.state-item
+      & > .state-item
         display inline-block
         width 33%
         text-align center
