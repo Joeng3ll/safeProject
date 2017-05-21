@@ -2,6 +2,8 @@
 
 > vue全家桶项目 vue2.0+axios+vue-router+vuex+mint-ui 
 
+https://joeng3ll.github.io/safeProject/
+
 持续更新中...
 
 ## Build Setup
