@@ -8,6 +8,7 @@
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.ddd5956c62304c0e8067.js" />
         <item url="file://$PROJECT_DIR$/dist/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
         <item url="file://$PROJECT_DIR$/dist/docs/static/js/app.ddd5956c62304c0e8067.js" />
+        <item url="file://$PROJECT_DIR$/dist/build/webpack.base.conf.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.ac4ea2c1e44a9fb0d3f4.js" />
       </sourceFilesUrls>
@@ -25,7 +26,6 @@
       <root url="file://$PROJECT_DIR$/dist/src/main.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.5d74bb06bcee511bcbbb.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/getData.js" />
-      <root url="file://$PROJECT_DIR$/dist/build/webpack.base.conf.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/driver.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/attendance.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.9944fce9531207b4bbaa.js" />
@@ -39,7 +39,6 @@
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.5d74bb06bcee511bcbbb.js" />
       <root url="file://$PROJECT_DIR$/dist/src/main.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/getData.js" />
-      <root url="file://$PROJECT_DIR$/dist/build/webpack.base.conf.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/driver.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/hourRecord.js" />
       <root url="file://$PROJECT_DIR$/dist/docs/static/js/manifest.a98077878025eb6a9dc5.js" />
@@ -59,6 +58,7 @@
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.ddd5956c62304c0e8067.js" />
       <root url="file://$PROJECT_DIR$/dist/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
       <root url="file://$PROJECT_DIR$/dist/docs/static/js/app.ddd5956c62304c0e8067.js" />
+      <root url="file://$PROJECT_DIR$/dist/build/webpack.base.conf.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.ac4ea2c1e44a9fb0d3f4.js" />
     </CLASSES>

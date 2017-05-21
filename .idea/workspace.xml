@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e79c5e2-49ec-41d3-9199-3950949c43d5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/fonts/iconfont.790ad04.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/fonts/iconfont.9aca329.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/fonts/iconfont.fffefc6.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/css/app.0390cddeba3a87a1c40191bb6f80daf6.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/css/app.0390cddeba3a87a1c40191bb6f80daf6.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/css/reset.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/img/iconfont.ef92913.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/js/app.ddd5956c62304c0e8067.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/js/app.ddd5956c62304c0e8067.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/js/vendor.9efb9d0599992d6f9c18.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/js/vendor.9efb9d0599992d6f9c18.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/static/css/app.64866a9d5fa9ab913340fed04761d019.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/css/app.0390cddeba3a87a1c40191bb6f80daf6.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/css/app.0390cddeba3a87a1c40191bb6f80daf6.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/fonts/iconfont.790ad04.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/fonts/iconfont.9aca329.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/static/fonts/iconfont.fffefc6.eot" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/docs/static/css/app.0390cddeba3a87a1c40191bb6f80daf6.css.map" afterPath="$PROJECT_DIR$/docs/static/css/app.64866a9d5fa9ab913340fed04761d019.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.base.conf.js" afterPath="$PROJECT_DIR$/build/webpack.base.conf.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index.html" afterPath="$PROJECT_DIR$/docs/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js.map" afterPath="$PROJECT_DIR$/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js.map" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,22 +34,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="iconfont.styl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/common/stylus/iconfont.styl">
+      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+            <state relative-caret-position="209">
+              <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docs/index.html">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="309" lean-forward="false" selection-start-line="0" selection-start-column="309" selection-end-line="0" selection-end-column="309" />
+            <state relative-caret-position="76">
+              <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="iconfont.styl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/common/stylus/iconfont.styl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vuex/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,18 +99,18 @@
       <file leaf-file-name="webpack.base.conf.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/webpack.base.conf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            <state relative-caret-position="323">
+              <caret line="60" column="3" lean-forward="false" selection-start-line="60" selection-start-column="3" selection-end-line="60" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="driver.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/dataTemplate/driver.js">
+      <file leaf-file-name="app.ddd5956c62304c0e8067.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/static/js/app.ddd5956c62304c0e8067.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="14" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -169,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/view/communication/communication.vue" />
         <option value="$PROJECT_DIR$/src/view/personal/archives/archives.vue" />
         <option value="$PROJECT_DIR$/src/components/header/header.vue" />
-        <option value="$PROJECT_DIR$/build/webpack.base.conf.js" />
         <option value="$PROJECT_DIR$/src/view/personal/test/test.vue" />
         <option value="$PROJECT_DIR$/src/view/personal/accidentRecord/accidentRecord.vue" />
         <option value="$PROJECT_DIR$/src/view/personal/training/training.vue" />
@@ -191,6 +210,7 @@
         <option value="$PROJECT_DIR$/docs/index.html" />
         <option value="$PROJECT_DIR$/config/index.js" />
         <option value="$PROJECT_DIR$/src/common/stylus/iconfont.styl" />
+        <option value="$PROJECT_DIR$/build/webpack.base.conf.js" />
       </list>
     </option>
   </component>
@@ -206,8 +226,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="30" />
-    <option name="y" value="80" />
+    <option name="x" value="205" />
+    <option name="y" value="88" />
     <option name="width" value="1188" />
     <option name="height" value="695" />
   </component>
@@ -664,10 +684,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs" />
+      <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/src/common/fonts" />
       <recent name="$PROJECT_DIR$/src/components/star" />
       <recent name="$PROJECT_DIR$/src/common/stylus" />
-      <recent name="$PROJECT_DIR$/src/config" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/view/personal/workRecord" />
@@ -751,19 +771,19 @@
       <workItem from="1494399932374" duration="17535000" />
       <workItem from="1494475268973" duration="254000" />
       <workItem from="1494475836026" duration="151000" />
-      <workItem from="1494480517408" duration="135300000" />
+      <workItem from="1494480517408" duration="137088000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153240000" />
+    <option name="totallyTimeSpent" value="155028000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="30" y="80" width="1188" height="695" extended-state="1" />
-    <editor active="true" />
+    <frame x="205" y="88" width="1188" height="695" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22793488" sideWeight="0.8036036" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22793488" sideWeight="0.8036036" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -795,22 +815,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build/webpack.dev.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/home/newsMenu/newsMenu.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -1074,14 +1078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/router/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -1193,14 +1189,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/webpack.base.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-722">
@@ -1225,26 +1213,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/static/js/app.ddd5956c62304c0e8067.js">
+    <entry file="file://$PROJECT_DIR$/docs/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="309" lean-forward="false" selection-start-line="0" selection-start-column="309" selection-end-line="0" selection-end-column="309" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vuex/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/common/stylus/iconfont.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        <state relative-caret-position="171">
+          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/index.html">
+    <entry file="file://$PROJECT_DIR$/build/webpack.base.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="60" column="3" lean-forward="false" selection-start-line="60" selection-start-column="3" selection-end-line="60" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/static/js/app.ddd5956c62304c0e8067.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="309" lean-forward="false" selection-start-line="0" selection-start-column="309" selection-end-line="0" selection-end-column="309" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
