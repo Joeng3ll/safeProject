@@ -15,6 +15,7 @@ import test from 'view/personal/test/test.vue'
 import hourRecord from 'view/personal/workRecord/hourRecord'
 import haulRecord from 'view/personal/workRecord/haulRecord'
 import volumeRecord from 'view/personal/workRecord/volumeRecord'
+import dayAttendance from 'view/personal/workRecord/dayAttendance'
 
 export default [
   {path: '', redirect: '/home'},
@@ -35,7 +36,8 @@ export default [
           // 工时记录、运程记录、运量记录
           {path: 'hourRecord', component: hourRecord},
           {path: 'haulRecord', component: haulRecord},
-          {path: 'volumeRecord', component: volumeRecord}
+          {path: 'volumeRecord', component: volumeRecord},
+          {path: ':id', component: dayAttendance}
         ]
       },
       // 我的事故记录

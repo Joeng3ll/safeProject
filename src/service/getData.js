@@ -5,7 +5,9 @@
 import driverInfo from './dataTemplate/driver'
 import attendance from './dataTemplate/attendance'
 import hourRecord from './dataTemplate/hourRecord'
+import haulRecord from './dataTemplate/haulRecord'
 import fetch from '../config/fetch'
+import volumeRecord from './dataTemplate/volumeRecord'
 
 /*
  * 测试环境下模拟异步请求获取数据
@@ -51,6 +53,14 @@ if (process.env.NODE_ENV !== 'development') {
 
     })
   }
+  /*
+   *获取我的运程记录
+   * */
+  var getHourRecord = () => {
+    return new Promise((resolve, reject) => {
+
+    })
+  }
 } else {
   console.log('development')
   var getNews = (newsType) => {
@@ -64,7 +74,13 @@ if (process.env.NODE_ENV !== 'development') {
   }
 
   var getDriverInfo = () => mockData(driverInfo)
+
   var getAttendanceDays = () => mockData(attendance)
+
   var getHourRecord = () => mockData(hourRecord)
+
+  var getHaulRecord = () => mockData(haulRecord)
+
+  var getVolumeRecord = () => mockData(volumeRecord)
 }
-export {getNews, getDriverInfo, getAttendanceDays, getHourRecord}
+export {getNews, getDriverInfo, getAttendanceDays, getHourRecord, getHaulRecord, getVolumeRecord}

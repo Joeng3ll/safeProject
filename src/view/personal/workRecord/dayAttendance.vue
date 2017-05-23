@@ -1,17 +1,11 @@
 <template>
   <page>
-    我的运程记录
+    {{this.$route}}
     <div slot="state-item-one" class="item-box">
-      <p class="year">2017<span>年</span></p>
-      <p class="month">05<span>月</span><i class="icon-xiangxia"></i></p>
     </div>
     <div slot="state-item-two" class="item-box">
-      <p class="item-name">年运程</p>
-      <p class="item-content">{{yearHour}}<span>km</span></p>
     </div>
     <div slot="state-item-three" class="item-box">
-      <p class="item-name">月运程</p>
-      <p class="item-content">{{monthHour}}<span>km</span></p>
     </div>
     <!--考勤信息-->
     <article slot="content" class="record-body" ref="haulRecordBody">
@@ -36,13 +30,10 @@
 
 <script type="text/ecmascript-6">
   import PageCpt from './pageComponent/pageComponent.vue'
-  import {getHaulRecord} from 'service/getData'
+//  import {getHaulRecord} from 'service/getData'
   import BScroll from 'better-scroll'
   export default {
     /*
-     * yearHaul:年运程
-     * monthHaul:月运程
-     * attendanceDays:考勤天数
      *
      * */
     data () {
@@ -53,17 +44,17 @@
       }
     },
     created () {
-      getHaulRecord().then((res) => {
-        res = res.transport_record
-        this.yearHour = res.year_haul
-        this.monthHour = res.month_haul
-        this.attendanceDays = Object.assign(this.attendanceDays, res.attendance_days)
-        this.$nextTick(() => {
-          this._initialBscroll()
-        })
-      }, (error) => {
-        console.log(`ajax error:${error}`)
-      })
+//      getHaulRecord().then((res) => {
+//        res = res.transport_record
+//        this.yearHour = res.year_haul
+//        this.monthHour = res.month_haul
+//        this.attendanceDays = Object.assign(this.attendanceDays, res.attendance_days)
+//        this.$nextTick(() => {
+//          this._initialBscroll()
+//        })
+//      }, (error) => {
+//        console.log(`ajax error:${error}`)
+//      })
     },
     methods: {
       _initialBscroll () {

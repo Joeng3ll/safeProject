@@ -52,6 +52,7 @@
       <!--菜单栏结束-->
     </article>
     <footer-navigator></footer-navigator>
+    <router-view></router-view>
   </div>
 </template>
 

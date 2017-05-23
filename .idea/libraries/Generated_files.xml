@@ -4,9 +4,12 @@
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.ddd5956c62304c0e8067.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/router/index.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.ac4ea2c1e44a9fb0d3f4.js" />
         <item url="file://$PROJECT_DIR$/dist/build/dev-server.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/haulRecord.js" />
         <item url="file://$PROJECT_DIR$/dist/src/main.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.786c64eae93e7f083602.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.cbaa9d7d8280a879a033.js" />
@@ -14,7 +17,9 @@
         <item url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/hourRecord.js" />
         <item url="file://$PROJECT_DIR$/dist/docs/static/js/app.ddd5956c62304c0e8067.js" />
         <item url="file://$PROJECT_DIR$/dist/src/service/getData.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/volumeRecord.js" />
         <item url="file://$PROJECT_DIR$/dist/build/webpack.base.conf.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/dayAttendance.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -23,10 +28,8 @@
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.04c9e03ca88c806b420e.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/fetch.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.3b1d0313a4a8ff3a58e4.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/env.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/router/index.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.5d74bb06bcee511bcbbb.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/driver.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/attendance.js" />
@@ -34,10 +37,8 @@
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.04c9e03ca88c806b420e.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/fetch.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/env.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.3b1d0313a4a8ff3a58e4.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/router/index.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.5d74bb06bcee511bcbbb.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/driver.js" />
       <root url="file://$PROJECT_DIR$/dist/docs/static/js/manifest.a98077878025eb6a9dc5.js" />
@@ -52,9 +53,12 @@
       <root url="file://$PROJECT_DIR$/dist/config/index.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.ddd5956c62304c0e8067.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/router/index.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.ac4ea2c1e44a9fb0d3f4.js" />
       <root url="file://$PROJECT_DIR$/dist/build/dev-server.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/haulRecord.js" />
       <root url="file://$PROJECT_DIR$/dist/src/main.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.786c64eae93e7f083602.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.cbaa9d7d8280a879a033.js" />
@@ -62,7 +66,9 @@
       <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/hourRecord.js" />
       <root url="file://$PROJECT_DIR$/dist/docs/static/js/app.ddd5956c62304c0e8067.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/getData.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/volumeRecord.js" />
       <root url="file://$PROJECT_DIR$/dist/build/webpack.base.conf.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/dayAttendance.js" />
     </CLASSES>
     <SOURCES />
   </library>
