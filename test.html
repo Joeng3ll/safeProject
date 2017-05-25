@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var num = 10,
+    name = "Addy Osmani",
+    obj1 = {value: "first value"},
+    obj2 = {value: "second value"},
+    obj3 = obj2;      //obj3和obj2引用的是同一个对象
+
+//  function change(x, y, z, e) {
+//    num = num * 10;
+//    name = "Paul Irish";
+//    obj1 = obj2;
+//    obj2.value = "new value";
+//  }
+  function change2(num, name, obj1, obj2) {
+    num = num * 10;
+    name = "Paul Irish";
+    //都是指向obj2的内存地址 所以改变了
+    obj2.value = "new value";
+    //把obj2的内存地址指向赋值给obj1,但是obj1还是形参obj1 和外部的变量Obj1指向无关
+    obj1 = obj2;   //原来的变量仍然指向原来的对象 把obj1中指向的对象内存地址赋给了obj1形参
+  }
+//  change2(num,name,obj1,obj2)
+//  change2(num,name,obj1,obj2)    //10 "Addy Osmani" "first value" "new value" "new value"
+//   change2(2,"dd",{value:'hehe'},{value:'haha'}) //10 "Addy Osmani" "first value" "second value" "second value"
+  change2(num,name,obj1,obj2)
+  console.log(obj3===obj2)
+  console.log(num,name,obj1.value,obj2.value,obj3.value)
+  var a={name:'zz'}
+  var b={name:'cc'}
+  var c=a
+  var a=b
+  b.name='dd'
+</script>
+</body>
+</html>
