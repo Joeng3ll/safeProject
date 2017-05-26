@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e79c5e2-49ec-41d3-9199-3950949c43d5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/fonts/iconfont.eot" afterPath="$PROJECT_DIR$/src/common/fonts/iconfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/fonts/iconfont.ttf" afterPath="$PROJECT_DIR$/src/common/fonts/iconfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/fonts/iconfont.woff" afterPath="$PROJECT_DIR$/src/common/fonts/iconfont.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/fonts/iconfont.svg" afterPath="$PROJECT_DIR$/src/common/fonts/iconfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/stylus/iconfont.styl" afterPath="$PROJECT_DIR$/src/common/stylus/iconfont.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/communication/communication.vue" afterPath="$PROJECT_DIR$/src/view/communication/communication.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -87,13 +80,14 @@
         <entry file="file://$PROJECT_DIR$/src/view/communication/communication.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="414">
-              <caret line="149" column="13" lean-forward="true" selection-start-line="149" selection-start-column="13" selection-end-line="149" selection-end-column="13" />
+              <caret line="219" column="24" lean-forward="true" selection-start-line="219" selection-start-column="24" selection-end-line="219" selection-end-column="24" />
               <folding>
                 <element signature="n#header#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-                <element signature="e#1116#1171#0" expanded="true" />
-                <element signature="e#1335#3239#0" expanded="false" />
-                <element signature="e#3784#4145#0" expanded="false" />
-                <element signature="e#4168#4381#0" expanded="false" />
+                <element signature="e#1208#1263#0" expanded="true" />
+                <element signature="e#1503#1780#0" expanded="false" />
+                <element signature="e#1782#2081#0" expanded="false" />
+                <element signature="e#5096#5457#0" expanded="false" />
+                <element signature="e#5480#5715#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -218,8 +212,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="184" />
-    <option name="y" value="23" />
+    <option name="x" value="472" />
+    <option name="y" value="60" />
     <option name="width" value="1289" />
     <option name="height" value="695" />
   </component>
@@ -680,15 +674,15 @@
       <workItem from="1494475836026" duration="151000" />
       <workItem from="1494480517408" duration="147350000" />
       <workItem from="1495431501039" duration="5539000" />
-      <workItem from="1495679092833" duration="14065000" />
+      <workItem from="1495679092833" duration="18117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184894000" />
+    <option name="totallyTimeSpent" value="188946000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="184" y="23" width="1289" height="695" extended-state="0" />
+    <frame x="472" y="60" width="1289" height="695" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.03548896" sideWeight="0.8036036" order="0" side_tool="false" content_ui="combo" />
@@ -1151,13 +1145,14 @@
     <entry file="file://$PROJECT_DIR$/src/view/communication/communication.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
-          <caret line="149" column="13" lean-forward="true" selection-start-line="149" selection-start-column="13" selection-end-line="149" selection-end-column="13" />
+          <caret line="219" column="24" lean-forward="true" selection-start-line="219" selection-start-column="24" selection-end-line="219" selection-end-column="24" />
           <folding>
             <element signature="n#header#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#1116#1171#0" expanded="true" />
-            <element signature="e#1335#3239#0" expanded="false" />
-            <element signature="e#3784#4145#0" expanded="false" />
-            <element signature="e#4168#4381#0" expanded="false" />
+            <element signature="e#1208#1263#0" expanded="true" />
+            <element signature="e#1503#1780#0" expanded="false" />
+            <element signature="e#1782#2081#0" expanded="false" />
+            <element signature="e#5096#5457#0" expanded="false" />
+            <element signature="e#5480#5715#0" expanded="false" />
           </folding>
         </state>
       </provider>
