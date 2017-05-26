@@ -1,8 +1,10 @@
 <template>
   <div class="communication-wrapper">
-    <header class="header">
-      <section class="msg icon-sec">
+    <header class="header" :class="{translateClass:isShow}">
+      <section class="msg icon-sec" @click="isShowContact">
+        <!--<router-link to="/communication/contact">-->
         <i class="icon-tongxunlu"></i>
+        <!--</router-link>-->
       </section>
       <section class="title">
         通讯
@@ -12,11 +14,11 @@
       </section>
     </header>
     <!--搜索-->
-    <section class="search">
+    <section class="search" :class="{translateClass:isShow}">
       <mt-search v-model="value"></mt-search>
     </section>
     <!--通讯列表 最近联系人-->
-    <article class="recentContacts-box" ref="recontactList">
+    <article class="recentContacts-box" :class="{translateClass:isShow}" ref="recontactList">
       <div class="slide-body">
         <section class="recentContact" v-for="contact in recentContactsList">
           <span class="unready-count" v-if="contact.unready.length>0">{{contact.unready.length}}</span>
@@ -30,7 +32,8 @@
       </div>
     </article>
     <!--footer-->
-    <footer-navigator></footer-navigator>
+    <footer-navigator :class="{translateClass:isShow}"></footer-navigator>
+    <contact v-show="isShow" @closeContact="isShowContact"></contact>
   </div>
 </template>
 
@@ -39,10 +42,13 @@
   import {Search} from 'mint-ui'
   import Vue from 'vue'
   import BScroll from 'better-scroll'
+  import Contact from './children/contact.vue'
   Vue.component(Search.name, Search)
   export default {
     data () {
       return {
+        isShow: false,
+//        isTranslate: false,
         value: '',
         recentContactsList: [
           {
@@ -125,8 +131,10 @@
       })
     },
     components: {
-      'footerNavigator': Footer
+      'footerNavigator': Footer,
+      'contact': Contact
     },
+    watch: {},
     methods: {
       _initialBScroll () {
         let Body = this.$refs.recontactList
@@ -135,6 +143,9 @@
         } else {
           this.bodyScroll.refresh()
         }
+      },
+      isShowContact () {
+        this.isShow = !this.isShow
       }
     }
   }
@@ -153,7 +164,7 @@
       background rgb(58, 153, 240)
       font-size 0
       color #fff
-
+      transition all .1s
       & > section
         display inline-block
         line-height 1.1733rem
@@ -167,6 +178,7 @@
       width 100%
       padding-top 1.17333rem
       background #fff
+      transition all .3s
       & > .mint-search
         & > .mint-searchbar
           &.mint-searchbar-cancel
@@ -179,6 +191,7 @@
       right 0
       overflow: hidden
       background #fff
+      transition all .3s
       & > .slide-body
         padding 0 .36rem
         & > .recentContact
@@ -187,7 +200,7 @@
           padding .24rem .36rem
           font-size 0
           border-bottom 1px solid #f0f0f0
-          &>.unready-count
+          & > .unready-count
             position absolute
             top 50%
             margin-top -.2rem
@@ -202,7 +215,7 @@
             color #fff
             background red
             border-radius 100%
-          &>.date
+          & > .date
             position absolute
             top 40%
             right .2rem
@@ -222,12 +235,12 @@
             -webkit-justify-content center
             padding .24rem 0
             font-size 12px
-            &>.contact-name
+            & > .contact-name
               width 100%
               display inline-block
               font-size 14px
               margin-bottom .2rem
-            &>.contact-msg
+            & > .contact-msg
               display inline-block
               width 50%
               padding-right .4rem
@@ -235,4 +248,8 @@
               overflow hidden
               text-overflow ellipsis
               color #ccc
+
+  .translateClass
+    transition all .3s
+    transform translate3d(85%, 0, 0)
 </style>

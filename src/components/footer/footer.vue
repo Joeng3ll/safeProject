@@ -41,6 +41,7 @@
     height 1.306667rem
     background rgb(58, 153, 240)
     font-size 0
+    transition all .3s
     & > .navigator-item
       display inline-flex
       justify-content center

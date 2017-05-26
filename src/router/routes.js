@@ -16,11 +16,18 @@ import hourRecord from 'view/personal/workRecord/hourRecord'
 import haulRecord from 'view/personal/workRecord/haulRecord'
 import volumeRecord from 'view/personal/workRecord/volumeRecord'
 import dayAttendance from 'view/personal/workRecord/dayAttendance'
+import Contact from 'view/communication/children/contact'
 
 export default [
   {path: '', redirect: '/home'},
   {path: '/home', component: Home},
-  {path: '/communication', component: Communication},
+  {
+    path: '/communication',
+    component: Communication,
+    children: [
+      {path: 'contact', component: Contact}
+    ]
+  },
   {path: '/interlocution', component: Interlocution},
   {
     path: '/personal',
