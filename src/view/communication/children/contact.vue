@@ -5,6 +5,18 @@
       <header class="header">
         通讯录
       </header>
+      <!--搜索-->
+      <search></search>
+      <!--通讯录列表-->
+      <div class="contact-list">
+        <!--群聊-->
+        <section class="group-chat">
+          <div class="icon-box">
+            <i class="icon-wode"></i>
+          </div>
+          <span class="text">群聊</span>
+        </section>
+      </div>
     </article>
     <!--通讯录侧栏-->
     <aside class="contact-aside">
@@ -16,11 +28,15 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import Search from 'components/search/search'
   export default {
     methods: {
       closeContact () {
         this.$emit('closeContact')
       }
+    },
+    components: {
+      'search': Search
     }
   }
 
@@ -36,13 +52,13 @@
     bottom 0
     left 0
     right 0
-    background rgba(7, 17, 27, 0.5)
+    background rgba(7, 17, 27, 0.8)
     & > .contact-content
       display inline-block
       width 85%
       height 100%
       background #fff
-      &>.header
+      & > .header
         width 100%
         height 1.17333rem
         line-height 1.1733rem
@@ -50,6 +66,21 @@
         font-size 16px
         color #fff
         background rgb(58, 153, 240)
+      & > .contact-list
+        & > .group-chat
+          padding .24rem
+          & > .text
+            font-size 14px
+          & > .icon-box
+            display inline-block
+            width .88rem
+            height .88rem
+            line-height .88rem
+            margin-right .2rem
+            text-align center
+            color #fff
+            border-radius .1rem
+            background palevioletred
     & > .contact-aside
       position relative
       vertical-align top
