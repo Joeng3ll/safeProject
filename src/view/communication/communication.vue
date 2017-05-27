@@ -222,6 +222,7 @@
             color #ccc
             font-size 12px
           & > .avator
+            flex 0 0 1.17333rem
             width 1.17333rem
             height 1.17333rem
             margin-right .2rem
@@ -233,10 +234,10 @@
             -webkit-flex-direction column
             justify-content center
             -webkit-justify-content center
-            padding .24rem 0
+            /*padding .24rem 0*/
             font-size 12px
             & > .contact-name
-              width 100%
+              width 50%
               display inline-block
               font-size 14px
               margin-bottom .2rem
