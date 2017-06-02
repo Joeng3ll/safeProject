@@ -4,7 +4,7 @@
       <section class="msg icon-sec">
         <msg-cmp :msgCount="10"></msg-cmp>
       </section>
-      <section class="title">
+      <section class="title" @click="test()">
         首页
       </section>
       <section class="scan icon-sec">
@@ -94,6 +94,7 @@
   import Loading from '../../components/loading/loading.vue'
   import NewsMenu from './newsMenu/newsMenu.vue'
   import {getNews} from '../../service/getData'
+  //  import barcodeScanner from '../../common/js/barcodescanner'
   import Swiper from 'swiper'
   import BScroll from 'better-scroll'
   import {Loadmore} from 'mint-ui'
@@ -104,12 +105,62 @@
   export default {
     data () {
       return {
+        cordova: Vue.cordova,
         newsTitleList: newsTitleList,
         currentNews: Object,
         newsList: [],
         currentNewsTitle: newsListPY[0],
-        allLoaded: false
-//        onTopLoaded: false
+        allLoaded: false,
+//        onTopLoaded: false,
+        plugins: {
+          'cordova-plugin-camera': function () {
+            if (!Vue.cordova.camera) {
+              window.alert('Vue.cordova.camera not found !')
+              return
+            }
+            Vue.cordova.camera.getPicture((imageURI) => {
+              window.alert('Photo URI : ' + imageURI)
+            }, (message) => {
+              window.alert('FAILED : ' + message)
+            }, {
+              quality: 50,
+              destinationType: Vue.cordova.camera.DestinationType.FILE_URI
+            })
+          },
+          'cordova-plugin-device': function () {
+            if (!Vue.cordova.device) {
+              window.alert('FAILED : device information not found')
+            } else {
+              window.alert('Device : ' + Vue.cordova.device.manufacturer + ' ' + Vue.cordova.device.platform + ' ' + Vue.cordova.device.version)
+            }
+          },
+          'cordova-plugin-geolocation': function () {
+            if (!Vue.cordova.geolocation) {
+              window.alert('Vue.cordova.geolocation not found !')
+              return
+            }
+            Vue.cordova.geolocation.getCurrentPosition((position) => {
+              window.alert('Current position : ' + position.coords.latitude + ',' + position.coords.longitude)
+            }, (error) => {
+              window.alert('FAILED Error #' + error.code + ' ' + error.message)
+            }, {
+              timeout: 1000,
+              enableHighAccuracy: true
+            })
+          },
+          'cordova-plugin-contacts': function () {
+            if (!Vue.cordova.contacts) {
+              window.alert('Vue.cordova.contacts not found !')
+              return
+            }
+            const ContactFindOptions = ContactFindOptions || function () {}
+            Vue.cordova.contacts.find(['displayName'], (contacts) => {
+              window.alert('Contacts found : ' + contacts.length)
+            }, (error) => {
+              window.alert('FAILED : ' + error.code)
+            })
+          }
+        }
       }
     },
     created () {
@@ -123,6 +174,7 @@
       this.$nextTick(() => {
         this._initialSwiper()
       })
+      this.cordova.plugins.push(this.plugins)
     },
     mounted () {
       this.$nextTick(() => {
@@ -131,6 +183,8 @@
       })
     },
     methods: {
+      test () {
+      },
       _initialSwiper () {
 //        let $pic = this.$refs.swiperContainer.getElementsByClassName('news-pic')
         let $pic = this.$refs.swiperContainer.getElementsByClassName('swiper-slide')

@@ -33,12 +33,8 @@
       }
     },
     created () {
-      this._initialList()
     },
     mounted () {
-//      this.$nextTick(() => {
-//        this._initialBscroll()
-//      })
     },
     methods: {
 //        初始化排序列表
@@ -57,7 +53,7 @@
             }
           }
         }
-        this.letterList = arr.filter((item) => {
+        this.letterList = arr.filter(function (item) {
           return item.length > 0
         })
       },

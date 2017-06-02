@@ -33,7 +33,7 @@
     </article>
     <!--footer-->
     <footer-navigator :class="{translateClass:isShow}"></footer-navigator>
-    <contact v-show="isShow" @closeContact="isShowContact"></contact>
+    <contact v-show="isShow" @closeContact="isShowContact" ref="contact"></contact>
   </div>
 </template>
 
@@ -146,6 +146,12 @@
       },
       isShowContact () {
         this.isShow = !this.isShow
+        if (this.isShow === true) {
+          this.$refs.contact.$refs.indexList._initialList()
+          this.$nextTick(function () {
+            this.$refs.contact._initialBscroll()
+          })
+        }
       }
     }
   }
@@ -154,6 +160,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   .communication-wrapper
+    height 100%
     & > .header
       display flex
       justify-content space-between
