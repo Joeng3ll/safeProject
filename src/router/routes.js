@@ -16,7 +16,8 @@ import hourRecord from 'view/personal/workRecord/hourRecord'
 import haulRecord from 'view/personal/workRecord/haulRecord'
 import volumeRecord from 'view/personal/workRecord/volumeRecord'
 import dayAttendance from 'view/personal/workRecord/dayAttendance'
-import Contact from 'view/communication/children/contact'
+import ContactProfile from 'view/communication/children/contactProfile'
+import Chat from 'view/communication/children/chat'
 
 export default [
   {path: '', redirect: '/home'},
@@ -25,7 +26,14 @@ export default [
     path: '/communication',
     component: Communication,
     children: [
-      {path: 'contact', component: Contact}
+      {
+        path: ':id',
+        component: ContactProfile
+      },
+      {
+        path: 'chat/:id',
+        component: Chat
+      }
     ]
   },
   {path: '/interlocution', component: Interlocution},

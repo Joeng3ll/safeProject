@@ -61,6 +61,14 @@ if (process.env.NODE_ENV !== 'development') {
 
     })
   }
+  /*
+   * 获取指定id联系人信息
+   * */
+  var getContactProfile = (id) => {
+    return new Promise((resolve, reject) => {
+
+    })
+  }
 } else {
   console.log('development')
   var getNews = (newsType) => {

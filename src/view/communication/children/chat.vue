@@ -1,44 +1,35 @@
 <template>
-  <div class="interlocution-wrapper">
+  <div class="chat-wrapper">
     <header class="header">
       <section class="msg icon-sec">
-        <router-link to="/communication" class="icon-box">
-          <i class="icon-xiaoxi"></i>
+        <router-link to="/communication">
+          <i class="icon-msnui-menu-left back-icon"></i>
         </router-link>
       </section>
       <section class="title">
-        问答
+        通讯
       </section>
       <section class="scan icon-sec">
-        <i class="icon-kaoshi"></i>
+        <i class="icon-wode"></i>
       </section>
     </header>
-    <!--搜索-->
-    <div class="search-box">
-      <search></search>
-    </div>
-    <!--问题导航-->
-    <nav class="nav">
-      
-    </nav>
-    <footer-navigator></footer-navigator>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import Footer from '../../components/footer/footer.vue'
-  import Search from 'components/search/search'
-  export default {
-    components: {
-      'footerNavigator': Footer,
-      'search': Search
-    }
-  }
+  export default {}
 
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  & > .interlocution-wrapper
+  .chat-wrapper
+    position fixed
+    z-index 101
+    top 0
+    bottom 0
+    left 0
+    right 0
+    background #fff
     & > .header
       display flex
       justify-content space-between
@@ -49,18 +40,16 @@
       background rgb(58, 153, 240)
       font-size 0
       color #fff
-      transition all .1s
       & > section
         display inline-block
         line-height 1.1733rem
         &.icon-sec
           padding 0 .48rem
-          & > .icon-box
-            & > .icon-xiaoxi
+          color #fff
+          &>a
+            &>.back-icon
               color #fff
+              font-size 18px
       & > .title
         font-size 18px
-
-  & > .search-box
-    padding-top 1.1733rem
 </style>

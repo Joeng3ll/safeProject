@@ -20,11 +20,13 @@
             <span class="text">群聊</span>
           </section>
           <div class="contact-list-cpt">
-            <index-list :list="contactList" ref="indexList"></index-list>
+            <index-list :list="contactList" ref="indexList" @intoListProfile="intoProfile"></index-list>
           </div>
         </div>
       </div>
     </article>
+    <!--某个联系人详细资料-->
+    <!--<router-view></router-view>-->
     <!--通讯录侧栏-->
     <aside class="contact-aside">
       <span class="icon-box" @click="closeContact">
@@ -62,7 +64,11 @@
         } else {
           this.bodyScroll.refresh()
         }
-        console.log(this.bodyScroll)
+      },
+//      进入某个联系人资料 设置路由
+      intoProfile (id) {
+        this.$router.push(`/communication/${id}`)
+        this.$router
       }
     },
     components: {

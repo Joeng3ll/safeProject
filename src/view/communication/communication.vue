@@ -20,7 +20,7 @@
     <!--通讯列表 最近联系人-->
     <article class="recentContacts-box" :class="{translateClass:isShow}" ref="recontactList">
       <div class="slide-body">
-        <section class="recentContact" v-for="contact in recentContactsList">
+        <section class="recentContact" v-for="contact in recentContactsList" @click="intoChat(contact.id)">
           <span class="unready-count" v-if="contact.unready.length>0">{{contact.unready.length}}</span>
           <img :src="contact.pic" class="avator">
           <div class="contact-box">
@@ -34,6 +34,7 @@
     <!--footer-->
     <footer-navigator :class="{translateClass:isShow}"></footer-navigator>
     <contact v-show="isShow" @closeContact="isShowContact" ref="contact"></contact>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -152,6 +153,10 @@
             this.$refs.contact._initialBscroll()
           })
         }
+      },
+//      从最近联系人列表进入某个聊天对话中
+      intoChat (id) {
+        this.$router.push(`communication/chat/${id}`)
       }
     }
   }

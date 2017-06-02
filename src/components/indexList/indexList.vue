@@ -8,7 +8,7 @@
     <aside v-for="(letter,index) in letterList" class="list-content">
       <span class="index">{{ptoe (letter)}}</span>
       <div class="list-content-box">
-        <section v-for="item in letter" class="list-item">
+        <section v-for="item in letter" class="list-item" @click="intoProfile(item.id)">
           <p class="item-text">{{item.name}}</p>
         </section>
       </div>
@@ -21,7 +21,6 @@
   import {IndexList, IndexSection, Cell} from 'mint-ui'
   import Vue from 'vue'
   import {pinyin} from '../../common/js/pinyin'
-  import BScroll from 'better-scroll'
   Vue.component(Cell.name, Cell)
   Vue.component(IndexList.name, IndexList)
   Vue.component(IndexSection.name, IndexSection)
@@ -37,7 +36,7 @@
     mounted () {
     },
     methods: {
-//        初始化排序列表
+//      初始化排序列表
       _initialList () {
         let arr = []
         for (let i = 0; i < 26; i++) {
@@ -57,19 +56,16 @@
           return item.length > 0
         })
       },
-      _initialBscroll () {
-        let Body = this.$refs.indexListWrapper
-        if (this.bodyScroll === undefined) {
-          this.bodyScroll = new BScroll(Body, {click: true, scrollY: true})
-        } else {
-          this.bodyScroll.refresh()
-        }
-      },
+//      列表分组首字母
       ptoe (letter) {
         if (letter.length > 0) {
           let letters = pinyin.getFullChars(letter[0].name)
           return letters.substring(0, 1).toUpperCase()
         }
+      },
+//      进入列表项
+      intoProfile (id) {
+        this.$emit('intoListProfile', id)
       }
     },
     props: ['list']
