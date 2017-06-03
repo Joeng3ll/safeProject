@@ -18,13 +18,21 @@ import volumeRecord from 'view/personal/workRecord/volumeRecord'
 import dayAttendance from 'view/personal/workRecord/dayAttendance'
 import ContactProfile from 'view/communication/children/contactProfile'
 import Chat from 'view/communication/children/chat'
+import AskTitle from 'view/interlocution/children/askTitle'
+import AskContent from 'view/interlocution/children/askContent'
+import Login from 'view/login/login'
 
 export default [
   {path: '', redirect: '/home'},
+  {path: '/login', component: Login},
   {path: '/home', component: Home},
   {
     path: '/communication',
     component: Communication,
+    // 需要路由
+    meta: {
+      requireAuth: true
+    },
     children: [
       {
         path: ':id',
@@ -36,10 +44,23 @@ export default [
       }
     ]
   },
-  {path: '/interlocution', component: Interlocution},
+  {
+    path: '/interlocution',
+    component: Interlocution,
+    meta: {
+      requireAuth: true
+    },
+    children: [
+      {path: 'askTitle', component: AskTitle},
+      {path: 'askContent', component: AskContent}
+    ]
+  },
   {
     path: '/personal',
     component: Personal,
+    meta: {
+      requireAuth: true
+    },
     children: [
       // 我的档案
       {path: 'archives', component: Archives},

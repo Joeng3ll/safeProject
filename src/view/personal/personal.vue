@@ -16,7 +16,7 @@
       <section class="body-item">
         <img :src="driver.photo" class="avator">
         <div class="personal-card">
-          <p class="name">{{driver.name}}</p>
+          <p class="name">{{driver.realName}}</p>
           <section class="star-level">
             <star :sizeNum="36" :score="driver.star_level"></star>
           </section>
@@ -52,6 +52,7 @@
       <!--菜单栏结束-->
     </article>
     <footer-navigator></footer-navigator>
+    <loading ref="loadCpt"></loading>
     <router-view></router-view>
   </div>
 </template>
@@ -62,6 +63,7 @@
   import Star from 'components/star/star.vue'
   import Tab from 'components/tab/tab.vue'
   import {getDriverInfo} from '../../service/getData'
+  import Loading from '../../components/loading/loading.vue'
   const archives = {
     'colorClass': 'green',
     'iconClass': 'icon-dangan',
@@ -98,17 +100,23 @@
         test
       }
     },
-    created () {
-      getDriverInfo().then(res => {
+    mounted () {
+      this.$refs.loadCpt.openLoading()
+      getDriverInfo().then((res) => {
+        console.log(res)
         this.driver = res
+      }).then(() => {
+        this.$refs.loadCpt.closeLoading()
       })
     },
     components: {
       'msgCmp': MsgCmp,
       'star': Star,
       'tab': Tab,
-      'footerNavigator': Footer
-    }
+      'footerNavigator': Footer,
+      'loading': Loading
+    },
+    methods: {}
   }
 
 </script>

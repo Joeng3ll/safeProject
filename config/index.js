@@ -34,6 +34,13 @@ module.exports = {
         pathRewrite: {
           '^/api': ''
         }
+      },
+      '/driver': {
+        target: 'http://116.62.40.216:8080',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/driver': ''
+        }
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

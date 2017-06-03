@@ -24,7 +24,8 @@
     "vue-cordova": "0.1.2",
     "vue-resource": "^1.3.1",
     "vue-router": "^2.3.1",
-    "vue-style-loader": "^2.0.5"
+    "vue-style-loader": "^2.0.5",
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

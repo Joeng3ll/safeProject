@@ -133,8 +133,6 @@
       })
     },
     methods: {
-      test () {
-      },
       _initialSwiper () {
 //        let $pic = this.$refs.swiperContainer.getElementsByClassName('news-pic')
         let $pic = this.$refs.swiperContainer.getElementsByClassName('swiper-slide')
@@ -218,7 +216,6 @@
       top: 2.3466rem
       padding-bottom: 1.30667rem
       padding-top: 2.34rem
-      z-index: -1
       background: #fff
       & > .slide-body
         & > .mint-loadmore

@@ -10,6 +10,7 @@ let vm = new Vue()
 //proxyTable代理表中的代理地址
 // const configUrl = '/api'
 const configUrl = process.env.NODE_ENV === 'production' ? 'http://v.juhe.cn' : 'api'
+const driverUrl = 'http://116.62.40.216:8080/'
 export default {
   get(url) {
     url = configUrl + url

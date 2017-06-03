@@ -21,6 +21,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
 .search-wrapper
-  height 1.6rem
+  height 1.44230769rem
+  min-height 52px
   font-size 14px
 </style>

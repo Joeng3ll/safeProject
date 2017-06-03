@@ -9,6 +9,13 @@ import haulRecord from './dataTemplate/haulRecord'
 import fetch from '../config/fetch'
 import volumeRecord from './dataTemplate/volumeRecord'
 
+import Vue from 'vue'
+import axios from 'axios'
+Vue.use(axios)
+Vue.prototype.$http = axios
+let vm = new Vue()
+//代理地址 测试环境下使用
+const BASE_URL = process.NODE_ENV === 'production' ? 'http://116.62.40.216:8080' : 'driver'
 /*
  * 测试环境下模拟异步请求获取数据
  *
@@ -38,11 +45,30 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
   /*
+   * 登录
+   * */
+  var loginIn = (user) => {
+    return new Promise((resolve, reject) => {
+      let username = user.username
+      let password = user.password
+      vm.$http.post(`${BASE_URL}/driver/login?username=${username}&password=${password}`).then(res => {
+        resolve(res.data)
+      })
+    }, () => {
+      console.log('post error')
+    })
+  }
+
+  /*
    *  获取驾驶员本人信息
    * */
   var getDriverInfo = () => {
     return new Promise((resolve, reject) => {
-
+      vm.$http.get(`${BASE_URL}/sessioninfo`).then(res => {
+        resolve(res.data)
+      })
+    }, () => {
+      console.log('axios error')
     })
   }
   /*
@@ -80,8 +106,27 @@ if (process.env.NODE_ENV !== 'development') {
       })
     })
   }
+  var loginIn = (user) => {
+    return new Promise((resolve, reject) => {
+      let username = user.username
+      let password = user.password
+      vm.$http.post(`${BASE_URL}/driver/login?username=${username}&password=${password}`).then(res => {
+        resolve(res.data)
+      })
+    }, () => {
+      console.log('post error')
+    })
+  }
 
-  var getDriverInfo = () => mockData(driverInfo)
+  var getDriverInfo = () => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/sessioninfo`).then(res => {
+        resolve(res.data)
+      })
+    }, () => {
+      console.log('axios error')
+    })
+  }
 
   var getAttendanceDays = () => mockData(attendance)
 
@@ -91,4 +136,4 @@ if (process.env.NODE_ENV !== 'development') {
 
   var getVolumeRecord = () => mockData(volumeRecord)
 }
-export {getNews, getDriverInfo, getAttendanceDays, getHourRecord, getHaulRecord, getVolumeRecord}
+export {getNews, getDriverInfo, loginIn, getAttendanceDays, getHourRecord, getHaulRecord, getVolumeRecord}

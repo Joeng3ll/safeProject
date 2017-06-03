@@ -5,6 +5,8 @@ import App from './App'
 import router from './router/index'
 import './config/rem'
 import './common/stylus/index.styl'
+import store from './vuex/index'
+import {getStorage} from './config/storage'
 // import cordova from 'vue-cordova'
 // import Qscode from 'qrcode-reader'
 Vue.config.productionTip = false
@@ -20,6 +22,7 @@ if (window.location.protocol === 'file:' || window.location.port === '8080') {
 }
 new Vue({
   router,
+  store,
   render: h => h(App),
   data () {
     return {
@@ -27,4 +30,15 @@ new Vue({
     }
   }
 }).$mount('#app')
-
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth) {
+    let username = getStorage()
+    if (username === '' || username.length === 0) {
+      next('/login')
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+})
