@@ -183,6 +183,7 @@
           padding 0 .48rem
           & > .icon-box
             & > .icon-xiaoxi
+              font-size 0
               color #fff
       & > .title
         font-size 18px

@@ -55,6 +55,7 @@
     },
     methods: {
       closeContact () {
+        this.$router.replace('/communication')
         this.$emit('closeContact')
       },
       _initialBscroll () {

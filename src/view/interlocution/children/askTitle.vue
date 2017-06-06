@@ -24,6 +24,7 @@
   import {Field} from 'mint-ui'
   import Vue from 'vue'
   import Store from '../../../vuex/index.js'
+  import {getQuesTitleStorage} from '../../../config/storage'
   Vue.component(Field.name, Field)
   export default {
     data () {
@@ -46,7 +47,8 @@
         }
       },
       _initialData () {
-
+        let res = getQuesTitleStorage()
+        this.quesTitle = res.title
       }
     }
   }

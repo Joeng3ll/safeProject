@@ -71,7 +71,6 @@
       margin 0 auto
       word-break: keep-all
       & > .center
-        display: flex;
         & > .item
           display inline-block
           padding 0 .35rem 0 0

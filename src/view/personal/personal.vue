@@ -49,6 +49,11 @@
       <router-link to="/personal/test" class="tab-box">
         <tab :iconClass="test.iconClass" :text="test.text" :colorClass="test.colorClass" class="menu-item"></tab>
       </router-link>
+      <!--注销登录-->
+      <div class="loginOut-box" @click="toLoginOut">
+        <tab :iconClass="loginOutTab.iconClass" :text="loginOutTab.text" :colorClass="loginOutTab.colorClass"
+             class="menu-item loginOut"></tab>
+      </div>
       <!--菜单栏结束-->
     </article>
     <footer-navigator></footer-navigator>
@@ -62,7 +67,8 @@
   import MsgCmp from 'components/msgComponent/msgComponent.vue'
   import Star from 'components/star/star.vue'
   import Tab from 'components/tab/tab.vue'
-  import {getDriverInfo} from '../../service/getData'
+  import Store from '../../vuex/index'
+  import {getDriverInfo, loginOut} from '../../service/getData'
   import Loading from '../../components/loading/loading.vue'
   const archives = {
     'colorClass': 'green',
@@ -89,6 +95,11 @@
     'iconClass': 'icon-kaoshi',
     'text': '我的考试'
   }
+  const loginOutTab = {
+    'colorClass': 'grew',
+    'iconClass': 'icon-jieshu',
+    'text': '注销登录'
+  }
   export default {
     data () {
       return {
@@ -97,13 +108,13 @@
         workRecord,
         accidentRecord,
         training,
-        test
+        test,
+        loginOutTab
       }
     },
     mounted () {
       this.$refs.loadCpt.openLoading()
       getDriverInfo().then((res) => {
-        console.log(res)
         this.driver = res
       }).then(() => {
         this.$refs.loadCpt.closeLoading()
@@ -116,7 +127,13 @@
       'footerNavigator': Footer,
       'loading': Loading
     },
-    methods: {}
+    methods: {
+      toLoginOut () {
+        Store.dispatch('loginOut')
+        loginOut()
+        this.$router.replace('/home')
+      }
+    }
   }
 
 </script>
@@ -144,6 +161,9 @@
         line-height 1.1733rem
         &.icon-sec
           padding 0 .48rem
+          font-size 0
+          &>.icon-saoyisao
+            font-size 0
       & > .title
         font-size 18px
 
@@ -187,4 +207,12 @@
         &:nth-child(2n)
           margin-top .2rem
 
+      & > .loginOut-box
+        & > .loginOut
+          margin-top .5rem
+          color #ccc
+          & > .icon-box
+            background #D8DFE2
+          & > .icon-iconfontright-copy
+            font-size 0
 </style>

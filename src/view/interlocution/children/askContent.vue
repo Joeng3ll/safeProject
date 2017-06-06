@@ -12,7 +12,7 @@
         </span>
       </section>
     </header>
-    <mt-field label=" " type="textarea" placeholder="请输入问题内容" v-model="quesTitle" class="field"></mt-field>
+    <mt-field label=" " type="textarea" placeholder="请输入问题内容" v-model="quesContent" class="field"></mt-field>
     <!--错误提示-->
     <p class="err-text">
       {{errText}}
@@ -23,22 +23,31 @@
 <script type="text/ecmascript-6">
   import {Field} from 'mint-ui'
   import Vue from 'vue'
+  import {getQuesContentStorage} from '../../../config/storage'
+  import Store from '../../../vuex/index.js'
   Vue.component(Field.name, Field)
   export default {
     data () {
       return {
-        quesTitle: '',
+        quesContent: '',
         errText: ''
       }
+    },
+    created () {
+      this._initialData()
     },
     methods: {
       forward () {
         this.$router.go(-1)
       },
+      _initialData () {
+        this.quesContent = getQuesContentStorage()
+      },
       next () {
-        if (this.quesTitle === '' || this.quesTitle.length === 0) {
+        if (this.quesContent === '' || this.quesContent.length === 0) {
           this.errText = '问题内容不能为空!!'
         } else {
+          Store.dispatch('editContent', this.quesContent)
           this.errText = ''
           this.$router.push('/interlocution/askContent')
         }
@@ -58,7 +67,7 @@
     bottom 0
     background #fff
     & > .header
-      justify-content space-between!important
+      justify-content space-between !important
     & > .header
       display flex
       justify-content center

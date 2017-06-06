@@ -11,6 +11,7 @@
     <section class="err-box">
       {{err}}
     </section>
+    <loading ref="loadCpt"></loading>
   </div>
 </template>
 
@@ -19,6 +20,7 @@
   import Vue from 'vue'
   import {loginIn} from 'service/getData'
   import store from '../../vuex/index'
+  import Loading from '../../components/loading/loading.vue'
   Vue.component(Field.name, Field)
   export default {
     data () {
@@ -31,12 +33,15 @@
     },
     methods: {
       login () {
+//        let that = this
+        console.log(this)
         this.user.username = this.username
         this.user.password = this.password
         if (this.user.username === '' || this.user.password === '') {
           this.err = '用户名或密码不能为空!!'
           return
         } else {
+//          this.$refs.loadCpt.openLoading()
           loginIn(this.user).then((res) => {
             if (res.success === false) {
               this.err = `${res.error}!!`
@@ -45,10 +50,14 @@
               this.$router.replace('/home')
             }
           }, () => {
-            this.err = '网络错误 请重试'
+            this.err = '网络请求错误'
           })
+//          this.$refs.loadCpt.closeLoading()
         }
       }
+    },
+    components: {
+      'loading': Loading
     }
   }
 
@@ -65,7 +74,7 @@
     background -o-linear-gradient(top, rgba(223, 252, 249, 1), rgba(223, 252, 249, 0.1))
     background -webkit-linear-gradient(top, rgba(223, 252, 249, 1), rgba(223, 252, 249, 0.1))
     & > .login-box
-      position relative
+      position fixed
       top 40%
       width 80%
       left 7%
@@ -82,8 +91,8 @@
               color rgba(40, 201, 212, 0.9)
               background transparent
     & > .login_btn
-      position relative
-      top 45%
+      position fixed
+      top 65%
       left 6%
       width 80%
       padding .24rem .48rem
@@ -93,8 +102,8 @@
       color #fff
       background rgb(240, 60, 107)
     & > .err-box
-      position relative
-      top 50%
+      position fixed
+      top 75%
       width 100%
       font-size 16px
       color red

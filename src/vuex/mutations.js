@@ -1,13 +1,16 @@
 /**
  * Created by joeng on 2017/6/2.
  */
-import {setStorage, setQuesTitleStorage} from '../config/storage'
+import {setStorage, setQuesTitleStorage, setQuesContentStorage} from '../config/storage'
 export default {
   editTitle (state, title) {
-    setQuesTitleStorage(title)
+    let obj = {title}
+    setQuesTitleStorage(obj)
     state.ques = Object.assign(state.ques, {title})
   },
   editContent (state, content) {
+    let obj = {content}
+    setQuesContentStorage(obj)
     state.ques = Object.assign(state.ques, {content})
   },
   editOrginId (state, id) {
@@ -15,8 +18,12 @@ export default {
   },
   login (state, user) {
     if (user !== null) {
-      setStorage(user.username)
-      state.user.username = user.username
+      setStorage(user)
+      state.user = user
     }
+  },
+  loginOut (state) {
+    setStorage(null)
+    state.user = null
   }
 }

@@ -182,6 +182,8 @@
         line-height 1.1733rem
         &.icon-sec
           padding 0 .48rem
+          &>.icon-saoyisao
+            font-size 0
       & > .title
         font-size 18px
     & > .search

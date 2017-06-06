@@ -58,7 +58,18 @@ if (process.env.NODE_ENV !== 'development') {
       console.log('post error')
     })
   }
-
+  /*
+   * 注销登录
+   * */
+  var loginOut = () => {
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/driver/logout`).then(res => {
+        resolve(res.data)
+      })
+    }, () => {
+      console.log('post error')
+    })
+  }
   /*
    *  获取驾驶员本人信息
    * */
@@ -128,6 +139,16 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
 
+  var loginOut = () => {
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/driver/logout`).then(res => {
+        resolve(res.data)
+      })
+    }, () => {
+      console.log('post error')
+    })
+  }
+
   var getAttendanceDays = () => mockData(attendance)
 
   var getHourRecord = () => mockData(hourRecord)
@@ -136,4 +157,4 @@ if (process.env.NODE_ENV !== 'development') {
 
   var getVolumeRecord = () => mockData(volumeRecord)
 }
-export {getNews, getDriverInfo, loginIn, getAttendanceDays, getHourRecord, getHaulRecord, getVolumeRecord}
+export {getNews, getDriverInfo, loginIn, loginOut, getAttendanceDays, getHourRecord, getHaulRecord, getVolumeRecord}

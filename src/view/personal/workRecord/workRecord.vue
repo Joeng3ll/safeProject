@@ -22,7 +22,7 @@
 <script type="text/ecmascript-6">
   import Header from 'components/header/header'
   import Calendar from 'mob-calendar'
-  import {getAttendanceDays} from 'service/getData'
+  //  import {getAttendanceDays} from 'service/getData'
   import Tab from 'components/tab/tab'
   //  头部dom组件信息
   const header = {
@@ -50,7 +50,7 @@
     data () {
       return {
         header,
-        attendanceDays: [],
+        attendanceDays: [1495728000000, 1493913600000, 1495209600000, 1491926400000, 1489593600000],
         attendanceDaysFormat: [],
         hourTab,
         haulTab,
@@ -58,36 +58,28 @@
       }
     },
     mounted () {
-      getAttendanceDays().then(res => {
-        Object.assign(this.attendanceDays, res.attendance_days)
+//      getAttendanceDays().then(res => {
+//        Object.assign(this.attendanceDays, res.attendance_days)
 //        Array.map返回的是一个新数组
-        this.attendanceDaysFormat = this.attendanceDays.map((item) => {
-          return {
-            stamp: item,
-            className: 'calendar-active'
-          }
-        })
-      }).then(() => {
-        //  因为和挂载的dom对象有关所以要在mounted生命周期之后 并且必须在this.attendanceDaysFormat参数被赋值之后，而then()方式可以保证先后顺序
-        this._initialCalendar()
+//        this.attendanceDaysFormat = this.attendanceDays.map((item) => {
+//          return {
+//            stamp: item,
+//            className: 'calendar-active'
+//          }
+//        })
+//      }).then(() => {
+//        //  因为和挂载的dom对象有关所以要在mounted生命周期之后 并且必须在this.attendanceDaysFormat参数被赋值之后，而then()方式可以保证先后顺序
+//        this._initialCalendar()
+//      })
+      this.attendanceDaysFormat = this.attendanceDays.map(function (item) {
+        return {
+          stamp: item,
+          className: 'calendar-active'
+        }
       })
+      this._initialCalendar()
     },
-    computed: {
-//       格式化传入的日期 用来给传入的日期添加特殊的样式
-//      attendanceDaysFormat () {
-//        let arr = []
-//        let len = this.attendanceDays.length
-//        console.log(this.attendanceDays, this.attendanceDays.length)
-//        for (let i = 0; i < len; i++) {
-//          arr.push({
-//            'stamp': this.attendanceDays[i],
-//            'className': 'calendar-active'
-//          })
-//          console.log('hehe')
-//        }
-//        return this.attendanceDays.length
-//      }
-    },
+    computed: {},
     methods: {
       _initialCalendar () {
         let _this = this

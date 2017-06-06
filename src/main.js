@@ -33,7 +33,8 @@ new Vue({
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
     let username = getStorage()
-    if (username === '' || username.length === 0) {
+    console.log(username)
+    if (username === '' || username === null) {
       next('/login')
     } else {
       next()
@@ -42,3 +43,4 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
+

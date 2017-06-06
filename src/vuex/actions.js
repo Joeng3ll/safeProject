@@ -13,5 +13,8 @@ export default {
   },
   login (context, user) {
     context.commit('login', user)
+  },
+  loginOut (context) {
+    context.commit('loginOut')
   }
 }
