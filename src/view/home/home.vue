@@ -7,7 +7,7 @@
       <section class="title" @click="test()">
         首页
       </section>
-      <section class="scan icon-sec">
+      <section class="scan icon-sec" @click="scan()">
         <i class="icon-saoyisao"></i>
       </section>
     </header>
@@ -170,6 +170,19 @@
       loadTop () {
         this.changeNewsList(this.currentNewsTitle)
         this.$refs.loadmore.onTopLoaded()
+      },
+      scan () {
+//        cordova.plugins.barcodeScanner.scan(
+//          function (result) {
+//            alert('We got a barcode\n' +
+//              'Result: ' + result.text + '\n' +
+//              'Format: ' + result.format + '\n' +
+//              'Cancelled: ' + result.cancelled)
+//          },
+//          function (error) {
+//            alert('Scanning failed: ' + error)
+//          }
+//        )
       }
     },
     components: {

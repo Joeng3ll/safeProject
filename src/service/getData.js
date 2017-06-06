@@ -15,7 +15,7 @@ Vue.use(axios)
 Vue.prototype.$http = axios
 let vm = new Vue()
 //代理地址 测试环境下使用
-const BASE_URL = process.NODE_ENV === 'production' ? 'http://116.62.40.216:8080' : 'driver'
+const BASE_URL = process.env.NODE_ENV === 'development' ? 'driver' : 'http://116.62.40.216:8080'
 /*
  * 测试环境下模拟异步请求获取数据
  *
@@ -107,7 +107,6 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
 } else {
-  console.log('development')
   var getNews = (newsType) => {
     return new Promise((resolve, reject) => {
       fetch.get(`/toutiao/index?type=${newsType}&key=68e5b38d548adabc8b842a2ae29e3d40`).then(res => {
@@ -118,6 +117,7 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
   var loginIn = (user) => {
+    console.log(process.env.NODE_ENV)
     return new Promise((resolve, reject) => {
       let username = user.username
       let password = user.password

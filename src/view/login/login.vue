@@ -4,7 +4,7 @@
       <mt-field label="用户名" placeholder="请输入用户名" v-model="username"></mt-field>
       <mt-field label="密码" placeholder="请输入密码" type="password" v-model="password"></mt-field>
     </article>
-    <aside class="login_btn" @click="login()">
+    <aside class="login_btn" @click="loginIn()">
       Login In
     </aside>
     <!--错误信息提示-->
@@ -32,27 +32,29 @@
       }
     },
     methods: {
-      login () {
-//        let that = this
-        console.log(this)
+      loginIn () {
         this.user.username = this.username
         this.user.password = this.password
         if (this.user.username === '' || this.user.password === '') {
           this.err = '用户名或密码不能为空!!'
           return
         } else {
-//          this.$refs.loadCpt.openLoading()
+          this.$refs.loadCpt.openLoading()
           loginIn(this.user).then((res) => {
             if (res.success === false) {
               this.err = `${res.error}!!`
             } else {
               store.dispatch('login', this.user)
-              this.$router.replace('/home')
             }
+            return res
           }, () => {
             this.err = '网络请求错误'
+          }).then((res) => {
+            this.$refs.loadCpt.closeLoading()
+            if (res.success === true) {
+              this.$router.replace('/home')
+            }
           })
-//          this.$refs.loadCpt.closeLoading()
         }
       }
     },
@@ -75,7 +77,7 @@
     background -webkit-linear-gradient(top, rgba(223, 252, 249, 1), rgba(223, 252, 249, 0.1))
     & > .login-box
       position fixed
-      top 40%
+      top 30%
       width 80%
       left 7%
       padding 3%
