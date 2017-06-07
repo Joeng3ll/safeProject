@@ -19,9 +19,31 @@
       },
       starList () {
         let list = []
-
+        let scoreNum = 0
+//        传入的score :"n星级驾驶员"
+        if (this.score) {
+          switch (this.score) {
+            case '一星级驾驶员':
+              scoreNum = 1
+              break
+            case '二星级驾驶员':
+              scoreNum = 2
+              break
+            case '三星级驾驶员':
+              scoreNum = 3
+              break
+            case '四星级驾驶员':
+              scoreNum = 4
+              break
+            case '五星级驾驶员':
+              scoreNum = 5
+              break
+            default:
+              scoreNum = 0
+          }
+        }
 //        整星
-        let onNum = Math.floor(this.score)
+        let onNum = Math.floor(scoreNum)
         for (let i = 0; i < onNum; i++) {
           list.push(starOn)
         }

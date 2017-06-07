@@ -1,11 +1,24 @@
 <template>
   <div class="archives-wrapper">
     <header-cpt :text="header.text"></header-cpt>
+    <article class="archives-body">
+      <!--基本信息开始-->
+      <section class="item">
+        <header class="item-header">
+          基本信息
+        </header>
+        <article class="item-body">
+
+        </article>
+      </section>
+      <!--基本信息结束-->
+    </article>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import Header from 'components/header/header'
+  import {getArchives} from 'service/getData'
   const header = {
     text: '我的档案'
   }
@@ -14,6 +27,9 @@
       return {
         header
       }
+    },
+    created () {
+      getArchives()
     },
     components: {
       'headerCpt': Header

@@ -1,15 +1,16 @@
 /**
  * Created by joeng on 2017/6/3.
  */
-const USER_KEY = 'user'
+const LOGIN_INFO = 'loginInfo'
 const QUES = "question"
 const QUESTITLE_KEY = 'question_title'
 const QUESTITLE_CONTENT = 'question_content'
-export function setStorage(value) {
-  window.localStorage.setItem(USER_KEY, JSON.stringify(value))
+//是否登录
+export function setLoginStorage(isLogin) {
+  window.localStorage.setItem(LOGIN_INFO, isLogin)
 }
-export function getStorage() {
-  return JSON.parse(window.localStorage.getItem(USER_KEY) || null)
+export function getLoginStorage() {
+  return window.localStorage.getItem(LOGIN_INFO || false)
 }
 export function setQuesTitleStorage(value) {
   window.localStorage.setItem(QUESTITLE_KEY, JSON.stringify(value))

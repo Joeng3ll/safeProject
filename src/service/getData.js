@@ -31,7 +31,6 @@ let mockData = data => {
 
 
 if (process.env.NODE_ENV !== 'development') {
-  console.log('product')
   /*
    *  获取首页新闻
    * */
@@ -106,6 +105,18 @@ if (process.env.NODE_ENV !== 'development') {
 
     })
   }
+
+  /*
+   *   获取用户档案信息
+   * */
+  var getArchives = () => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/contact/public`).then(res => {
+        resolve(res.data)
+      })
+    })
+  }
+
 } else {
   var getNews = (newsType) => {
     return new Promise((resolve, reject) => {
@@ -149,6 +160,14 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
 
+  var getArchives = () => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/contact/public`).then(res => {
+        resolve(res.data)
+      })
+    })
+  }
+
   var getAttendanceDays = () => mockData(attendance)
 
   var getHourRecord = () => mockData(hourRecord)
@@ -157,4 +176,14 @@ if (process.env.NODE_ENV !== 'development') {
 
   var getVolumeRecord = () => mockData(volumeRecord)
 }
-export {getNews, getDriverInfo, loginIn, loginOut, getAttendanceDays, getHourRecord, getHaulRecord, getVolumeRecord}
+export {
+  getNews,
+  getDriverInfo,
+  loginIn,
+  loginOut,
+  getArchives,
+  getAttendanceDays,
+  getHourRecord,
+  getHaulRecord,
+  getVolumeRecord
+}

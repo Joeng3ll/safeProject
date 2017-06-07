@@ -6,7 +6,7 @@ import router from './router/index'
 import './config/rem'
 import './common/stylus/index.styl'
 import store from './vuex/index'
-import {getStorage} from './config/storage'
+import {getLoginStorage} from './config/storage'
 Vue.config.productionTip = false
 if (window.location.protocol === 'file:' || window.location.port === '8080') {
   var cordovaScript = document.createElement('script')
@@ -22,8 +22,9 @@ new Vue({
 }).$mount('#app')
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
-    let username = getStorage()
-    if (username === '' || username === null) {
+    let isLogin = getLoginStorage()
+    // 检查登录信息 是否登录
+    if (isLogin !== 'true') {
       next('/login')
     } else {
       next()

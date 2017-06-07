@@ -18,7 +18,7 @@
         <div class="personal-card">
           <p class="name">{{driver.realName}}</p>
           <section class="star-level">
-            <star :sizeNum="36" :score="driver.star_level"></star>
+            <star :sizeNum="36" :score="driver.star"></star>
           </section>
         </div>
         <i class="icon-iconfontright-copy icon"></i>
@@ -116,6 +116,10 @@
       this.$refs.loadCpt.openLoading()
       getDriverInfo().then((res) => {
         this.driver = res
+//        默认头像 如果照片为空则使用默认头像
+        if (this.driver.photo === null) {
+          this.driver.photo = 'http://08.imgmini.eastday.com/mobile/20170607/20170607122123_3ca1c7688b197ceb6e91a522153fa95f_1_mwpm_03200403.jpeg'
+        }
       }).then(() => {
         this.$refs.loadCpt.closeLoading()
       })
@@ -162,7 +166,7 @@
         &.icon-sec
           padding 0 .48rem
           font-size 0
-          &>.icon-saoyisao
+          & > .icon-saoyisao
             font-size 0
       & > .title
         font-size 18px
