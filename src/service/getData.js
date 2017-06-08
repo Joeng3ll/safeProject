@@ -117,6 +117,27 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
 
+  /*
+   *   获取通讯录信息
+   * */
+  var getContact = (orgId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/contact/org/${orgId}/driver`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  /*
+   *  获取上级组织id
+   * */
+  var getSuperOrgId = (orgId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/qa/${orgId}/supers`).then(res => {
+        resolve(res)
+      })
+    })
+  }
 } else {
   var getNews = (newsType) => {
     return new Promise((resolve, reject) => {
@@ -153,7 +174,7 @@ if (process.env.NODE_ENV !== 'development') {
   var loginOut = () => {
     return new Promise((resolve, reject) => {
       vm.$http.post(`${BASE_URL}/driver/logout`).then(res => {
-        resolve(res.data)
+        resolve(res)
       })
     }, () => {
       console.log('post error')
@@ -164,6 +185,22 @@ if (process.env.NODE_ENV !== 'development') {
     return new Promise((resolve, reject) => {
       vm.$http.get(`${BASE_URL}/contact/public`).then(res => {
         resolve(res.data)
+      })
+    })
+  }
+
+  var getContact = (orgId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/contact/org/${orgId}/driver`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  var getSuperOrgId = (orgId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/qa/${orgId}/supers`).then(res => {
+        resolve(res)
       })
     })
   }
@@ -181,7 +218,9 @@ export {
   getDriverInfo,
   loginIn,
   loginOut,
+  getContact,
   getArchives,
+  getSuperOrgId,
   getAttendanceDays,
   getHourRecord,
   getHaulRecord,

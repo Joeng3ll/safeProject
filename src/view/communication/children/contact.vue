@@ -15,7 +15,7 @@
           <!--群聊-->
           <section class="group-chat">
             <div class="icon-box">
-              <i class="icon-wode"></i>
+              <i class="icon-Group"></i>
             </div>
             <span class="text">群聊</span>
           </section>
@@ -40,17 +40,22 @@
   import Search from 'components/search/search'
   import IndexList from 'components/indexList/indexList'
   import BScroll from 'better-scroll'
+  import {getContact} from '../../../service/getData'
+  import {getUserInfo, setContact} from '../../../config/storage'
   export default {
     data () {
       return {
-        contactList: [
-          {name: '张三', id: 1}, {name: '李四', id: 2},
-          {name: '王五', id: 3}, {name: '赵六', id: 4},
-          {name: '李八', id: 5}, {name: '李三', id: 6},
-          {name: '王四', id: 7}, {name: '陈二', id: 8},
-          {name: '孙一', id: 9}, {name: '钱二', id: 10},
-          {name: '吴三', id: 7}, {name: '宋吴', id: 8}
-        ]
+        contactList: []
+      }
+    },
+    created () {
+      let orgId = getUserInfo().organizationId
+      if (orgId) {
+        getContact(orgId).then(res => {
+          res = res.data.drivers
+          this.contactList = Object.assign(this.contactList, res)
+          setContact(this.contactList)
+        })
       }
     },
     methods: {

@@ -93,7 +93,8 @@
   import MsgCmp from '../../components/msgComponent/msgComponent.vue'
   import Loading from '../../components/loading/loading.vue'
   import NewsMenu from './newsMenu/newsMenu.vue'
-  import {getNews} from '../../service/getData'
+  import {getNews, getDriverInfo} from '../../service/getData'
+  import {getLoginStorage, setUserInfo} from '../../config/storage'
   //  import barcodeScanner from '../../common/js/barcodescanner'
   import Swiper from 'swiper'
   import BScroll from 'better-scroll'
@@ -114,7 +115,6 @@
       }
     },
     created () {
-//      this.$refs.loadCpt.openLoading()
       getNews(newsListPY[0]).then((res) => {
         this.newsList = Object.assign(this.newsList, res)
 //       不显示已经在banner里出现的新闻
@@ -124,13 +124,10 @@
       this.$nextTick(() => {
         this._initialSwiper()
       })
-//      this.cordova.plugins.push(this.plugins)
+//      将user信息保存进state中
+      this.saveUserInfo()
     },
     mounted () {
-      this.$nextTick(() => {
-//         输出为0
-//        console.log(this.newsList[0])
-      })
     },
     methods: {
       _initialSwiper () {
@@ -170,6 +167,18 @@
       loadTop () {
         this.changeNewsList(this.currentNewsTitle)
         this.$refs.loadmore.onTopLoaded()
+      },
+      saveUserInfo () {
+        let loginInfo = getLoginStorage()
+        let user = {}
+        if (loginInfo === 'true') {
+          getDriverInfo().then(res => {
+            user = Object.assign(user, res)
+            let {userId, organizationId} = user
+            user = {userId, organizationId}
+            setUserInfo(user)
+          })
+        }
       },
       scan () {
 //        cordova.plugins.barcodeScanner.scan(

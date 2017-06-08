@@ -8,7 +8,19 @@
     </header>
     <article class="body clearFix">
       <div class="body-box">
-        <p class="name">{{this.$route.params.id}}</p>
+        <section class="avator">
+          <i class="icon-ren icon"></i>
+        </section>
+        <p class="username">{{user.name}}</p>
+        <p class="phone">{{user.phone}}</p>
+        <p class="tel">
+          <i class="icon-tongxun icon"></i>
+          {{user.phone}}
+        </p>
+        <p class="organization">
+          <i class="icon-gongzuo icon"></i>
+          {{user.organization}}
+        </p>
       </div>
     </article>
     <footer class="footer">
@@ -18,9 +30,19 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import {getContactById} from '../../../config/mUtils'
   export default {
+    data () {
+      return {
+        user: {}
+      }
+    },
     created () {
-      console.log(this.$route.params)
+      let userId = parseInt(this.$route.params.id)
+      let obj = getContactById(userId)
+      if (obj !== null) {
+        this.user = Object.assign(this.user, getContactById(userId))
+      }
     },
     methods: {
       sendMsg () {
@@ -67,8 +89,25 @@
       min-height 80%
       & > .body-box
         padding .24rem .48rem
-        & > p
-          font-size 12px
+        & > .avator
+          margin-top 2rem
+          text-align center
+          color #3a99f0
+          & > .icon
+            font-size 2rem
+        & > .username
+          font-size 20px
+          text-align center
+          line-height 30px
+        &>.organization,&>.tel
+          margin-top .5rem
+          font-size 16px
+          text-align center
+          line-height 28px
+          color #989898
+          &>.icon
+            font-size 16px
+            margin-right .1rem
     & > .footer
       & > .send-btn
         position relative

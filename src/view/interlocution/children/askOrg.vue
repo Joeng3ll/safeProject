@@ -1,18 +1,18 @@
 <template>
-  <div class="askContent-wrapper">
+  <div class="askOrg-wrapper">
     <header class="header">
       <section class="msg icon-sec">
         <span class="icon-box href-text" @click="forward">
-          返回问题标题
+          返回问题内容
         </span>
       </section>
       <section class="scan icon-sec">
-        <span class="icon-box href-text" @click="next">
-          下一步
+        <span class="icon-box href-text" @click="commit">
+          提交
         </span>
       </section>
     </header>
-    <mt-field label=" " type="textarea" placeholder="请输入问题内容" v-model="quesContent" class="field"></mt-field>
+    <mt-checklist title="提问组织" :max="maxCheck" v-model="orgId" :options="options"></mt-checklist>
     <!--错误提示-->
     <p class="err-text">
       {{errText}}
@@ -21,16 +21,19 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {Field} from 'mint-ui'
   import Vue from 'vue'
-  import {getQuesContentStorage} from '../../../config/storage'
-  import Store from '../../../vuex/index.js'
-  Vue.component(Field.name, Field)
+  import {Checklist, Toast} from 'mint-ui'
+  import {getSuperOrgId} from 'service/getData'
+  import {getUserInfo} from '../../../config/storage'
+  Vue.component(Checklist.name, Checklist)
+  Vue.component(Toast.name, Toast)
   export default {
     data () {
       return {
-        quesContent: '',
-        errText: ''
+        orgId: [],
+        errText: '',
+        maxCheck: 1,
+        options: []
       }
     },
     created () {
@@ -41,16 +44,36 @@
         this.$router.go(-1)
       },
       _initialData () {
-        this.quesContent = getQuesContentStorage().content
+        let orgId = getUserInfo().organizationId
+        let arr = []
+//        数据初始化 组织id 从后台拉取数据
+        getSuperOrgId(orgId).then(res => {
+          arr = res.data.slice(0)
+          this.options = arr.map((item) => {
+            return {
+              label: item.name,
+              value: item.id
+            }
+          })
+        })
       },
-      next () {
-        if (this.quesContent === '' || this.quesContent.length === 0) {
-          this.errText = '问题内容不能为空!!'
+      commit () {
+        if (this.orgId && this.orgId.length > 0) {
+//           提交数据、清空缓存问题
+          this._initialToast()
+          console.log(this.orgId)
         } else {
-          Store.dispatch('editContent', this.quesContent)
-          this.errText = ''
-          this.$router.push('/interlocution/askOrg')
+          this.errText = '请选择提问组织!!'
         }
+      },
+//      提示框
+      _initialToast () {
+        let toast = Toast({
+          message: '提交问题成功!'
+        })
+        setTimeout(() => {
+          toast.close()
+        }, 2000)
       }
     }
   }
@@ -58,7 +81,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .askContent-wrapper
+  .askOrg-wrapper
     position fixed
     z-index 100
     top 0
@@ -94,6 +117,8 @@
     & > .field
       position relative
       top 1.1733rem
+    & > .mint-checklist
+      margin-top 1.8rem
 
   & > .err-text
     position relative

@@ -20,11 +20,9 @@ export default {
   login (state, user) {
     if (user !== null) {
       setLoginStorage(true)
-      state.isLogin = true
     }
   },
   loginOut (state) {
-    setLoginStorage(false)
-    state.isLogin = false
+    window.localStorage.clear()
   }
 }

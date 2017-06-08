@@ -7,7 +7,7 @@
         </router-link>
       </section>
       <section class="title">
-        通讯
+        {{friend.name}}
       </section>
       <section class="scan icon-sec">
         <i class="icon-wode"></i>
@@ -17,7 +17,20 @@
 </template>
 
 <script type="text/ecmascript-6">
-  export default {}
+  import {getContactById} from '../../../config/mUtils'
+  export default {
+    data () {
+      return {
+        friend: {}
+      }
+    },
+    created () {
+      let friendId = parseInt(this.$route.params.id)
+      let friendObj = getContactById(friendId)
+      console.log(friendId, friendObj)
+      this.friend = Object.assign(this.friend, friendObj)
+    }
+  }
 
 </script>
 
@@ -46,8 +59,8 @@
         &.icon-sec
           padding 0 .48rem
           color #fff
-          &>a
-            &>.back-icon
+          & > a
+            & > .back-icon
               color #fff
               font-size 18px
       & > .title

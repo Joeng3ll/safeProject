@@ -20,6 +20,7 @@ import ContactProfile from 'view/communication/children/contactProfile'
 import Chat from 'view/communication/children/chat'
 import AskTitle from 'view/interlocution/children/askTitle'
 import AskContent from 'view/interlocution/children/askContent'
+import AskOrg from 'view/interlocution/children/askOrg'
 import Login from 'view/login/login'
 
 export default [
@@ -52,7 +53,8 @@ export default [
     },
     children: [
       {path: 'askTitle', component: AskTitle},
-      {path: 'askContent', component: AskContent}
+      {path: 'askContent', component: AskContent},
+      {path: 'askOrg', component: AskOrg}
     ]
   },
   {

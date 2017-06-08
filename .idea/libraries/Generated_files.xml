@@ -27,6 +27,7 @@
         <item url="file://$PROJECT_DIR$/dist/src/config/setStorage.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/storage.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
         <item url="file://$PROJECT_DIR$/dist/src/vuex/state.js" />
         <item url="file://$PROJECT_DIR$/dist/src/vuex/mutations.js" />
         <item url="file://$PROJECT_DIR$/dist/src/vuex/actions.js" />
@@ -37,7 +38,6 @@
       <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/attendance.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.9944fce9531207b4bbaa.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.04c9e03ca88c806b420e.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.3b1d0313a4a8ff3a58e4.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/env.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.5d74bb06bcee511bcbbb.js" />
@@ -45,7 +45,6 @@
       <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/attendance.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.9944fce9531207b4bbaa.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.04c9e03ca88c806b420e.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/env.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.3b1d0313a4a8ff3a58e4.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.5d74bb06bcee511bcbbb.js" />
@@ -83,6 +82,7 @@
       <root url="file://$PROJECT_DIR$/dist/src/config/setStorage.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/storage.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
       <root url="file://$PROJECT_DIR$/dist/src/vuex/state.js" />
       <root url="file://$PROJECT_DIR$/dist/src/vuex/mutations.js" />
       <root url="file://$PROJECT_DIR$/dist/src/vuex/actions.js" />
