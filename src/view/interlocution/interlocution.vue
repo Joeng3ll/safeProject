@@ -11,7 +11,7 @@
       </section>
       <section class="scan icon-sec">
         <router-link to="/interlocution/askTitle" class="icon-box">
-          <i class="icon-kaoshi"></i>
+          <i class="icon-bianji"></i>
         </router-link>
       </section>
     </header>
@@ -34,14 +34,14 @@
       <!--</section>-->
     </nav>
     <!--问题列表-->
-    <article class="body">
-      <mt-loadmore :top-method="loadTop" ref="loadmore">
+    <mt-loadmore ref="loadMore" :top-method="loadTop" class="body">
+      <div class="ques-body">
         <section class="ques-item" v-for="ques in currentList">
           <!--提问者资料-->
           <div class="user-profile">
-            <img :src="ques.pic" class="avator">
+            <img :src="user.photo" class="avator">
             <!--提问者姓名-->
-            <span class="name">{{ques.user_name}}</span>
+            <span class="name">{{user.realName}}</span>
           </div>
           <!--问题内容-->
           <div class="ques-text">
@@ -52,9 +52,16 @@
           <div class="date">
             {{ques.date}}
           </div>
+          <!--问题状态-->
+          <div class="status">
+            {{ques.status}}
+          </div>
         </section>
-      </mt-loadmore>
-    </article>
+        <aside class="no-more">
+          没有更多了
+        </aside>
+      </div>
+    </mt-loadmore>
     <footer-navigator></footer-navigator>
     <router-view></router-view>
   </div>
@@ -63,6 +70,8 @@
 <script type="text/ecmascript-6">
   import Footer from '../../components/footer/footer.vue'
   import Search from 'components/search/search'
+  import {getQuesList} from '../../service/getData'
+  import {getUserInfo} from '../../config/storage'
   import {Loadmore} from 'mint-ui'
   import Vue from 'vue'
   Vue.component(Loadmore.name, Loadmore)
@@ -70,86 +79,36 @@
     data () {
       return {
 //        allLoaded: false,
-        currentList: [
-          {
-            'id': 1,
-            'title': '驾驶员培训都有哪些流程？',
-            'content': '驾驶员培训需要有哪些培训课程和考试？',
-            'date': '2017-05-12 22:22:22',
-            'user_name': '张三',
-            'pic': 'http://08.imgmini.eastday.com/mobile/20170518/20170518092658_4954e954900ab71c12a7910df7323870_1_mwpm_03200403.jpeg',
-            'user_id': 1
-          },
-          {
-            'id': 1,
-            'title': '驾驶员培训都有哪些流程？',
-            'content': '驾驶员培训需要有哪些培训课程和考试？',
-            'date': '2017-05-12 22:22:22',
-            'user_name': '张三',
-            'pic': 'http://08.imgmini.eastday.com/mobile/20170518/20170518092658_4954e954900ab71c12a7910df7323870_1_mwpm_03200403.jpeg',
-            'user_id': 1
-          },
-          {
-            'id': 1,
-            'title': '驾驶员培训都有哪些流程？',
-            'content': '驾驶员培训需要有哪些培训课程和考试？',
-            'date': '2017-05-12 22:22:22',
-            'pic': 'http://08.imgmini.eastday.com/mobile/20170518/20170518092658_4954e954900ab71c12a7910df7323870_1_mwpm_03200403.jpeg',
-            'user_name': '张三',
-            'user_id': 1
-          },
-          {
-            'id': 1,
-            'title': '驾驶员培训都有哪些流程？',
-            'content': '驾驶员培训需要有哪些培训课程和考试？',
-            'date': '2017-05-12 22:22:22',
-            'pic': 'http://08.imgmini.eastday.com/mobile/20170518/20170518092658_4954e954900ab71c12a7910df7323870_1_mwpm_03200403.jpeg',
-            'user_name': '张三',
-            'user_id': 1
-          },
-          {
-            'id': 1,
-            'title': '驾驶员培训都有哪些流程？',
-            'content': '驾驶员培训需要有哪些培训课程和考试？',
-            'date': '2017-05-12 22:22:22',
-            'pic': 'http://08.imgmini.eastday.com/mobile/20170518/20170518092658_4954e954900ab71c12a7910df7323870_1_mwpm_03200403.jpeg',
-            'user_name': '张三',
-            'user_id': 1
-          },
-          {
-            'id': 1,
-            'title': '驾驶员培训都有哪些流程？',
-            'content': '驾驶员培训需要有哪些培训课程和考试？',
-            'date': '2017-05-12 22:22:22',
-            'pic': 'http://08.imgmini.eastday.com/mobile/20170518/20170518092658_4954e954900ab71c12a7910df7323870_1_mwpm_03200403.jpeg',
-            'user_name': '张三',
-            'user_id': 1
-          },
-          {
-            'id': 1,
-            'title': '驾驶员培训都有哪些流程？',
-            'content': '驾驶员培训需要有哪些培训课程和考试？',
-            'date': '2017-05-12 22:22:22',
-            'pic': 'http://08.imgmini.eastday.com/mobile/20170518/20170518092658_4954e954900ab71c12a7910df7323870_1_mwpm_03200403.jpeg',
-            'user_name': '张三',
-            'user_id': 1
-          },
-          {
-            'id': 1,
-            'title': '驾驶员培训都有哪些流程？',
-            'content': '驾驶员培训需要有哪些培训课程和考试？',
-            'date': '2017-05-12 22:22:22',
-            'pic': 'http://08.imgmini.eastday.com/mobile/20170518/20170518092658_4954e954900ab71c12a7910df7323870_1_mwpm_03200403.jpeg',
-            'user_name': '张三',
-            'user_id': 1
-          }
-        ]
+        currentList: [],
+        user: {}
       }
     },
+    created () {
+      if (getUserInfo().realName !== undefined) {
+        this.user = Object.assign({}, getUserInfo())
+      }
+      this._initialData()
+    },
     methods: {
+      _initialData () {
+        getQuesList(2).then(res => {
+          res = res.data
+          if (res instanceof Array) {
+            this.currentList = res.map((item) => {
+              return {
+                id: item.id,
+                title: item.title,
+                content: item.content,
+                status: item.status === 'TO_BE_ANSWER' ? '等待回答' : '已回答',
+                date: item.askTimeStr
+              }
+            })
+          }
+        })
+      },
       loadTop () {
-        console.log('load more..')
-        this.$refs.loadmore.onTopLoaded()
+        this._initialData()
+        this.$refs.loadMore.onTopLoaded()
       }
     },
     components: {
@@ -162,7 +121,6 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   & > .interlocution-wrapper
-    padding-top 2.6rem
     background #fff
     & > .header
       display flex
@@ -185,21 +143,22 @@
             & > .icon-xiaoxi
               font-size 0
               color #fff
+            & > .icon-bianji
+              color #fff
       & > .title
         font-size 18px
 
     & > .search-box
       position fixed
-      z-index 100
-      width 100%
       top 1.1733rem
+      width 100%
       background #fff
     & > .nav
       position fixed
       z-index 100
-      width 100%
+      top 2.8rem
+      width 99.8%
       padding .24rem 0
-      border-bottom 1px solid #f0f0f0
       font-size 0
       background #fff
       & > .nav-item
@@ -217,12 +176,16 @@
           vertical-align top
           display inline-block
     & > .body
-      position relative
-      height 100%
-      padding-top 1.3rem
+      margin-top 4rem
       padding-bottom 1.3777rem
-      min-height 12.8rem
       background #f0f0f0
+      &>.mint-loadmore-content
+        & > .ques-body
+          & > .no-more
+            padding .24rem 0
+            color #ccc
+            text-align center
+            font-size 14px
 
   .ques-item
     padding .24rem
@@ -257,7 +220,13 @@
         text-overflow ellipsis
         font-size 14px
     & > .date
+      display inline-block
       margin-top .4rem
+      font-size 12px
+      color #ccc
+      margin-right .3rem
+    & > .status
+      display inline-block
       font-size 12px
       color #ccc
 </style>

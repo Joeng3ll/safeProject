@@ -41,7 +41,9 @@
         this.$router.go(-1)
       },
       _initialData () {
-        this.quesContent = getQuesContentStorage().content
+        if (getQuesContentStorage() !== 'undefined' && getQuesContentStorage() !== null) {
+          this.quesContent = getQuesContentStorage().content
+        }
       },
       next () {
         if (this.quesContent === '' || this.quesContent.length === 0) {

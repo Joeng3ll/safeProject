@@ -59,6 +59,9 @@ export function setQuesTitleStorage(value) {
   window.localStorage.setItem(QUES_TITLE, JSON.stringify(value))
 }
 export function getQuesTitleStorage() {
+  if (window.localStorage.getItem(QUES_TITLE) === 'undefined') {
+    setQuesTitleStorage(null)
+  }
   return JSON.parse(window.localStorage.getItem(QUES_TITLE) || null)
 }
 
@@ -67,11 +70,15 @@ export function setQuesContentStorage(value) {
   window.localStorage.setItem(QUES_CONTENT, JSON.stringify(value))
 }
 export function getQuesContentStorage() {
+  if (window.localStorage.getItem(QUES_CONTENT) === 'undefined') {
+    setQuesContentStorage(null)
+  }
   return JSON.parse(window.localStorage.getItem(QUES_CONTENT) || null)
 }
 
 //移除某个缓存
-export function removeItem(key) {
-  window.localStorage.removeItem(key)
+export function removeQuesItem() {
+  window.localStorage.removeItem(QUES_TITLE)
+  window.localStorage.removeItem(QUES_CONTENT)
 }
 

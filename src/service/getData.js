@@ -138,6 +138,27 @@ if (process.env.NODE_ENV !== 'development') {
       })
     })
   }
+
+  /*
+   *  提交问题
+   * */
+  var commitQues = (suggestOrgId, title, content) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/qa?suggestOrgId=${suggestOrgId}&title=${title}&content=${content}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+  /*
+   *  获取问题列表
+   * */
+  var getQuesList = (type) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/qa/asks?type=${type}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
 } else {
   var getNews = (newsType) => {
     return new Promise((resolve, reject) => {
@@ -205,6 +226,22 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
 
+  var getQuesList = (type) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/qa/asks?type=${type}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  var commitQues = (suggestOrgId, title, content) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/qa?suggestOrgId=${suggestOrgId}&title=${title}&content=${content}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
   var getAttendanceDays = () => mockData(attendance)
 
   var getHourRecord = () => mockData(hourRecord)
@@ -219,8 +256,10 @@ export {
   loginIn,
   loginOut,
   getContact,
+  getQuesList,
   getArchives,
   getSuperOrgId,
+  commitQues,
   getAttendanceDays,
   getHourRecord,
   getHaulRecord,

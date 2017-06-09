@@ -48,7 +48,9 @@
       },
       _initialData () {
         let res = getQuesTitleStorage()
-        this.quesTitle = res.title
+        if (res !== 'undefined' && res !== null) {
+          this.quesTitle = res.title
+        }
       }
     }
   }

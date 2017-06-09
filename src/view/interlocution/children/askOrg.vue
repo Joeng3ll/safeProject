@@ -7,7 +7,7 @@
         </span>
       </section>
       <section class="scan icon-sec">
-        <span class="icon-box href-text" @click="commit">
+        <span class="icon-box href-text" @click="commitQs">
           提交
         </span>
       </section>
@@ -23,8 +23,8 @@
 <script type="text/ecmascript-6">
   import Vue from 'vue'
   import {Checklist, Toast} from 'mint-ui'
-  import {getSuperOrgId} from 'service/getData'
-  import {getUserInfo} from '../../../config/storage'
+  import {getSuperOrgId, commitQues} from 'service/getData'
+  import {getUserInfo, getQuesTitleStorage, getQuesContentStorage, removeQuesItem} from '../../../config/storage'
   Vue.component(Checklist.name, Checklist)
   Vue.component(Toast.name, Toast)
   export default {
@@ -33,7 +33,8 @@
         orgId: [],
         errText: '',
         maxCheck: 1,
-        options: []
+        options: [],
+        quesId: 0
       }
     },
     created () {
@@ -57,11 +58,23 @@
           })
         })
       },
-      commit () {
+      commitQs () {
+//        获得缓存中的问题标题和内容
+        let title = getQuesTitleStorage().title
+        let content = getQuesContentStorage().content
         if (this.orgId && this.orgId.length > 0) {
 //           提交数据、清空缓存问题
-          this._initialToast()
-          console.log(this.orgId)
+          commitQues(this.orgId[0], title, content).then(res => {
+            this._initialToast()
+            if (res.status === 200) {
+              this.quesId = res.data
+            }
+          }).then(() => {
+            setTimeout(() => {
+              this.$router.replace(`/interlocution/qa/${this.quesId}`)
+            }, 500)
+            removeQuesItem()
+          })
         } else {
           this.errText = '请选择提问组织!!'
         }
@@ -73,7 +86,7 @@
         })
         setTimeout(() => {
           toast.close()
-        }, 2000)
+        }, 500)
       }
     }
   }
