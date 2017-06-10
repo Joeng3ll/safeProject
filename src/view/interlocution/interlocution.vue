@@ -21,10 +21,11 @@
     </div>
     <!--问题导航-->
     <nav class="nav">
-      <section class="nav-item">
+      <section class="nav-item" :class="{active:currentType===selectType.ALL}" @click="changeType(selectType.ALL)">
         <p class="text">我的问题</p>
       </section>
-      <section class="nav-item">
+      <section class="nav-item" :class="{active:currentType===selectType.MYQUES}"
+               @click="changeType(selectType.MYQUES)">
         <i class="icon-wenda icon"></i>
         <p class="text">待解决</p>
       </section>
@@ -36,7 +37,7 @@
     <!--问题列表-->
     <mt-loadmore ref="loadMore" :top-method="loadTop" class="body">
       <div class="ques-body">
-        <section class="ques-item" v-for="ques in currentList">
+        <section class="ques-item" v-for="ques in currentList" @click="intoQues(ques.id)">
           <!--提问者资料-->
           <div class="user-profile">
             <img :src="user.photo" class="avator">
@@ -63,6 +64,7 @@
       </div>
     </mt-loadmore>
     <footer-navigator></footer-navigator>
+    <loading ref="loadCpt"></loading>
     <router-view></router-view>
   </div>
 </template>
@@ -72,26 +74,37 @@
   import Search from 'components/search/search'
   import {getQuesList} from '../../service/getData'
   import {getUserInfo} from '../../config/storage'
+  import Loading from '../../components/loading/loading.vue'
   import {Loadmore} from 'mint-ui'
   import Vue from 'vue'
   Vue.component(Loadmore.name, Loadmore)
+  const ALL = 2
+  const MYQUES = 4
   export default {
     data () {
       return {
 //        allLoaded: false,
         currentList: [],
-        user: {}
+        user: {},
+//       选择列表类别 2：我的问题／全部问题 4：我的提问
+        currentType: ALL,
+        selectType: {
+          ALL,
+          MYQUES
+        }
       }
     },
-    created () {
+    mounted () {
       if (getUserInfo().realName !== undefined) {
         this.user = Object.assign({}, getUserInfo())
       }
       this._initialData()
     },
     methods: {
+//        初始化列表
       _initialData () {
-        getQuesList(2).then(res => {
+        this.$refs.loadCpt.openLoading()
+        getQuesList(this.currentType).then(res => {
           res = res.data
           if (res instanceof Array) {
             this.currentList = res.map((item) => {
@@ -104,16 +117,32 @@
               }
             })
           }
+        }).then(() => {
+          this.$refs.loadCpt.closeLoading()
         })
       },
       loadTop () {
         this._initialData()
         this.$refs.loadMore.onTopLoaded()
+      },
+//     查看不同类别的问题
+      changeType (type) {
+        if (this.currentType === type) {
+          return
+        } else {
+          this.currentType = this.currentType === ALL ? MYQUES : ALL
+        }
+        this._initialData()
+      },
+//      查看问题详情
+      intoQues (id) {
+        this.$router.push(`/interlocution/qa/${id}`)
       }
     },
     components: {
       'footerNavigator': Footer,
-      'search': Search
+      'search': Search,
+      'loading': Loading
     }
   }
 
@@ -168,6 +197,8 @@
         text-align center
         font-size 16px
         color #989898
+        &.active
+          color #F03861
         &:not(:last-child)
           border-right 1px solid #ccc
         & > .text
@@ -176,57 +207,64 @@
           vertical-align top
           display inline-block
     & > .body
-      margin-top 4rem
+      position relative
+      overflow hidden
+      top 3.8rem
       padding-bottom 1.3777rem
       background #f0f0f0
-      &>.mint-loadmore-content
+      & > .mint-loadmore-content
         & > .ques-body
+          & > .ques-item
+            padding .24rem
+            background #fff
+            &:first-child
+              border-top .3rem solid #f0f0f0
+            &:not(:last-child)
+              margin-bottom .2rem
+            & > .user-profile
+              font-size 0
+              & > .avator
+                display inline-block
+                vertical-align top
+                width .66rem
+                height .66rem
+                border-radius 50%
+                margin-right .2rem
+              & > .name
+                line-height .66rem
+                font-size 14px
+                color #989898
+            & > .ques-text
+              margin-top .3rem
+              & > .ques-header
+                width 60%
+                font-size 18px
+                overflow hidden
+                text-overflow ellipsis
+                white-space nowrap
+              & > .ques-content
+                margin-top .25rem
+                overflow hidden
+                white-space nowrap
+                text-overflow ellipsis
+                font-size 14px
+            & > .date
+              display inline-block
+              margin-top .4rem
+              font-size 12px
+              color #ccc
+              margin-right .3rem
+            & > .status
+              display inline-block
+              font-size 12px
+              color #ccc
+
           & > .no-more
             padding .24rem 0
             color #ccc
             text-align center
             font-size 14px
 
-  .ques-item
-    padding .24rem
-    background #fff
-    &:not(:last-child)
-      margin-bottom .2rem
-    & > .user-profile
-      font-size 0
-      & > .avator
-        display inline-block
-        vertical-align top
-        width .66rem
-        height .66rem
-        border-radius 50%
-        margin-right .2rem
-      & > .name
-        line-height .66rem
-        font-size 14px
-        color #989898
-    & > .ques-text
-      margin-top .3rem
-      & > .ques-header
-        width 60%
-        font-size 18px
-        overflow hidden
-        text-overflow ellipsis
-        white-space nowrap
-      & > .ques-content
-        margin-top .25rem
-        overflow hidden
-        white-space nowrap
-        text-overflow ellipsis
-        font-size 14px
-    & > .date
-      display inline-block
-      margin-top .4rem
-      font-size 12px
-      color #ccc
-      margin-right .3rem
-    & > .status
-      display inline-block
-      font-size 12px
-      color #ccc
+  .mint-loadmore-text
+    color #ccc
 </style>

@@ -159,6 +159,40 @@ if (process.env.NODE_ENV !== 'development') {
       })
     })
   }
+
+  /*
+   *  查看问题详情
+   * */
+  var getQuesMore = (ques_id) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/qa/ask/${ques_id}`).then((res) => {
+        resolve(res)
+      })
+    })
+  }
+
+  /*
+   * 获取问题回答列表
+   * */
+  var getQuesAs = (ques_id) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/qa/ask/${ques_id}/answers`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  /*
+   *  回答问题
+   * */
+  var postQuesAs = (ques_id, content) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/qa/ask/${ques_id}/answer?content=${content}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
 } else {
   var getNews = (newsType) => {
     return new Promise((resolve, reject) => {
@@ -169,6 +203,7 @@ if (process.env.NODE_ENV !== 'development') {
       })
     })
   }
+
   var loginIn = (user) => {
     console.log(process.env.NODE_ENV)
     return new Promise((resolve, reject) => {
@@ -242,6 +277,30 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
 
+  var getQuesMore = (ques_id) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/qa/ask/${ques_id}`).then((res) => {
+        resolve(res)
+      })
+    })
+  }
+
+  var getQuesAs = (ques_id) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/qa/ask/${ques_id}/answers`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  var postQuesAs = (ques_id, content) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/qa/ask/${ques_id}/answer?content=${content}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
   var getAttendanceDays = () => mockData(attendance)
 
   var getHourRecord = () => mockData(hourRecord)
@@ -257,9 +316,12 @@ export {
   loginOut,
   getContact,
   getQuesList,
+  getQuesAs,
+  postQuesAs,
   getArchives,
   getSuperOrgId,
   commitQues,
+  getQuesMore,
   getAttendanceDays,
   getHourRecord,
   getHaulRecord,

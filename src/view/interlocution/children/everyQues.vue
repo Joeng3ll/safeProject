@@ -10,7 +10,7 @@
         问题详情
       </section>
       <section class="scan icon-sec">
-        <router-link to="/interlocution/askTitle" class="icon-box">
+        <router-link to="" class="icon-box">
           <i class="icon-gengduo"></i>
         </router-link>
       </section>
@@ -20,6 +20,18 @@
         <section class="ques-item">
           <img :src="user.photo" class="avator">
           <span class="username">{{user.realName}}</span>
+          <span class="date">{{ques.askTimeStr}}</span>
+        </section>
+        <!--问题标题、内容开始-->
+        <section class="ques-item">
+          <p class="text title">{{ques.title}}</p>
+          <p class="text">{{ques.content}}</p>
+        </section>
+        <!--问题标题、内容结束-->
+        <!--问题状态、时间-->
+        <section class="ques-item last-item">
+          <span class="askOrg">建议回答人：{{ques.askOrgName}}</span>
+          <span class="status">{{status}}</span>
         </section>
       </article>
     </mt-loadmore>
@@ -29,6 +41,7 @@
 <script type="text/ecmascript-6">
   import {Loadmore} from 'mint-ui'
   import {getUserInfo} from '../../../config/storage'
+  import {getQuesMore} from 'service/getData'
   import Vue from 'vue'
   Vue.component(Loadmore.name, Loadmore)
   export default {
@@ -45,13 +58,25 @@
     methods: {
       _initialData () {
         this.user = getUserInfo()
-        if (this.user.photo !== undefined && this.user.photo === null) {
-          this.user.photo = 'http://08.imgmini.eastday.com/mobile/20170607/20170607122123_3ca1c7688b197ceb6e91a522153fa95f_1_mwpm_03200403.jpeg'
-        }
+        let quesId = this.$route.params.id
+        getQuesMore(quesId).then((res) => {
+          if (res.status === 200) {
+            this.ques = Object.assign({}, res.data)
+          }
+        })
       },
       loadTop () {
 //          重定位
         this.$refs.loadMore.onTopLoaded()
+      }
+    },
+    computed: {
+      status () {
+        let str = ''
+        if (this.ques.status) {
+          str = this.ques.status === 'TO_BE_ANSWER' ? '等待回答' : '已回复'
+        }
+        return str
       }
     }
   }
@@ -101,14 +126,34 @@
           & > .ques-item
             color #989898
             font-size 0
+            margin-bottom .6rem
+            &.last-item
+              margin-top 1.5rem
+              margin-bottom .2rem
             & > .avator
               width 1rem
               height 1rem
               vertical-align top
               margin-right .2rem
               border-radius 50%
-            &>.username
+            & > .username
               display inline-block
               line-height 1rem
               font-size 14px
+            & > .date
+              float right
+              line-height 1rem
+              font-size 12px
+            & > .text
+              color rgb(7, 17, 27)
+              line-height 24px
+              font-size 16px
+              &.title
+                font-size 18px
+                margin-bottom .3rem
+            & > .status, & > .askOrg
+              font-size 14px
+            & > .status
+              float right
+
 </style>
