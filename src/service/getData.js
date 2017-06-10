@@ -187,9 +187,62 @@ if (process.env.NODE_ENV !== 'development') {
    * */
   var postQuesAs = (ques_id, content) => {
     return new Promise((resolve, reject) => {
-      vm.$http.post(`${BASE_URL}/qa/ask/${ques_id}/answer?content=${content}`).then(res => {
+      vm.$http.post(`${BASE_URL}/qa/${ques_id}/answer?content=${content}`).then(res => {
         resolve(res)
       })
+    })
+  }
+
+  /*
+   *  删除问题
+   * */
+  var deleteQues = (ques_id) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.delete(`${BASE_URL}/qa/${ques_id}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  /*
+   *  设为结帖
+   * */
+  var closeQues = (ques_id) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.put(`${BASE_URL}/qa/${ques_id}/close`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  /*
+   * 删除回答
+   * */
+  var deleteAs = (answerId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.delete(`${BASE_URL}/qa/answer/${answerId}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  /*
+   *  标记回答为采纳
+   * */
+  var recommendAs = (answerId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.put(`${BASE_URL}/qa/answer/${answerId}/recommend`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  /*
+   *  上班打卡
+   * */
+  var checkIn = (driverId, carNo) => {
+    return new Promise((resolve, reject) => {
+
     })
   }
 
@@ -301,6 +354,38 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
 
+  var deleteQues = (ques_id) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.delete(`${BASE_URL}/qa/${ques_id}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  var closeQues = (ques_id) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.put(`${BASE_URL}/qa/${ques_id}/close`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  var deleteAs = (answerId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.delete(`${BASE_URL}/qa/answer/${answerId}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  var recommendAs = (answerId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.put(`${BASE_URL}/qa/answer/${answerId}/recommend`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
   var getAttendanceDays = () => mockData(attendance)
 
   var getHourRecord = () => mockData(hourRecord)
@@ -318,6 +403,10 @@ export {
   getQuesList,
   getQuesAs,
   postQuesAs,
+  deleteQues,
+  closeQues,
+  deleteAs,
+  recommendAs,
   getArchives,
   getSuperOrgId,
   commitQues,

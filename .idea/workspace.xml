@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e79c5e2-49ec-41d3-9199-3950949c43d5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/getData.js" afterPath="$PROJECT_DIR$/src/service/getData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/interlocution/children/everyQues.vue" afterPath="$PROJECT_DIR$/src/view/interlocution/children/everyQues.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/interlocution/interlocution.vue" afterPath="$PROJECT_DIR$/src/view/interlocution/interlocution.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -117,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getData.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="getData.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/service/getData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1387">
-              <caret line="154" column="20" lean-forward="true" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="20" />
+            <state relative-caret-position="304">
+              <caret line="244" column="0" lean-forward="false" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
               <folding>
                 <element signature="e#831#1092#0" expanded="false" />
                 <element signature="e#1140#1454#0" expanded="false" />
@@ -138,22 +135,48 @@
                 <element signature="e#3528#3684#0" expanded="false" />
                 <element signature="e#3744#3906#0" expanded="false" />
                 <element signature="e#3864#3894#0" expanded="false" />
-                <element signature="e#3973#4154#0" expanded="false" />
-                <element signature="e#4112#4142#0" expanded="false" />
-                <element signature="e#4195#4456#0" expanded="false" />
-                <element signature="e#4484#4836#0" expanded="false" />
-                <element signature="e#4866#5067#0" expanded="false" />
-                <element signature="e#5092#5290#0" expanded="false" />
-                <element signature="e#5318#5474#0" expanded="false" />
-                <element signature="e#5506#5670#0" expanded="false" />
-                <element signature="e#5705#5860#0" expanded="false" />
-                <element signature="e#5892#6049#0" expanded="false" />
-                <element signature="e#6104#6307#0" expanded="false" />
-                <element signature="e#6342#6498#0" expanded="false" />
-                <element signature="e#6531#6693#0" expanded="false" />
-                <element signature="e#6736#6917#0" expanded="false" />
-                <element signature="e#6875#6905#0" expanded="false" />
+                <element signature="e#3973#4150#0" expanded="false" />
+                <element signature="e#4108#4138#0" expanded="false" />
+                <element signature="e#4208#4361#0" expanded="false" />
+                <element signature="e#4319#4349#0" expanded="false" />
+                <element signature="e#4418#4574#0" expanded="false" />
+                <element signature="e#4532#4562#0" expanded="false" />
+                <element signature="e#4630#4791#0" expanded="false" />
+                <element signature="e#4749#4779#0" expanded="false" />
+                <element signature="e#4854#5022#0" expanded="false" />
+                <element signature="e#4980#5010#0" expanded="false" />
+                <element signature="e#5185#5446#0" expanded="false" />
+                <element signature="e#5474#5826#0" expanded="false" />
+                <element signature="e#5856#6057#0" expanded="false" />
+                <element signature="e#6082#6280#0" expanded="false" />
+                <element signature="e#6308#6464#0" expanded="false" />
+                <element signature="e#6496#6660#0" expanded="false" />
+                <element signature="e#6695#6850#0" expanded="false" />
+                <element signature="e#6882#7039#0" expanded="false" />
+                <element signature="e#7094#7297#0" expanded="false" />
+                <element signature="e#7332#7488#0" expanded="false" />
+                <element signature="e#7521#7683#0" expanded="false" />
+                <element signature="e#7726#7907#0" expanded="false" />
+                <element signature="e#7865#7895#0" expanded="false" />
+                <element signature="e#7941#8094#0" expanded="false" />
+                <element signature="e#8052#8082#0" expanded="false" />
+                <element signature="e#8127#8283#0" expanded="false" />
+                <element signature="e#8241#8271#0" expanded="false" />
+                <element signature="e#8316#8477#0" expanded="false" />
+                <element signature="e#8435#8465#0" expanded="false" />
+                <element signature="e#8513#8681#0" expanded="false" />
+                <element signature="e#8639#8669#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="html5缓存.md" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/folder/source/_posts/html5缓存.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -256,12 +279,12 @@
         <option value="$USER_HOME$/folder/themes/anatole/layout/partial/footer.jade" />
         <option value="$USER_HOME$/folder/themes/anatole/layout/partial/nav.jade" />
         <option value="$USER_HOME$/folder/themes/anatole/layout/partial/sidebar.jade" />
-        <option value="$USER_HOME$/folder/source/_posts/html5缓存.md" />
         <option value="$PROJECT_DIR$/src/view/home/home.vue" />
         <option value="$PROJECT_DIR$/src/view/interlocution/interlocution.vue" />
         <option value="$PROJECT_DIR$/src/config/storage.js" />
         <option value="$PROJECT_DIR$/src/view/interlocution/children/everyQues.vue" />
         <option value="$PROJECT_DIR$/src/service/getData.js" />
+        <option value="$USER_HOME$/folder/source/_posts/html5缓存.md" />
       </list>
     </option>
   </component>
@@ -277,8 +300,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="277" />
-    <option name="y" value="87" />
+    <option name="x" value="356" />
+    <option name="y" value="206" />
     <option name="width" value="1026" />
     <option name="height" value="603" />
   </component>
@@ -738,20 +761,20 @@
       <workItem from="1495951497339" duration="4685000" />
       <workItem from="1496031769875" duration="14218000" />
       <workItem from="1496374837135" duration="49381000" />
-      <workItem from="1496503737333" duration="70464000" />
+      <workItem from="1496503737333" duration="72950000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359412000" />
+    <option name="totallyTimeSpent" value="361898000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="277" y="87" width="1026" height="603" extended-state="0" />
+    <frame x="356" y="206" width="1026" height="603" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.055721395" sideWeight="0.7592955" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32289627" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1180,14 +1203,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/folder/source/_posts/html5缓存.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="57" column="4" lean-forward="false" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -1288,8 +1303,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/getData.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1387">
-          <caret line="154" column="20" lean-forward="true" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="20" />
+        <state relative-caret-position="304">
+          <caret line="244" column="0" lean-forward="false" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
           <folding>
             <element signature="e#831#1092#0" expanded="false" />
             <element signature="e#1140#1454#0" expanded="false" />
@@ -1306,22 +1321,46 @@
             <element signature="e#3528#3684#0" expanded="false" />
             <element signature="e#3744#3906#0" expanded="false" />
             <element signature="e#3864#3894#0" expanded="false" />
-            <element signature="e#3973#4154#0" expanded="false" />
-            <element signature="e#4112#4142#0" expanded="false" />
-            <element signature="e#4195#4456#0" expanded="false" />
-            <element signature="e#4484#4836#0" expanded="false" />
-            <element signature="e#4866#5067#0" expanded="false" />
-            <element signature="e#5092#5290#0" expanded="false" />
-            <element signature="e#5318#5474#0" expanded="false" />
-            <element signature="e#5506#5670#0" expanded="false" />
-            <element signature="e#5705#5860#0" expanded="false" />
-            <element signature="e#5892#6049#0" expanded="false" />
-            <element signature="e#6104#6307#0" expanded="false" />
-            <element signature="e#6342#6498#0" expanded="false" />
-            <element signature="e#6531#6693#0" expanded="false" />
-            <element signature="e#6736#6917#0" expanded="false" />
-            <element signature="e#6875#6905#0" expanded="false" />
+            <element signature="e#3973#4150#0" expanded="false" />
+            <element signature="e#4108#4138#0" expanded="false" />
+            <element signature="e#4208#4361#0" expanded="false" />
+            <element signature="e#4319#4349#0" expanded="false" />
+            <element signature="e#4418#4574#0" expanded="false" />
+            <element signature="e#4532#4562#0" expanded="false" />
+            <element signature="e#4630#4791#0" expanded="false" />
+            <element signature="e#4749#4779#0" expanded="false" />
+            <element signature="e#4854#5022#0" expanded="false" />
+            <element signature="e#4980#5010#0" expanded="false" />
+            <element signature="e#5185#5446#0" expanded="false" />
+            <element signature="e#5474#5826#0" expanded="false" />
+            <element signature="e#5856#6057#0" expanded="false" />
+            <element signature="e#6082#6280#0" expanded="false" />
+            <element signature="e#6308#6464#0" expanded="false" />
+            <element signature="e#6496#6660#0" expanded="false" />
+            <element signature="e#6695#6850#0" expanded="false" />
+            <element signature="e#6882#7039#0" expanded="false" />
+            <element signature="e#7094#7297#0" expanded="false" />
+            <element signature="e#7332#7488#0" expanded="false" />
+            <element signature="e#7521#7683#0" expanded="false" />
+            <element signature="e#7726#7907#0" expanded="false" />
+            <element signature="e#7865#7895#0" expanded="false" />
+            <element signature="e#7941#8094#0" expanded="false" />
+            <element signature="e#8052#8082#0" expanded="false" />
+            <element signature="e#8127#8283#0" expanded="false" />
+            <element signature="e#8241#8271#0" expanded="false" />
+            <element signature="e#8316#8477#0" expanded="false" />
+            <element signature="e#8435#8465#0" expanded="false" />
+            <element signature="e#8513#8681#0" expanded="false" />
+            <element signature="e#8639#8669#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/folder/source/_posts/html5缓存.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
