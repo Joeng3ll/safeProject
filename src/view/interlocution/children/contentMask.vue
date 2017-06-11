@@ -22,6 +22,9 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import {Toast} from 'mint-ui'
+  import Vue from 'vue'
+  Vue.component(Toast.name, Toast)
   export default {
     props: ['isCloseQues'],
     data () {
@@ -40,6 +43,15 @@
 //      删除问题
       deleteQues () {
         this.$emit('toDeleteQues')
+      },
+//      提示：结帖成功
+      _initialToast (msg) {
+        let toast = Toast({
+          message: msg
+        })
+        setTimeout(() => {
+          toast.close()
+        }, 500)
       }
     }
   }

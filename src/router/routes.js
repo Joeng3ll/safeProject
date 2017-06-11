@@ -23,6 +23,8 @@ import AskContent from 'view/interlocution/children/askContent'
 import AskOrg from 'view/interlocution/children/askOrg'
 import EveryQues from 'view/interlocution/children/everyQues'
 import Login from 'view/login/login'
+import Announce from 'view/announce/announce'
+import EveryAnnounce from 'view/announce/children/everyAnnounce'
 
 export default [
   {path: '', redirect: '/home'},
@@ -166,6 +168,23 @@ export default [
           requireAuth: true
         },
         component: test
+      }
+    ]
+  },
+  // 通知信息
+  {
+    path: '/announce',
+    component: Announce,
+    meta: {
+      requireAuth: true
+    },
+    children: [
+      {
+        path: ':id',
+        component: EveryAnnounce,
+        meta: {
+          requireAuth: true
+        }
       }
     ]
   }

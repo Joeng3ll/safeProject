@@ -55,7 +55,7 @@
           </div>
           <!--问题状态-->
           <div class="status">
-            {{ques.status}}
+            {{ques.status | formateStatus}}
           </div>
         </section>
         <aside class="no-more">
@@ -107,12 +107,12 @@
         getQuesList(this.currentType).then(res => {
           res = res.data
           if (res instanceof Array) {
-            this.currentList = res.map((item) => {
+            this.currentList = res.map(function (item) {
               return {
                 id: item.id,
                 title: item.title,
                 content: item.content,
-                status: item.status === 'TO_BE_ANSWER' ? '等待回答' : '已回答',
+                status: item.status,
                 date: item.askTimeStr
               }
             })
@@ -143,6 +143,24 @@
       'footerNavigator': Footer,
       'search': Search,
       'loading': Loading
+    },
+    filters: {
+      formateStatus (status) {
+        let str = ''
+        switch (status) {
+//            todo 应该和每个问题中的state合并
+          case 'TO_BE_ANSWER':
+            str = '等待回答'
+            break
+          case 'ANSWERED':
+            str = '已回答'
+            break
+          case 'CLOSED':
+            str = '已结帖'
+            break
+        }
+        return str
+      }
     }
   }
 
@@ -214,6 +232,7 @@
       background #f0f0f0
       & > .mint-loadmore-content
         & > .ques-body
+          min-height 12.6rem
           & > .ques-item
             padding .24rem
             background #fff

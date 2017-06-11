@@ -270,6 +270,25 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
 
+  /*
+   *  发送消息
+   * */
+  var sendMsg = (senderId, receiverId, content) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}//communication/make/${senderId}/${receiverId}?content=${content}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  /*
+   *  接收消息
+   * */
+  var receiveMsg = (senderId, receiverId) => {
+    return new Promise((resolve, reject) => {
+      
+    })
+  }
 } else {
   var getNews = (newsType) => {
     return new Promise((resolve, reject) => {
@@ -434,6 +453,14 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
 
+  var sendMsg = (senderId, receiverId, content) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}//communication/make/${senderId}/${receiverId}?content=${content}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
   var getAttendanceDays = () => mockData(attendance)
 
   var getHourRecord = () => mockData(hourRecord)
@@ -457,6 +484,7 @@ export {
   recommendAs,
   checkIn,
   checkOut,
+  sendMsg,
   getAttendance,
   getArchives,
   getSuperOrgId,

@@ -1,6 +1,8 @@
 <template>
   <div class="msgCmp-wrapper">
-    <i class="icon icon-xiaoxi"></i>
+    <router-link to="/announce">
+      <i class="icon icon-xiaoxi1"></i>
+    </router-link>
   </div>
 </template>
 
@@ -15,7 +17,8 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-.msgCmp-wrapper
-  .icon
-    font-size .5866667rem
+  .msgCmp-wrapper
+    .icon
+      color #fff
+      font-size .5866667rem
 </style>

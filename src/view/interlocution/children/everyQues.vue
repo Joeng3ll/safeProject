@@ -42,7 +42,7 @@
 <script type="text/ecmascript-6">
   import {Loadmore} from 'mint-ui'
   import {getUserInfo} from '../../../config/storage'
-  import {getQuesMore} from 'service/getData'
+  import {getQuesMore, closeQues, deleteQues} from 'service/getData'
   import ContentMask from './contentMask.vue'
   import Vue from 'vue'
   Vue.component(Loadmore.name, Loadmore)
@@ -67,18 +67,35 @@
           }
         })
       },
+//      上拉刷新
       loadTop () {
 //          重定位
         this.$refs.loadMore.onTopLoaded()
       },
+//      显示更多问题操作
       showMore () {
         this.$refs.contentMask.changeIsShow()
       },
+//      结帖
       closeQues () {
-        console.log('close')
+        closeQues(this.ques.id).then(res => {
+//          提示成功
+          this.$refs.contentMask._initialToast('结帖成功')
+        }).then(() => {
+          setTimeout(() => {
+            this.$router.go(0)
+          }, 600)
+        })
       },
+//      删除问题
       deleteQues () {
-        console.log('delete')
+        deleteQues(this.ques.id).then(res => {
+          this.$refs.contentMask._initialToast('删除成功')
+        }).then(() => {
+          setTimeout(() => {
+            this.$router.replace('/interlocution')
+          }, 600)
+        })
       }
     },
     computed: {
