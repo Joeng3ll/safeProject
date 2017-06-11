@@ -9,7 +9,7 @@
       <section class="title">
         问题详情
       </section>
-      <section class="scan icon-sec">
+      <section class="scan icon-sec" @click="showMore">
         <router-link to="" class="icon-box">
           <i class="icon-gengduo"></i>
         </router-link>
@@ -35,6 +35,7 @@
         </section>
       </article>
     </mt-loadmore>
+    <more ref="contentMask" :isCloseQues="isCloseQues" @toCloseQues="closeQues" @toDeleteQues="deleteQues"></more>
   </div>
 </template>
 
@@ -42,6 +43,7 @@
   import {Loadmore} from 'mint-ui'
   import {getUserInfo} from '../../../config/storage'
   import {getQuesMore} from 'service/getData'
+  import ContentMask from './contentMask.vue'
   import Vue from 'vue'
   Vue.component(Loadmore.name, Loadmore)
   export default {
@@ -68,16 +70,39 @@
       loadTop () {
 //          重定位
         this.$refs.loadMore.onTopLoaded()
+      },
+      showMore () {
+        this.$refs.contentMask.changeIsShow()
+      },
+      closeQues () {
+        console.log('close')
+      },
+      deleteQues () {
+        console.log('delete')
       }
     },
     computed: {
       status () {
         let str = ''
-        if (this.ques.status) {
-          str = this.ques.status === 'TO_BE_ANSWER' ? '等待回答' : '已回复'
+        switch (this.ques.status) {
+          case 'TO_BE_ANSWER':
+            str = '等待回答'
+            break
+          case 'ANSWERED':
+            str = '已回答'
+            break
+          case 'CLOSED':
+            str = '已结帖'
+            break
         }
         return str
+      },
+      isCloseQues () {
+        return this.status === '已结帖'
       }
+    },
+    components: {
+      'more': ContentMask
     }
   }
 

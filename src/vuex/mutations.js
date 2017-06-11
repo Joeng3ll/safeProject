@@ -1,7 +1,7 @@
 /**
  * Created by joeng on 2017/6/2.
  */
-import {setLoginStorage, setQuesTitleStorage, setQuesContentStorage} from '../config/storage'
+import {setLoginStorage, setQuesTitleStorage, setQuesContentStorage, setUserAccount} from '../config/storage'
 export default {
   editTitle (state, title) {
     let obj = {title}
@@ -20,6 +20,7 @@ export default {
   login (state, user) {
     if (user !== null) {
       setLoginStorage(true)
+      setUserAccount(user)
     }
   },
   loginOut (state) {

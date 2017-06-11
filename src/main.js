@@ -5,6 +5,8 @@ import App from './App'
 import router from './router/index'
 import './config/rem'
 import './common/stylus/index.styl'
+import {getDriverInfo} from 'service/getData'
+import {loginAgain} from './config/mUtils'
 import store from './vuex/index'
 import {getLoginStorage} from './config/storage'
 Vue.config.productionTip = false
@@ -22,13 +24,21 @@ new Vue({
 }).$mount('#app')
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
-    let isLogin = getLoginStorage()
-    // 检查登录信息 是否登录
-    if (isLogin !== 'true') {
-      next('/login')
-    } else {
-      next()
-    }
+    // 由于localStorage中保存的是string类型 所以转换成布尔值 方便比较
+    let isLogin = !!getLoginStorage()
+    let user = null
+    getDriverInfo().then(res => {
+      user = Object.assign({}, res)
+    }).then(() => {
+      if (isLogin === false) {
+        next('/login')
+      } else if (isLogin === true && user.userId === -1) {
+        loginAgain()
+        next()
+      } else {
+        next()
+      }
+    })
   } else {
     next()
   }

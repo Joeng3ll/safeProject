@@ -31,17 +31,23 @@ export default [
   {
     path: '/communication',
     component: Communication,
-    // 需要路由
+    // 需要路由验证全县
     meta: {
       requireAuth: true
     },
     children: [
       {
         path: ':id',
+        meta: {
+          requireAuth: true
+        },
         component: ContactProfile
       },
       {
         path: 'chat/:id',
+        meta: {
+          requireAuth: true
+        },
         component: Chat
       }
     ]
@@ -53,10 +59,34 @@ export default [
       requireAuth: true
     },
     children: [
-      {path: 'askTitle', component: AskTitle},
-      {path: 'askContent', component: AskContent},
-      {path: 'askOrg', component: AskOrg},
-      {path: 'qa/:id', component: EveryQues}
+      {
+        path: 'askTitle',
+        meta: {
+          requireAuth: true
+        },
+        component: AskTitle
+      },
+      {
+        path: 'askContent',
+        meta: {
+          requireAuth: true
+        },
+        component: AskContent
+      },
+      {
+        path: 'askOrg',
+        meta: {
+          requireAuth: true
+        },
+        component: AskOrg
+      },
+      {
+        path: 'qa/:id',
+        meta: {
+          requireAuth: true
+        },
+        component: EveryQues
+      }
     ]
   },
   {
@@ -67,25 +97,76 @@ export default [
     },
     children: [
       // 我的档案
-      {path: 'archives', component: Archives},
+      {
+        path: 'archives',
+        meta: {
+          requireAuth: true
+        },
+        component: Archives
+      },
       // 我的考勤记录
       {
         path: 'workRecord',
         component: WorkRecord,
+        meta: {
+          requireAuth: true
+        },
         children: [
           // 工时记录、运程记录、运量记录
-          {path: 'hourRecord', component: hourRecord},
-          {path: 'haulRecord', component: haulRecord},
-          {path: 'volumeRecord', component: volumeRecord},
-          {path: ':id', component: dayAttendance}
+          {
+            path: 'hourRecord',
+            meta: {
+              requireAuth: true
+            },
+            component: hourRecord
+          },
+          {
+            path: 'haulRecord',
+            meta: {
+              requireAuth: true
+            },
+            component: haulRecord
+          },
+          {
+            path: 'volumeRecord',
+            meta: {
+              requireAuth: true
+            },
+            component: volumeRecord
+          },
+          {
+            path: ':id',
+            meta: {
+              requireAuth: true
+            },
+            component: dayAttendance
+          }
         ]
       },
       // 我的事故记录
-      {path: 'accidentRecord', component: AccidentRecord},
+      {
+        path: 'accidentRecord',
+        meta: {
+          requireAuth: true
+        },
+        component: AccidentRecord
+      },
       // 我的培训
-      {path: 'training', component: training},
+      {
+        path: 'training',
+        meta: {
+          requireAuth: true
+        },
+        component: training
+      },
       // 我的考试
-      {path: 'test', component: test}
+      {
+        path: 'test',
+        meta: {
+          requireAuth: true
+        },
+        component: test
+      }
     ]
   }
 ]

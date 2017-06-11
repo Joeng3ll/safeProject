@@ -5,6 +5,7 @@
 /*
  * LOGIN_INFO:登录信息 是否登录
  * USER_INFO：登录用户信息
+ * USER_ACCOUNT: 用户账户信息
  * CONTACT_INFO:车队通讯录
  * QUES_TITLE:提问问题标题
  * QUES_CONTENT：提问问题内容
@@ -12,6 +13,7 @@
  * */
 const LOGIN_INFO = 'loginInfo'
 const USER_INFO = 'user'
+const USER_ACCOUNT = 'userAccount'
 const CONTACT_INFO = 'contact'
 const QUES_TITLE = 'question_title'
 const QUES_CONTENT = 'question_content'
@@ -31,6 +33,14 @@ export function setUserInfo(user) {
 export function getUserInfo() {
   let user = {}
   return JSON.parse(window.localStorage.getItem(USER_INFO) || user)
+}
+
+// 用户账户信息
+export function setUserAccount(user) {
+  window.localStorage.setItem(USER_ACCOUNT, JSON.stringify(user))
+}
+export function getUserAccount() {
+  return JSON.parse(window.localStorage.getItem(USER_ACCOUNT) || null)
 }
 
 //通讯录信息

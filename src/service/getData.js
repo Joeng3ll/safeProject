@@ -242,7 +242,31 @@ if (process.env.NODE_ENV !== 'development') {
    * */
   var checkIn = (driverId, carNo) => {
     return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/attendance/checkIn/driverId=${driverId}&carNo=${carNo}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
 
+  /*
+   *  下班打卡
+   * */
+  var checkOut = (driverId, carNo) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/attendance/checkOut/driverId=${driverId}&carNo=${carNo}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  /*
+   *  考勤记录
+   * */
+  var getAttendance = (driverId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/attendance/list/driverId=${driverId}`).then(res => {
+        resolve(res)
+      })
     })
   }
 
@@ -386,6 +410,30 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
 
+  var checkIn = (driverId, carNo) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/attendance/checkIn/driverId=${driverId}&carNo=${carNo}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  var checkOut = (driverId, carNo) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/attendance/checkOut/driverId=${driverId}&carNo=${carNo}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  var getAttendance = (driverId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/attendance/list/driverId=${driverId}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
   var getAttendanceDays = () => mockData(attendance)
 
   var getHourRecord = () => mockData(hourRecord)
@@ -407,6 +455,9 @@ export {
   closeQues,
   deleteAs,
   recommendAs,
+  checkIn,
+  checkOut,
+  getAttendance,
   getArchives,
   getSuperOrgId,
   commitQues,
