@@ -178,15 +178,15 @@ export default [
     meta: {
       requireAuth: true
     },
-    children: [
-      {
-        path: ':id',
-        component: EveryAnnounce,
-        meta: {
-          requireAuth: true
-        }
-      }
-    ]
+    children: []
+  },
+//  通知消息详情
+  {
+    path: '/announce/:id',
+    component: EveryAnnounce,
+    meta: {
+      requireAuth: true
+    }
   }
 ]
 

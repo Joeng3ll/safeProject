@@ -197,6 +197,7 @@
 
     & > .search-box
       position fixed
+      z-index 99
       top 1.1733rem
       width 100%
       background #fff

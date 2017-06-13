@@ -7,7 +7,7 @@
         </router-link>
       </section>
       <section class="title" @click="test()">
-        首页
+        我的消息
       </section>
       <section class="scan icon-sec">
         <i class="icon-gengduo"></i>
@@ -27,7 +27,7 @@
     <article class="body">
       <div class="slide-body">
         <mt-loadmore ref="loadMore" :top-method="topMethod">
-          <section class="announce-item" v-for="msg in msgList">
+          <section class="announce-item" v-for="msg in msgList" @click="intoAnnounce(msg.id)">
             <!--通知发布人头像-->
             <div class="avator">
               <i class="icon-tongzhi icon"></i>
@@ -46,7 +46,6 @@
       </div>
     </article>
     <!--消息列表结束-->
-    <router-view></router-view>
   </div>
 </template>
 
@@ -63,6 +62,7 @@
       return {
         msgList: [
           {
+            id: 1,
             title: '通知标题',
             content: '通知内容',
             by: '某车企',
@@ -70,6 +70,63 @@
             status: '待回复'
           },
           {
+            id: 2,
+            title: '通知标题',
+            content: '通知内容',
+            by: '某车企',
+            date: '昨天下午2:22',
+            status: '待回复'
+          },
+          {
+            id: 2,
+            title: '通知标题',
+            content: '通知内容',
+            by: '某车企',
+            date: '昨天下午2:22',
+            status: '待回复'
+          },
+          {
+            id: 2,
+            title: '通知标题',
+            content: '通知内容',
+            by: '某车企',
+            date: '昨天下午2:22',
+            status: '待回复'
+          },
+          {
+            id: 2,
+            title: '通知标题',
+            content: '通知内容',
+            by: '某车企',
+            date: '昨天下午2:22',
+            status: '待回复'
+          },
+          {
+            id: 2,
+            title: '通知标题',
+            content: '通知内容',
+            by: '某车企',
+            date: '昨天下午2:22',
+            status: '待回复'
+          },
+          {
+            id: 2,
+            title: '通知标题',
+            content: '通知内容',
+            by: '某车企',
+            date: '昨天下午2:22',
+            status: '待回复'
+          },
+          {
+            id: 2,
+            title: '通知标题',
+            content: '通知内容',
+            by: '某车企',
+            date: '昨天下午2:22',
+            status: '待回复'
+          },
+          {
+            id: 2,
             title: '通知标题',
             content: '通知内容',
             by: '某车企',
@@ -90,6 +147,10 @@
         } else {
           return
         }
+      },
+//      进入某个通知详情页面
+      intoAnnounce (id) {
+        this.$router.push(`/announce/${id}`)
       },
       topMethod () {
         this.$refs.loadMore.onTopLoaded()
@@ -125,10 +186,12 @@
 
     & > .nav
       position fixed
+      z-index 100
       left 0
       right 0
       top 1.1733rem
       line-height 1rem
+      background #fff
       font-size 0
       box-shadow .01rem .01rem .03rem #ccc
       & > .nav-item
@@ -151,6 +214,7 @@
           font-size 16px
     & > .body
       padding-top 2.32rem
+      padding-bottom .5rem
       & > .slide-body
         & > .mint-loadmore
           & > .mint-loadmore-content
