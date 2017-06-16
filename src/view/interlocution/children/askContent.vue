@@ -12,7 +12,7 @@
         </span>
       </section>
     </header>
-    <mt-field label=" " type="textarea" placeholder="请输入问题内容" v-model="quesContent" class="field"></mt-field>
+    <mt-field label="" type="textarea" placeholder="请输入问题内容" v-model="quesContent" class="field"></mt-field>
     <!--错误提示-->
     <p class="err-text">
       {{errText}}

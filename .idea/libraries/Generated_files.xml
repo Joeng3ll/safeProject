@@ -2,10 +2,13 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/dist/static/js/websdk-1.4.11.js" />
+        <item url="file://$PROJECT_DIR$/dist/static/js/webim.config.js" />
         <item url="file://$PROJECT_DIR$/dist/src/router/index.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.ddd5956c62304c0e8067.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
         <item url="file://$PROJECT_DIR$/dist/src/vuex/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/WebIM/webIM.js" />
         <item url="file://$PROJECT_DIR$/dist/config/index.js" />
         <item url="file://$PROJECT_DIR$/dist/src/common/js/cordova.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/fetch.js" />
@@ -24,7 +27,9 @@
         <item url="file://$PROJECT_DIR$/dist/src/common/js/barcodescanner.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.ac4ea2c1e44a9fb0d3f4.js" />
         <item url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/config/strophe.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/setStorage.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/config/webim.config.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/storage.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
@@ -32,6 +37,8 @@
         <item url="file://$PROJECT_DIR$/dist/src/vuex/mutations.js" />
         <item url="file://$PROJECT_DIR$/dist/src/vuex/actions.js" />
         <item url="file://$PROJECT_DIR$/dist/src/vuex/getters.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/config/strophe-1.2.8.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/config/websdk-1.4.11.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -57,10 +64,13 @@
       <root url="file://$PROJECT_DIR$/dist/docs/dist/static/js/manifest.a98077878025eb6a9dc5.js" />
       <root url="file://$PROJECT_DIR$/dist/docs/dist/static/js/app.ddd5956c62304c0e8067.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/src/service/dataTemplate/hourRecord.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/js/websdk-1.4.11.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/js/webim.config.js" />
       <root url="file://$PROJECT_DIR$/dist/src/router/index.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.ddd5956c62304c0e8067.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
       <root url="file://$PROJECT_DIR$/dist/src/vuex/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/WebIM/webIM.js" />
       <root url="file://$PROJECT_DIR$/dist/config/index.js" />
       <root url="file://$PROJECT_DIR$/dist/src/common/js/cordova.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/fetch.js" />
@@ -79,7 +89,9 @@
       <root url="file://$PROJECT_DIR$/dist/src/common/js/barcodescanner.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.ac4ea2c1e44a9fb0d3f4.js" />
       <root url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/config/strophe.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/setStorage.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/config/webim.config.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/storage.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
@@ -87,6 +99,8 @@
       <root url="file://$PROJECT_DIR$/dist/src/vuex/mutations.js" />
       <root url="file://$PROJECT_DIR$/dist/src/vuex/actions.js" />
       <root url="file://$PROJECT_DIR$/dist/src/vuex/getters.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/config/strophe-1.2.8.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/config/websdk-1.4.11.js" />
     </CLASSES>
     <SOURCES />
   </library>

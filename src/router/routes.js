@@ -44,15 +44,16 @@ export default [
           requireAuth: true
         },
         component: ContactProfile
-      },
-      {
-        path: 'chat/:id',
-        meta: {
-          requireAuth: true
-        },
-        component: Chat
       }
     ]
+  },
+  // 通讯
+  {
+    path: '/communication/chat/:id',
+    meta: {
+      requireAuth: true
+    },
+    component: Chat
   },
   {
     path: '/interlocution',

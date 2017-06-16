@@ -1,5 +1,5 @@
 <template>
-  <div class="home-wrapper">
+  <div class="home-wrapper" ref="wrapper">
     <header class="header">
       <section class="msg icon-sec">
         <msg-cmp :msgCount="10"></msg-cmp>

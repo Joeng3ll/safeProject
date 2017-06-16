@@ -130,28 +130,31 @@
     top 0
     left 0
     bottom 0
-    background #f0f0f0
+    background #fff
     font-size 0
     & > .body
       & > #calendar-container
         margin-bottom 1.5rem
       & > .nav-item
+        box-shadow: 0.01rem 0.01rem 0.3rem #ccc
         display block
         &:first-child
           margin-top 1rem
         & > .tab-wrapper
           &:nth-child(1)
-            margin-top .2rem
+            margin-top .4rem
 
   /*日历插件中样式*/
   /*考勤通过的日子*/
   .calendar-active
     color #000
     & > i
+      box-shadow .01rem .01rem .03rem rgb(248, 153, 74)
       background rgb(248, 153, 74)
 
   /*不在当前视图中考勤通过的日子*/
   #calendar-container
+    box-shadow: 0.01rem 0.01rem 0.5rem #ccc
     & > .calendar-block
       & > .calendar-title
         background #3a99f0

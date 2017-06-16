@@ -9,7 +9,7 @@
       <span class="index">{{ptoe (letter)}}</span>
       <div class="list-content-box">
         <section v-for="item in letter" class="list-item" @click="intoProfile(item.id)">
-          <p class="item-text">{{item.name}}</p>
+          <p class="item-text">{{item.name}}（{{item.phone}}）</p>
         </section>
       </div>
     </aside>

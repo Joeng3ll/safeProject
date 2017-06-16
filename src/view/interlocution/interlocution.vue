@@ -16,9 +16,9 @@
       </section>
     </header>
     <!--搜索-->
-    <div class="search-box">
-      <search></search>
-    </div>
+    <!--<div class="search-box">-->
+      <!--<search></search>-->
+    <!--</div>-->
     <!--问题导航-->
     <nav class="nav">
       <section class="nav-item" :class="{active:currentType===selectType.ALL}" @click="changeType(selectType.ALL)">
@@ -78,8 +78,8 @@
   import {Loadmore} from 'mint-ui'
   import Vue from 'vue'
   Vue.component(Loadmore.name, Loadmore)
-  const ALL = 2
-  const MYQUES = 4
+  const ALL = 3
+  const MYQUES = 2
   export default {
     data () {
       return {
@@ -204,8 +204,9 @@
     & > .nav
       position fixed
       z-index 100
-      top 2.8rem
+      top 1.1733rem
       width 99.8%
+      box-shadow 0.01rem 0.01rem 0.2rem #ccc
       padding .24rem 0
       font-size 0
       background #fff
@@ -228,7 +229,7 @@
     & > .body
       position relative
       overflow hidden
-      top 3.8rem
+      top 2.1rem
       padding-bottom 1.3777rem
       background #f0f0f0
       & > .mint-loadmore-content

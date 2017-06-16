@@ -14,7 +14,7 @@
     <article class="body">
       <div>
         <mt-loadmore ref="loadMore" :top-method="topMethod">
-          <div class="chatRecord-box">
+          <div class="msgRecord-box">
             <!--按身份判断类名 不同样式-->
             <p class="date">{{date}}</p>
             <section class="dialog" v-for="chat in chatList"
@@ -158,7 +158,7 @@
         font-size 16px
         text-align center
         color rgb(58, 153, 240)
-  .chatRecord-box
+  .msgRecord-box
     padding .48rem .24rem
     & > .date
       padding .24rem

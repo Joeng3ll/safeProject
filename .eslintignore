@@ -4,3 +4,4 @@ src/config/*.js
 src/service/*.js
 src/common/js/*.js
 src/service/dataTemplate/*.js
+src/WebIM/*.js

@@ -12,9 +12,10 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  /*.fade-enter-active, .fade-leave-active*/
-    /*trasition all 1s*/
+/*  .fade-enter-active, .fade-leave-active
+    transition all 1s*/
 
-  /*.fade-enter, .fade-leave-active*/
-    /*opacity .2*/
+/*  .fade-enter, .fade-leave-active
+    transform translate3d(-100%, 0, 0)*/
+
 </style>
