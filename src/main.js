@@ -5,7 +5,7 @@ import App from './App'
 import router from './router/index'
 import './config/rem'
 import './common/stylus/index.styl'
-import {loginIn} from './WebIM/webIM'
+import {conn} from './WebIM/webIM'
 // import {getDriverInfo} from 'service/getData'
 // import {loginAgain} from './config/mUtils'
 import store from './vuex/index'
@@ -17,13 +17,30 @@ if (window.location.protocol === 'file:' || window.location.port === '8080') {
   cordovaScript.setAttribute('src', 'cordova.js')
   document.body.appendChild(cordovaScript)
 }
-loginIn('yll', 'zz')
 /* eslint-disable no-new */
 new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
+conn.listen({
+  onOpened: function (msg) {
+    conn.setPresence()
+    console.log(msg)
+  },
+  onTextMessage: function (message) {
+    alert(message)
+  },
+  onClosed: function () {
+    console.log('close')
+  },
+  onDeliverdMessage: function () {
+    console.log('deliver')
+  },
+  onReceivedMessage: function (msg) {
+    console.log(msg)
+  }
+})
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
     // 由于localStorage中保存的是string类型 所以转换成布尔值 方便比较

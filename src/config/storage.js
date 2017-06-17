@@ -5,6 +5,7 @@
 /*
  * LOGIN_INFO:登录信息 是否登录
  * USER_INFO：登录用户信息
+ * WEBIM_INFO:环信登录信息 是否登录
  * USER_ACCOUNT: 用户账户信息
  * CONTACT_INFO:车队通讯录
  * QUES_TITLE:提问问题标题
@@ -17,13 +18,22 @@ const USER_ACCOUNT = 'userAccount'
 const CONTACT_INFO = 'contact'
 const QUES_TITLE = 'question_title'
 const QUES_CONTENT = 'question_content'
+const WEBIM_INFO = 'webIMInfo'
 
 // 是否登录
 export function setLoginStorage(isLogin) {
   window.localStorage.setItem(LOGIN_INFO, isLogin)
 }
 export function getLoginStorage() {
-  return window.localStorage.getItem(LOGIN_INFO || false)
+  return window.localStorage.getItem(LOGIN_INFO || 'false')
+}
+
+//环信是否登录
+export function setWEBIMStorage(isLogin) {
+  window.localStorage.setItem(WEBIM_INFO, isLogin)
+}
+export function getWEBIMStorage() {
+  return window.localStorage.getItem(WEBIM_INFO || 'false')
 }
 
 // 用户信息

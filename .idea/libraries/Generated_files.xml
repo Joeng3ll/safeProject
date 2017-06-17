@@ -20,6 +20,7 @@
         <item url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/hourRecord.js" />
         <item url="file://$PROJECT_DIR$/dist/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/app.cbaa9d7d8280a879a033.js" />
+        <item url="file://$PROJECT_DIR$/dist/static/js/websdk.shim.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.786c64eae93e7f083602.js" />
         <item url="file://$PROJECT_DIR$/dist/src/main.js" />
         <item url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/haulRecord.js" />
@@ -29,8 +30,8 @@
         <item url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/strophe.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/setStorage.js" />
-        <item url="file://$PROJECT_DIR$/dist/src/config/webim.config.js" />
         <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/config/webim.config.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/storage.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
         <item url="file://$PROJECT_DIR$/dist/src/vuex/state.js" />
@@ -82,6 +83,7 @@
       <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/hourRecord.js" />
       <root url="file://$PROJECT_DIR$/dist/docs/static/js/manifest.e615e1c3ca86a51ec0d7.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/app.cbaa9d7d8280a879a033.js" />
+      <root url="file://$PROJECT_DIR$/dist/static/js/websdk.shim.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.786c64eae93e7f083602.js" />
       <root url="file://$PROJECT_DIR$/dist/src/main.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/dataTemplate/haulRecord.js" />
@@ -91,8 +93,8 @@
       <root url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/strophe.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/setStorage.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/config/webim.config.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/config/webim.config.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/storage.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
       <root url="file://$PROJECT_DIR$/dist/src/vuex/state.js" />

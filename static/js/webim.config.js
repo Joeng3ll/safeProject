@@ -2,8 +2,8 @@
  * Created by joeng on 2017/6/15.
  */
 /*
-*  环信config
-* */
+ *  环信config
+ * */
 var WebIM = {};
 WebIM.config = {
   /*
@@ -13,7 +13,7 @@ WebIM.config = {
   /*
    * Backend REST API URL
    */
-  apiURL: (location.protocol === 'https:' ? 'https:' : 'http:') + '//a1.easemob.com',
+  apiURL: 'http://a1.easemob.com',
   /*
    * Application AppKey
    */
@@ -29,7 +29,7 @@ WebIM.config = {
    * true: A visitor can sign in to multiple webpages and receive messages at all the webpages.
    * false: A visitor can sign in to only one webpage and receive messages at the webpage.
    */
-  isMultiLoginSessions: false,
+  isMultiLoginSessions: true,
   /*
    * Set to auto sign-in
    */
@@ -38,7 +38,7 @@ WebIM.config = {
    * Whether to use window.doQuery()
    * @parameter {Boolean} true or false
    */
-  isWindowSDK: false,
+  isWindowSDK: true,
   /**
    * isSandBox=true:  xmppURL: 'im-api-sandbox.easemob.com',  apiURL: '//a1-sdb.easemob.com',
    * isSandBox=false: xmppURL: 'im-api.easemob.com',          apiURL: '//a1.easemob.com',
@@ -94,7 +94,5 @@ WebIM.config = {
    * {type:'aes',mode: 'ebc',key: '123456789easemob',iv: '0000000000000000'} encrypt with aes(ebc)
    * {type:'aes',mode: 'cbc',key: '123456789easemob',iv: '0000000000000000'} encrypt with aes(cbc)
    */
-  encrypt: {
-    type: 'none'
-  }
+  encrypt: {type: 'none'}
 };

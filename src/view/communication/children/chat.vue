@@ -35,7 +35,7 @@
     <!--输入框-->
     <div class="input-box">
       <mt-field label="" placeholder="请输入回复" type="textarea" v-model="replyText"></mt-field>
-      <span class="send-btn">发送</span>
+      <span class="send-btn" @click="sendText">发送</span>
     </div>
   </div>
 </template>
@@ -43,6 +43,7 @@
 <script type="text/ecmascript-6">
   import {getContactById} from '../../../config/mUtils'
   import {Loadmore, Field} from 'mint-ui'
+  import {sendTextPrivate} from '../../../WebIM/webIM'
   import Vue from 'vue'
   Vue.component(Loadmore.name, Loadmore)
   Vue.component(Field.name, Field)
@@ -97,12 +98,15 @@
     created () {
       let friendId = parseInt(this.$route.params.id)
       let friendObj = getContactById(friendId)
-      console.log(friendId, friendObj)
+//      console.log(friendId, friendObj)
       this.friend = Object.assign(this.friend, friendObj)
     },
     methods: {
       topMethod () {
         this.$refs.loadMore.onTopLoaded()
+      },
+      sendText () {
+        sendTextPrivate()
       }
     }
   }

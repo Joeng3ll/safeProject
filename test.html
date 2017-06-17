@@ -6,15 +6,69 @@
 </head>
 <body>
 <script>
-  function foo(something) {
-    console.log(this.a)
-    return this.a
-  }
-  var obj = {
-    a: 2
-  }
-  var bar = foo.call(obj)
-  console.log(bar)
+  connection.prototype.send = function (messageSource) {
+    var self = this;
+    var message = messageSource;
+    if (message.type === 'txt') {
+      if (this.encrypt.type === 'base64') {
+        message = _.clone(messageSource);
+        message.msg = btoa(message.msg);
+      } else if (this.encrypt.type === 'aes') {
+        message = _.clone(messageSource);
+        var key = CryptoJS.enc.Utf8.parse(this.encrypt.key);
+        var iv = CryptoJS.enc.Utf8.parse(this.encrypt.iv);
+        var mode = this.encrypt.mode.toLowerCase();
+        var option = {};
+        if (mode === 'cbc') {
+          option = {
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+          };
+        } else if (mode === 'ebc') {
+          option = {
+            mode: CryptoJS.mode.ECB,
+            padding: CryptoJS.pad.Pkcs7
+          };
+        }
+        var encryptedData = CryptoJS.AES.encrypt(message.msg, key, option);
+
+        message.msg = encryptedData.toString();
+      }
+    }
+    if (this.isWindowSDK) {
+      WebIM.doQuery('{"type":"sendMessage","to":"' + message.to + '","message_type":"' + message.type + '","msg":"' + encodeURI(message.msg) + '","chatType":"' + message.chatType + '"}', function (response) {
+      }, function (code, msg) {
+        var message = {
+          data: {
+            data: "send"
+          },
+          type: _code.WEBIM_MESSAGE_SED_ERROR
+        };
+        self.onError(message);
+      });
+    } else {
+      if (Object.prototype.toString.call(message) === '[object Object]') {
+        var appKey = this.context.appKey || '';
+        var toJid = appKey + '_' + message.to + '@' + this.domain;
+
+        if (message.group) {
+          toJid = appKey + '_' + message.to + '@conference.' + this.domain;
+        }
+        if (message.resource) {
+          toJid = toJid + '/' + message.resource;
+        }
+
+        message.toJid = toJid;
+        message.id = message.id || this.getUniqueId();
+        _msgHash[message.id] = new _message(message);
+        _msgHash[message.id].send(this);
+      } else if (typeof message === 'string') {
+        _msgHash[message] && _msgHash[message].send(this);
+      }
+    }
+  };
+
 </script>
 </body>
 </html>
