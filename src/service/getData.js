@@ -44,6 +44,18 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
   /*
+   *  服务器获取新闻
+   * */
+  var getNewsT = (newsType) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/announcement/app/list/${newsType}`).then(res => {
+        resolve(res)
+      })
+    }, () => {
+      console.log('网络请求错误')
+    })
+  }
+  /*
    * 登录
    * */
   var loginIn = (user) => {
@@ -286,7 +298,7 @@ if (process.env.NODE_ENV !== 'development') {
    * */
   var receiveMsg = (senderId, receiverId) => {
     return new Promise((resolve, reject) => {
-      
+
     })
   }
 } else {
@@ -297,6 +309,16 @@ if (process.env.NODE_ENV !== 'development') {
       }, () => {
         console.log('request error')
       })
+    })
+  }
+
+  var getNewsT = (newsType) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/announcement/app/list/${newsType}`).then(res => {
+        resolve(res)
+      })
+    }, () => {
+      console.log('网络请求错误')
     })
   }
 
@@ -471,6 +493,7 @@ if (process.env.NODE_ENV !== 'development') {
 }
 export {
   getNews,
+  getNewsT,
   getDriverInfo,
   loginIn,
   loginOut,

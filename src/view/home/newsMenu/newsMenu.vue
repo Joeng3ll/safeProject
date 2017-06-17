@@ -13,7 +13,8 @@
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
-  const newsListPY = ['top', 'shehui', 'guonei', 'guoji', 'yule', 'tiyu', 'junshi', 'keji', 'caijing', 'shishang']
+//  const newsListPY = ['-6', 'shehui', 'guonei', 'guoji', 'yule', 'tiyu', 'junshi', 'keji', 'caijing', 'shishang']
+  const newsIndex = [-6, -5, -4, -3, -2, -1]
   export default {
     data () {
       return {
@@ -51,7 +52,7 @@
         if (newsTitleIndex === this.currentIndex) {
           return
         }
-        this.$emit('changeNewsList', newsListPY[newsTitleIndex])
+        this.$emit('changeNewsList', newsIndex[newsTitleIndex])
         this.currentIndex = newsTitleIndex
       }
     }
@@ -77,5 +78,5 @@
           font-size 16px
           line-height 1.1733rem
           &.active
-            color rgb(213,57,60)
+            color rgb(213, 57, 60)
 </style>

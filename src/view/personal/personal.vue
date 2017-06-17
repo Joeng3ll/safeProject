@@ -36,7 +36,7 @@
              class="menu-item"></tab>
       </router-link>
       <!--我的事故记录-->
-      <router-link to="/personal/accidentRecord" class="tab-box">
+      <router-link to="/accidentRecord" class="tab-box">
         <tab :iconClass="accidentRecord.iconClass" :text="accidentRecord.text" :colorClass="accidentRecord.colorClass"
              class="menu-item"></tab>
       </router-link>

@@ -146,14 +146,6 @@ export default [
           }
         ]
       },
-      // 我的事故记录
-      {
-        path: 'accidentRecord',
-        meta: {
-          requireAuth: true
-        },
-        component: AccidentRecord
-      },
       // 我的培训
       {
         path: 'training',
@@ -171,6 +163,14 @@ export default [
         component: test
       }
     ]
+  },
+  // 我的事故记录
+  {
+    path: '/accidentRecord',
+    meta: {
+      requireAuth: true
+    },
+    component: AccidentRecord
   },
   // 通知信息
   {

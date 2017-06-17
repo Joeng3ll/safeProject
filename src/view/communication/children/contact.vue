@@ -19,6 +19,20 @@
             </div>
             <span class="text">群聊</span>
           </section>
+          <!--车队长-->
+          <section class="contact-item">
+            <p class="index">车队长</p>
+            <p class="item-text">
+              刘某某（324243）
+            </p>
+          </section>
+          <section class="contact-item">
+            <p class="index">维修部</p>
+            <p class="item-text">
+              维修部（123243234）
+            </p>
+          </section>
+          <!--维修部-->
           <div class="contact-list-cpt">
             <index-list :list="contactList" ref="indexList" @intoListProfile="intoProfile"></index-list>
           </div>
@@ -45,6 +59,8 @@
   export default {
     data () {
       return {
+//          todo
+        chiefLeader: {},
         contactList: []
       }
     },
@@ -137,6 +153,16 @@
               color #fff
               border-radius .1rem
               background palevioletred
+          & > .contact-item
+            & > .index
+              line-height 16px
+              padding 0 .24rem
+              background #f0f0f0
+              font-size 12px
+              color #989898
+            & > .item-text
+              padding .36rem
+              font-size 16px
     & > .contact-aside
       position relative
       vertical-align top
