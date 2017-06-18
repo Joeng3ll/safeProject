@@ -20,18 +20,27 @@
             <span class="text">群聊</span>
           </section>
           <!--车队长-->
-          <section class="contact-item">
+          <section class="contact-item" v-if="company.chiefDriver===''">
             <p class="index">车队长</p>
             <p class="item-text">
-              刘某某（324243）
+              {{company.chiefDriver}}({{company.chiefDriver.chiefDriverTel}})
             </p>
           </section>
           <section class="contact-item">
-            <p class="index">维修部</p>
+            <p class="index">上级组织</p>
             <p class="item-text">
-              维修部（123243234）
+              {{parentOrg.name}}
+            </p>
+            <p class="item-text second">
+              ({{parentOrg.tel}})
             </p>
           </section>
+          <!--<section class="contact-item">-->
+          <!--<p class="index">维修部</p>-->
+          <!--<p class="item-text">-->
+          <!--维修部（123243234）-->
+          <!--</p>-->
+          <!--</section>-->
           <!--维修部-->
           <div class="contact-list-cpt">
             <index-list :list="contactList" ref="indexList" @intoListProfile="intoProfile"></index-list>
@@ -59,17 +68,30 @@
   export default {
     data () {
       return {
-//          todo
+//          todo 车队长
         chiefLeader: {},
-        contactList: []
+//        车队通讯录
+        contactList: [],
+//        协会
+        association: {},
+//        交警
+        trafficPolice: {},
+//        交警大队领导
+        trafficePoliceLeader: {},
+//        公司
+        company: {},
+//        上级组织
+        parentOrg: {}
       }
     },
     created () {
       let orgId = getUserInfo().organizationId
       if (orgId) {
         getContact(orgId).then(res => {
-          res = res.data.drivers
-          this.contactList = Object.assign(this.contactList, res)
+          res = res.data
+          this.company = res.company
+          this.parentOrg = res.parentOrg
+          this.contactList = Object.assign(this.contactList, res.drivers)
           setContact(this.contactList)
         })
       }
@@ -163,6 +185,8 @@
             & > .item-text
               padding .36rem
               font-size 16px
+              &.second
+                padding-top 0
     & > .contact-aside
       position relative
       vertical-align top

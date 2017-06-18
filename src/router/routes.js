@@ -11,6 +11,7 @@ import Personal from 'view/personal/personal.vue'
 import Archives from 'view/personal/archives/archives.vue'
 import WorkRecord from 'view/personal/workRecord/workRecord'
 import AccidentRecord from 'view/personal/accidentRecord/accidentRecord.vue'
+import AccidentDetail from 'view/personal/accidentRecord/accidentDetail.vue'
 import ReportAccident from 'view/personal/accidentRecord/reportAccident.vue'
 import training from 'view/personal/training/training.vue'
 import test from 'view/personal/test/test.vue'
@@ -180,6 +181,14 @@ export default [
       requireAuth: true
     },
     component: AccidentRecord
+  },
+  // 我的事故详细
+  {
+    path: '/accidentRecordContent/:id',
+    meta: {
+      requireAuth: true
+    },
+    component: AccidentDetail
   },
   // 事故上报
   {

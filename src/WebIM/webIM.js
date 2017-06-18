@@ -61,6 +61,9 @@ function loginIn() {
     //   WebIM.utils.setCookie('webim_' + encryptUsername, token, 1)
     // },
     // accessToken: WebIM.utils.getCookie(),
+    success(){
+      console.log('login success')
+    },
     error(err){
       console.log(err + 'error')
     }

@@ -290,7 +290,7 @@ if (process.env.NODE_ENV !== 'development') {
    * */
   var getAttendance = (driverId) => {
     return new Promise((resolve, reject) => {
-      vm.$http.get(`${BASE_URL}/attendance/list/driverId=${driverId}`).then(res => {
+      vm.$http.get(`${BASE_URL}/attendance/list?driverId=${driverId}`).then(res => {
         resolve(res)
       })
     })
@@ -326,6 +326,41 @@ if (process.env.NODE_ENV !== 'development') {
       })
     })
   }
+
+  /*
+   *  事故上报
+   * */
+  var reportAccident = (accident) => {
+    let str = JSON.stringify(accident)
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/compensation/report`, str).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  /*
+   * 我的事故记录 todo 分页
+   * */
+  var getAccidentRecord = (driverId, status) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/compensation/${driverId}/list?status=${status}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  /*
+   *  获取某条事故记录
+   * */
+  var getAccidentById = (compensationId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/compensation/${compensationId}/detail`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
 } else {
   var getNews = (newsType) => {
     return new Promise((resolve, reject) => {
@@ -504,7 +539,7 @@ if (process.env.NODE_ENV !== 'development') {
 
   var getAttendance = (driverId) => {
     return new Promise((resolve, reject) => {
-      vm.$http.get(`${BASE_URL}/attendance/list/driverId=${driverId}`).then(res => {
+      vm.$http.get(`${BASE_URL}/attendance/list?driverId=${driverId}`).then(res => {
         resolve(res)
       })
     })
@@ -521,6 +556,31 @@ if (process.env.NODE_ENV !== 'development') {
   var getAccidentType = (driverId) => {
     return new Promise((resolve, reject) => {
       vm.$http.get(`${BASE_URL}/compensation/report?driverId=${driverId}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  var reportAccident = (accident) => {
+    let str = JSON.stringify(accident)
+    return new Promise((resolve, reject) => {
+      vm.$http.post(`${BASE_URL}/compensation/report`, str).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  var getAccidentRecord = (driverId, status) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/compensation/${driverId}/list?status=${status}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
+  var getAccidentById = (compensationId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/compensation/${compensationId}/detail`).then(res => {
         resolve(res)
       })
     })
@@ -561,5 +621,8 @@ export {
   getHourRecord,
   getHaulRecord,
   getVolumeRecord,
-  getAccidentType
+  getAccidentType,
+  reportAccident,
+  getAccidentRecord,
+  getAccidentById
 }

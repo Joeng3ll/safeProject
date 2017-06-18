@@ -17,6 +17,9 @@ if (window.location.protocol === 'file:' || window.location.port === '8080') {
   cordovaScript.setAttribute('src', 'cordova.js')
   document.body.appendChild(cordovaScript)
 }
+// document.addEventListener('deviceready', function () {
+//
+// }, false)
 /* eslint-disable no-new */
 new Vue({
   router,
@@ -26,7 +29,7 @@ new Vue({
 conn.listen({
   onOpened: function (msg) {
     conn.setPresence()
-    console.log(msg)
+    conn.accessToken = msg.accessToken
   },
   onTextMessage: function (message) {
     alert(message)

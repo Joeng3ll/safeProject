@@ -49,7 +49,7 @@
     created () {
       let id = this.$route.params.id
       getNewsContent(id).then((res) => {
-        console.log(res)
+        this.news = Object.assign({}, res.data)
       })
     },
     methods: {
@@ -97,7 +97,7 @@
         font-size 22px
         font-weight bold
         margin-bottom .4rem
-      &>.date
+      & > .date
         margin-bottom .4rem
         text-align center
         color #ccc
@@ -105,10 +105,10 @@
         text-align center
         & > .photo
           max-width 100%
-      &>.content
+      & > .content
         padding .48rem
         font-size 16px
         line-height 18px
         letter-spacing .04rem
-        color rgb(7,17,27)
+        color rgb(7, 17, 27)
 </style>

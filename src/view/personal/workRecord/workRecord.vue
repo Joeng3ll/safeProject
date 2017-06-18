@@ -22,7 +22,8 @@
 <script type="text/ecmascript-6">
   import Header from 'components/header/header'
   import Calendar from 'mob-calendar'
-  //  import {getAttendanceDays} from 'service/getData'
+  import {getAttendance} from '../../../service/getData'
+  import {getUserInfo} from '../../../config/storage'
   import Tab from 'components/tab/tab'
   //  头部dom组件信息
   const header = {
@@ -50,7 +51,7 @@
     data () {
       return {
         header,
-        attendanceDays: [1495728000000, 1493913600000, 1495209600000, 1491926400000, 1489593600000],
+        attendanceDays: [],
         attendanceDaysFormat: [],
         hourTab,
         haulTab,
@@ -58,6 +59,10 @@
       }
     },
     mounted () {
+      let userId = getUserInfo().userId
+      getAttendance(userId).then(res => {
+        console.log(res)
+      })
 //      getAttendanceDays().then(res => {
 //        Object.assign(this.attendanceDays, res.attendance_days)
 //        Array.map返回的是一个新数组

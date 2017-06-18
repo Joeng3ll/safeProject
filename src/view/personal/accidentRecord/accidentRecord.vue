@@ -18,15 +18,19 @@
         <!--菜单-->
         <nav class="nav-box">
           <div class="nav">
-            <span class="item active">待处理</span>
-            <span class="item">已处理</span>
+            <span class="item" :class="{active:currentType===stateType.pending}" @click="changeType(stateType.pending)">待审核</span>
+            <span class="item" :class="{active:currentType===stateType.reject}" @click="changeType(stateType.reject)">已驳回</span>
+            <span class="item" :class="{active:currentType===stateType.confirmed}"
+                  @click="changeType(stateType.confirmed)">已上报</span>
+            <span class="item" :class="{active:currentType===stateType.cmconfirmed}"
+                  @click="changeType(stateType.cmconfirmed)">理赔上报</span>
           </div>
         </nav>
         <!--事故列表-->
         <div class="ac-list">
-          <section class="item" v-for="item in accidentList">
-            <span class="ac-type">{{item.type}}</span>
-            <span class="ac-date">{{item.date}}</span>
+          <section class="item" v-for="item in accidentList" @click="intoDetail(item.id)">
+            <span class="ac-type">{{item.trafficViolationType}}</span>
+            <span class="ac-date">{{item.occureTimeStr}}</span>
           </section>
           <aside class="no-more">
             没有更多了
@@ -34,33 +38,68 @@
         </div>
       </mt-loadmore>
     </article>
+    <loading ref="loadCpt"></loading>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import {getAccidentRecord} from '../../../service/getData'
+  import {getUserInfo} from '../../../config/storage'
   import {Loadmore} from 'mint-ui'
+  import Loading from '../../../components/loading/loading.vue'
   import Vue from 'vue'
   Vue.component(Loadmore.name, Loadmore)
+  const stateType = {
+//      审核驳回
+    reject: -2,
+//      待审核
+    pending: 0,
+//    事故已上报
+    confirmed: 1,
+//    理赔已上报
+    cmconfirmed: 2
+  }
   export default {
     data () {
       return {
-        accidentList: [
-          {type: '闯红灯', date: '2015-03-04'},
-          {type: '闯红灯', date: '2015-03-04'},
-          {type: '闯红灯', date: '2015-03-04'},
-          {type: '闯红灯', date: '2015-03-04'}
-        ]
+        accidentList: [],
+        currentType: stateType.pending,
+        stateType: stateType
       }
     },
+    created () {
+      this._initialData()
+    },
     methods: {
+//       获取数据
+      _initialData () {
+        let userId = getUserInfo().userId
+        getAccidentRecord(userId, this.currentType).then(res => {
+          res = res.data
+          this.accidentList = Object.assign([], res.compensations)
+        })
+      },
 //      上拉刷新
       topLoad () {
+        this._initialData()
         this.$refs.loadMore.onTopLoaded()
       },
 //      事故上报
       report () {
         this.$router.push('/reportAccident')
+      },
+//      菜单切换
+      changeType (type) {
+        this.currentType = type
+        this._initialData()
+      },
+//      进入事故详情
+      intoDetail (id) {
+        this.$router.push(`/accidentRecordContent/${id}`)
       }
+    },
+    components: {
+      'loading': Loading
     }
   }
 
@@ -101,7 +140,7 @@
             padding .24rem
             text-align center
             & > .nav
-              width 60%
+              width 100%
               margin 0 auto
               border-radius .8rem
               font-size 0
@@ -111,10 +150,11 @@
               -webkit-box-shadow .01rem .01rem .3rem #ccc
               & > .item
                 display inline-block
-                padding 4%
-                width 42%
+                line-height 24px
+                padding 1%
+                width 22.8%
                 color #555555
-                font-size 16px
+                font-size 14px
                 &.active
                   border-radius .8rem
                   background rgb(86, 217, 138)

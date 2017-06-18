@@ -86,17 +86,20 @@
       </section>
       <!--事故违规类别结束-->
     </article>
+    <loading ref="loadCpt"></loading>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import {Field, Picker, DatetimePicker, Radio} from 'mint-ui'
-  import {getAccidentType} from '../../../service/getData'
+  import {Field, Picker, DatetimePicker, Radio, Toast} from 'mint-ui'
+  import {getAccidentType, reportAccident} from '../../../service/getData'
   import {getUserInfo} from '../../../config/storage'
+  import Loading from '../../../components/loading/loading.vue'
   import Vue from 'vue'
   Vue.component(Field.name, Field)
   Vue.component(Picker.name, Picker)
   Vue.component(Radio.name, Radio)
+  Vue.component(Toast.name, Toast)
   Vue.component(DatetimePicker.name, DatetimePicker)
   // todo 五种data类型根据服务器数据更新
   export default {
@@ -185,9 +188,10 @@
         ]
       }
     },
-    created () {
+    mounted () {
       this.driver = getUserInfo()
       this.accident.driverId = this.driver.userId
+      this.$refs.loadCpt.openLoading()
       getAccidentType(this.driver.userId).then(res => {
         res = res.data
         this.carNo = res.carNo
@@ -198,6 +202,8 @@
             value: `${item.id}`
           }
         })
+      }).then(() => {
+        this.$refs.loadCpt.closeLoading()
       })
     },
     filters: {
@@ -232,6 +238,14 @@
           return
         } else {
           this.error = ''
+          let accidentId = 0
+          reportAccident(this.accident).then(res => {
+            accidentId = res.data.data
+            this._initialToast()
+            setTimeout(() => {
+              this.$router.replace(`/accidentRecordContent/${accidentId}`)
+            }, 500)
+          })
         }
       },
       onInjuredValueChange (picker, value) {
@@ -338,7 +352,19 @@
       },
       handleConfirm (value) {
         this.time = value
+      },
+      //      提示框
+      _initialToast () {
+        let toast = Toast({
+          message: '事故提交成功！!'
+        })
+        setTimeout(() => {
+          toast.close()
+        }, 500)
       }
+    },
+    components: {
+      'loading': Loading
     }
   }
 

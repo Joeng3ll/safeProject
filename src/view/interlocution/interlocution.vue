@@ -17,7 +17,7 @@
     </header>
     <!--搜索-->
     <!--<div class="search-box">-->
-      <!--<search></search>-->
+    <!--<search></search>-->
     <!--</div>-->
     <!--问题导航-->
     <nav class="nav">
@@ -227,6 +227,7 @@
           vertical-align top
           display inline-block
     & > .body
+      min-height 13rem
       position relative
       overflow hidden
       top 2.1rem
