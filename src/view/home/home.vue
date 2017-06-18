@@ -23,9 +23,9 @@
           <aside class="news-banner swiper-container" ref="swiperContainer">
             <!--swiper滑动部分开始-->
             <div class="swiper-wrapper">
-              <img :src="currentNews.thumbnail_pic_s" class="swiper-slide news-pic">
-              <img :src="currentNews.thumbnail_pic_s02" class="swiper-slide news-pic">
-              <img :src="currentNews.thumbnail_pic_s03" class="swiper-slide news-pic">
+              <img :src="currentNews.pic" class="swiper-slide news-pic" @click="intoNews(-1)">
+              <img :src="currentNews.pic" class="swiper-slide news-pic" @click="intoNews(-1)">
+              <img :src="currentNews.pic" class="swiper-slide news-pic" @click="intoNews(-1)">
             </div>
             <!--swiper滑动部分结束-->
             <section class="swiper-pagination"></section><!--swiper分页-->
@@ -65,15 +65,16 @@
           <!--二级菜单结束-->
           <!--新闻列表开始-->
           <div class="news-list">
-            <section class="news-item" v-for="news in newsList">
+            <section class="news-item" v-for="news in newsList" @click="intoNews(news.id)">
               <!--新闻主图-->
-              <div class="img-box"><img :src="news.thumbnail_pic_s" class="news-img"></div>
+              <div class="img-box"><img :src="news.pic" class="news-img" v-if="news.pic"></div>
               <!--新闻内容-->
               <div class="news-content">
+                <!--新闻标题-->
                 <p class="news-title">{{news.title}}</p>
                 <div class="news-footer">
-                  <p class="news-from">{{news.author_name}}</p>
-                  <span class="news-date">{{news.date}}</span>
+                  <!--<p class="news-from">{{news.author_name}}</p>-->
+                  <span class="news-date">{{news.createDate |formateDate(news.createDate)}}</span>
                 </div>
               </div>
             </section>
@@ -92,8 +93,10 @@
   import Footer from '../../components/footer/footer.vue'
   import MsgCmp from '../../components/msgComponent/msgComponent.vue'
   import Loading from '../../components/loading/loading.vue'
+  import {loginIn} from '../../WebIM/webIM'
   import NewsMenu from './newsMenu/newsMenu.vue'
-  import {getNews, getDriverInfo} from '../../service/getData'
+  import {getNewsT, getDriverInfo} from '../../service/getData'
+  import {formateDate} from '../../common/js/Util'
   import {getLoginStorage, setUserInfo} from '../../config/storage'
   //  import barcodeScanner from '../../common/js/barcodescanner'
   import Swiper from 'swiper'
@@ -101,33 +104,47 @@
   import {Loadmore} from 'mint-ui'
   import Vue from 'vue'
   Vue.component(Loadmore.name, Loadmore)
-  const newsTitleList = ['头条', '社会', '国内', '国际', '娱乐', '体育', '军事', '科技', '财经', '时尚']
-  const newsListPY = ['top', 'shehui', 'guonei', 'guoji', 'yule', 'tiyu', 'junshi', 'keji', 'caijing', 'shishang']
+  const newsTitleList = ['天下要闻', '行业新闻', '视频世界', '交通趣事', '养生杂谈', '视频讲座']
+  const newsIndex = [-6, -5, -4, -3, -2, -1]
   export default {
     data () {
       return {
         newsTitleList: newsTitleList,
         currentNews: Object,
         newsList: [],
-        currentNewsTitle: newsListPY[0],
+        currentNewsTitle: newsIndex[0],
         allLoaded: false
 //        onTopLoaded: false,
       }
     },
-    created () {
-      getNews(newsListPY[0]).then((res) => {
-        this.newsList = Object.assign(this.newsList, res)
+    filters: {
+      formateDate (date) {
+        return formateDate(date)
+      }
+    },
+    mounted () {
+//      console.log(this.$refs.wrapper.getBoundingClientRect())
+      getNewsT(newsIndex[0]).then((res) => {
+        this.newsList = Object.assign(this.newsList, res.data)
+        this.newsList = this.newsList.map((item) => {
+          return {
+            id: item.id,
+            pic: 'http://08.imgmini.eastday.com/mobile/20170617/20170617173207_47b5169b98330c9e6b307620f8e8c6a9_3_mwpm_03200403.jpeg',
+            createDate: item.createDate,
+            text: item.text,
+            title: item.title
+          }
+        })
 //       不显示已经在banner里出现的新闻
         this.newsList.shift()
-        this.currentNews = res[0]
+        this.currentNews = res.data[0]
+        this.currentNews.pic = 'http://08.imgmini.eastday.com/mobile/20170617/20170617173207_47b5169b98330c9e6b307620f8e8c6a9_3_mwpm_03200403.jpeg'
       })
       this.$nextTick(() => {
         this._initialSwiper()
       })
 //      将user信息保存进state中
       this.saveUserInfo()
-    },
-    mounted () {
     },
     methods: {
       _initialSwiper () {
@@ -152,18 +169,29 @@
         }
       },
       changeNewsList (newsTitle) {
+//          newsTitle为对应新闻标题的index数组里的数字
         this.currentNewsTitle = newsTitle
-//        if (this.currentNewsTitle !== newsTitle) {
         this.$refs.loadCpt.openLoading()
-//        }
-        getNews(newsTitle).then((res) => {
-          this.newsList = Object.assign(this.newsList, res)
+        getNewsT(newsTitle).then((res) => {
+          this.newsList = Object.assign(this.newsList, res.data)
+          this.newsList = this.newsList.map((item) => {
+            return {
+              id: item.id,
+              pic: 'http://08.imgmini.eastday.com/mobile/20170617/20170617173207_47b5169b98330c9e6b307620f8e8c6a9_3_mwpm_03200403.jpeg',
+              createDate: item.createDate,
+              text: item.text,
+              title: item.title
+            }
+          })
+//       不显示已经在banner里出现的新闻
           this.newsList.shift()
-          this.currentNews = res[0]
+          this.currentNews = res.data[0]
+          this.currentNews.pic = 'http://08.imgmini.eastday.com/mobile/20170617/20170617173207_47b5169b98330c9e6b307620f8e8c6a9_3_mwpm_03200403.jpeg'
         }).then(() => {
           this.$refs.loadCpt.closeLoading()
         })
       },
+//      上拉加载刷新
       loadTop () {
         this.changeNewsList(this.currentNewsTitle)
         this.$refs.loadmore.onTopLoaded()
@@ -181,6 +209,8 @@
             user = {userId, organizationId, photo, realName}
             setUserInfo(user)
           })
+          //      登录环信
+          loginIn()
         }
       },
       scan () {
@@ -195,6 +225,12 @@
 //            alert('Scanning failed: ' + error)
 //          }
 //        )
+      },
+//      进入对应新闻详情页
+      intoNews (id) {
+//         如果点击的是轮播图中的当前新闻 则传入ID为-1
+        id = id === -1 ? this.currentNews.id : id
+        this.$router.push(`/news/${id}`)
       }
     },
     components: {

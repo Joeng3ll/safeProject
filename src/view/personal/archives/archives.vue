@@ -62,6 +62,8 @@
 <script type="text/ecmascript-6">
   import Header from 'components/header/header'
   import BScroll from 'better-scroll'
+  import {getArchives} from '../../../service/getData'
+  import {getUserInfo} from '../../../config/storage'
   const header = {
     text: '我的档案'
   }
@@ -72,6 +74,10 @@
       }
     },
     mounted () {
+      let userId = getUserInfo().userId
+      getArchives(userId).then(res => {
+
+      })
       this._initialBScroll()
     },
     methods: {

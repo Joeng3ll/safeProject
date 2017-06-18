@@ -113,7 +113,7 @@
       }
     },
     mounted () {
-      this.$refs.loadCpt.openLoading()
+//      this.$refs.loadCpt.openLoading()
       getDriverInfo().then((res) => {
         this.driver = res
 //        默认头像 如果照片为空则使用默认头像
@@ -121,7 +121,8 @@
           this.driver.photo = 'http://08.imgmini.eastday.com/mobile/20170607/20170607122123_3ca1c7688b197ceb6e91a522153fa95f_1_mwpm_03200403.jpeg'
         }
       }).then(() => {
-        this.$refs.loadCpt.closeLoading()
+        console.log('hh')
+//        this.$refs.loadCpt.closeLoading()
       })
     },
     components: {

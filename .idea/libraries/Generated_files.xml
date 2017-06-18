@@ -30,8 +30,8 @@
         <item url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/strophe.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/setStorage.js" />
-        <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/webim.config.js" />
+        <item url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/storage.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
         <item url="file://$PROJECT_DIR$/dist/src/vuex/state.js" />
@@ -39,6 +39,7 @@
         <item url="file://$PROJECT_DIR$/dist/src/vuex/actions.js" />
         <item url="file://$PROJECT_DIR$/dist/src/vuex/getters.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/strophe-1.2.8.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/common/js/Util.js" />
         <item url="file://$PROJECT_DIR$/dist/src/config/websdk-1.4.11.js" />
       </sourceFilesUrls>
     </properties>
@@ -93,8 +94,8 @@
       <root url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/strophe.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/setStorage.js" />
-      <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/webim.config.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/static/js/manifest.db6352272113f1d9344a.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/storage.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/mUtils.js" />
       <root url="file://$PROJECT_DIR$/dist/src/vuex/state.js" />
@@ -102,6 +103,7 @@
       <root url="file://$PROJECT_DIR$/dist/src/vuex/actions.js" />
       <root url="file://$PROJECT_DIR$/dist/src/vuex/getters.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/strophe-1.2.8.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/common/js/Util.js" />
       <root url="file://$PROJECT_DIR$/dist/src/config/websdk-1.4.11.js" />
     </CLASSES>
     <SOURCES />

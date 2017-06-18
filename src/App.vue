@@ -12,10 +12,13 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-/*  .fade-enter-active, .fade-leave-active
-    transition all 1s*/
+  #app
+    min-height 100vh
 
-/*  .fade-enter, .fade-leave-active
-    transform translate3d(-100%, 0, 0)*/
+  /*  .fade-enter-active, .fade-leave-active
+      transition all 1s*/
+
+  /*  .fade-enter, .fade-leave-active
+      transform translate3d(-100%, 0, 0)*/
 
 </style>

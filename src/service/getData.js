@@ -32,7 +32,7 @@ let mockData = data => {
 
 if (process.env.NODE_ENV !== 'development') {
   /*
-   *  获取首页新闻
+   *  获取首页新闻(公共API，测试用)
    * */
   var getNews = (newsType) => {
     return new Promise((resolve, reject) => {
@@ -55,6 +55,20 @@ if (process.env.NODE_ENV !== 'development') {
       console.log('网络请求错误')
     })
   }
+
+  /*
+   * 获取某条新闻
+   * */
+  var getNewsContent = (id) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/announcement/app/${id}`).then(res => {
+        resolve(res)
+      })
+    }, () => {
+      console.log('网络请求错误')
+    })
+  }
+
   /*
    * 登录
    * */
@@ -119,12 +133,12 @@ if (process.env.NODE_ENV !== 'development') {
   }
 
   /*
-   *   获取用户档案信息
+   *   获取驾驶员档案信息
    * */
-  var getArchives = () => {
+  var getArchives = (driverId) => {
     return new Promise((resolve, reject) => {
-      vm.$http.get(`${BASE_URL}/contact/public`).then(res => {
-        resolve(res.data)
+      vm.$http.get(`${BASE_URL}/driver/app/${driverId}`).then(res => {
+        resolve(res)
       })
     })
   }
@@ -301,6 +315,17 @@ if (process.env.NODE_ENV !== 'development') {
 
     })
   }
+
+  /*
+   *  获取事故上报所需信息
+   * */
+  var getAccidentType = (driverId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/compensation/report?driverId=${driverId}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
 } else {
   var getNews = (newsType) => {
     return new Promise((resolve, reject) => {
@@ -315,6 +340,16 @@ if (process.env.NODE_ENV !== 'development') {
   var getNewsT = (newsType) => {
     return new Promise((resolve, reject) => {
       vm.$http.post(`${BASE_URL}/announcement/app/list/${newsType}`).then(res => {
+        resolve(res)
+      })
+    }, () => {
+      console.log('网络请求错误')
+    })
+  }
+
+  var getNewsContent = (id) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/announcement/app/${id}`).then(res => {
         resolve(res)
       })
     }, () => {
@@ -355,10 +390,10 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
 
-  var getArchives = () => {
+  var getArchives = (driverId) => {
     return new Promise((resolve, reject) => {
-      vm.$http.get(`${BASE_URL}/contact/public`).then(res => {
-        resolve(res.data)
+      vm.$http.get(`${BASE_URL}/driver/app/${driverId}`).then(res => {
+        resolve(res)
       })
     })
   }
@@ -483,6 +518,14 @@ if (process.env.NODE_ENV !== 'development') {
     })
   }
 
+  var getAccidentType = (driverId) => {
+    return new Promise((resolve, reject) => {
+      vm.$http.get(`${BASE_URL}/compensation/report?driverId=${driverId}`).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
   var getAttendanceDays = () => mockData(attendance)
 
   var getHourRecord = () => mockData(hourRecord)
@@ -494,6 +537,7 @@ if (process.env.NODE_ENV !== 'development') {
 export {
   getNews,
   getNewsT,
+  getNewsContent,
   getDriverInfo,
   loginIn,
   loginOut,
@@ -516,5 +560,6 @@ export {
   getAttendanceDays,
   getHourRecord,
   getHaulRecord,
-  getVolumeRecord
+  getVolumeRecord,
+  getAccidentType
 }

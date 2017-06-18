@@ -13,7 +13,6 @@
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
-//  const newsListPY = ['-6', 'shehui', 'guonei', 'guoji', 'yule', 'tiyu', 'junshi', 'keji', 'caijing', 'shishang']
   const newsIndex = [-6, -5, -4, -3, -2, -1]
   export default {
     data () {

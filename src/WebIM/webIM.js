@@ -62,7 +62,7 @@ function loginIn() {
     // },
     // accessToken: WebIM.utils.getCookie(),
     error(err){
-      console.log(err)
+      console.log(err + 'error')
     }
   }
   conn.open(options)

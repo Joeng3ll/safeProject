@@ -4,12 +4,14 @@
  */
 // import APP from '../App.vue'
 import Home from 'view/home/home.vue'
+import News from 'view/home/children/news.vue'
 import Communication from 'view/communication/communication.vue'
 import Interlocution from 'view/interlocution/interlocution.vue'
 import Personal from 'view/personal/personal.vue'
 import Archives from 'view/personal/archives/archives.vue'
 import WorkRecord from 'view/personal/workRecord/workRecord'
 import AccidentRecord from 'view/personal/accidentRecord/accidentRecord.vue'
+import ReportAccident from 'view/personal/accidentRecord/reportAccident.vue'
 import training from 'view/personal/training/training.vue'
 import test from 'view/personal/test/test.vue'
 import hourRecord from 'view/personal/workRecord/hourRecord'
@@ -30,6 +32,13 @@ export default [
   {path: '', redirect: '/home'},
   {path: '/login', component: Login},
   {path: '/home', component: Home},
+  {
+    path: '/news/:id',
+    meta: {
+      requireAuth: true
+    },
+    component: News
+  },
   {
     path: '/communication',
     component: Communication,
@@ -171,6 +180,14 @@ export default [
       requireAuth: true
     },
     component: AccidentRecord
+  },
+  // 事故上报
+  {
+    path: '/reportAccident',
+    meta: {
+      requireAuth: true
+    },
+    component: ReportAccident
   },
   // 通知信息
   {
