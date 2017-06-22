@@ -174,19 +174,23 @@
         this.$refs.loadCpt.openLoading()
         getNewsT(newsTitle).then((res) => {
           this.newsList = Object.assign(this.newsList, res.data)
-          this.newsList = this.newsList.map((item) => {
-            return {
-              id: item.id,
-              pic: 'http://08.imgmini.eastday.com/mobile/20170617/20170617173207_47b5169b98330c9e6b307620f8e8c6a9_3_mwpm_03200403.jpeg',
-              createDate: item.createDate,
-              text: item.text,
-              title: item.title
-            }
-          })
+          if (this.newsList.length > 0) {
+            this.newsList = this.newsList.map((item) => {
+              return {
+                id: item.id,
+                pic: 'http://08.imgmini.eastday.com/mobile/20170617/20170617173207_47b5169b98330c9e6b307620f8e8c6a9_3_mwpm_03200403.jpeg',
+                createDate: item.createDate,
+                text: item.text,
+                title: item.title
+              }
+            })
 //       不显示已经在banner里出现的新闻
-          this.newsList.shift()
-          this.currentNews = res.data[0]
-          this.currentNews.pic = 'http://08.imgmini.eastday.com/mobile/20170617/20170617173207_47b5169b98330c9e6b307620f8e8c6a9_3_mwpm_03200403.jpeg'
+            this.newsList.shift()
+            this.currentNews = res.data[0]
+            if (this.currentNews !== undefined) {
+              this.currentNews.pic = 'http://08.imgmini.eastday.com/mobile/20170617/20170617173207_47b5169b98330c9e6b307620f8e8c6a9_3_mwpm_03200403.jpeg'
+            }
+          }
         }).then(() => {
           this.$refs.loadCpt.closeLoading()
         })

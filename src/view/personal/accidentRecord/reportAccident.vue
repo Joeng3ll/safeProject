@@ -94,6 +94,7 @@
   import {Field, Picker, DatetimePicker, Radio, Toast} from 'mint-ui'
   import {getAccidentType, reportAccident} from '../../../service/getData'
   import {getUserInfo} from '../../../config/storage'
+  import {formateAccidentDate} from '../../../common/js/Util'
   import Loading from '../../../components/loading/loading.vue'
   import Vue from 'vue'
   Vue.component(Field.name, Field)
@@ -351,6 +352,7 @@
         this.$refs.picker.open()
       },
       handleConfirm (value) {
+        value = formateAccidentDate(value)
         this.time = value
       },
       //      提示框

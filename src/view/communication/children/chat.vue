@@ -43,7 +43,7 @@
 <script type="text/ecmascript-6">
   import {getContactById} from '../../../config/mUtils'
   import {Loadmore, Field} from 'mint-ui'
-  import {sendTextPrivate} from '../../../WebIM/webIM'
+  import {sendTextPrivate, loginByToken} from '../../../WebIM/webIM'
   import Vue from 'vue'
   Vue.component(Loadmore.name, Loadmore)
   Vue.component(Field.name, Field)
@@ -96,6 +96,8 @@
       }
     },
     created () {
+//        token登录
+      loginByToken()
       let friendId = parseInt(this.$route.params.id)
       let friendObj = getContactById(friendId)
 //      console.log(friendId, friendObj)

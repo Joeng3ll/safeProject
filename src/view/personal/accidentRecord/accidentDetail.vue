@@ -12,11 +12,62 @@
       <section class="scan icon-sec">
       </section>
     </header>
+    <article class="body">
+      <!--驾驶员-->
+      <section class="item">
+        <span class="key">驾驶员:</span>
+        <span class="value">{{accident.driver}}</span>
+      </section>
+      <!--车牌号-->
+      <section class="item">
+        <span class="key">车牌号:</span>
+        <span class="value">{{accident.carNo}}</span>
+      </section>
+      <!--受伤人数-->
+      <section class="item">
+        <span class="key">受伤人数:</span>
+        <span class="value">{{accident.injuredNum}}</span>
+      </section>
+      <!--死亡人数-->
+      <section class="item">
+        <span class="key">死亡人数:</span>
+        <span class="value">{{accident.deadNum}}</span>
+      </section>
+      <!--事故发生时间-->
+      <section class="item">
+        <span class="key">发生时间:</span>
+        <span class="value">{{accident.occureTimeStr}}</span>
+      </section>
+      <!--是否转弯-->
+      <section class="item">
+        <span class="key">转弯情况:</span>
+        <span class="value">{{accident.data1Str}}</span>
+      </section>
+      <!--制动情况-->
+      <section class="item">
+        <span class="key">制动情况:</span>
+        <span class="value">{{accident.data2Str}}</span>
+      </section>
+    </article>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import {getAccidentById} from '../../../service/getData'
   export default {
+    data () {
+      return {
+        accident: {}
+      }
+    },
+    mounted () {
+      let id = parseInt(this.$route.params.id)
+      console.log(id)
+      getAccidentById(id).then(res => {
+        res = res.data.data
+        this.accident = Object.assign({}, res)
+      })
+    },
     methods: {
       back () {
         this.$router.go(-1)
@@ -50,4 +101,17 @@
       & > .title
         font-size 18px
 
+    &>.body
+      position absolute
+      left 0
+      right 0
+      top 1.1733rem
+      padding .48rem
+      &>.item
+        padding: .24rem
+        font-size 16px
+        line-height 18px
+        color #555
+        &>.key
+          margin-right .3rem
 </style>

@@ -331,9 +331,9 @@ if (process.env.NODE_ENV !== 'development') {
    *  事故上报
    * */
   var reportAccident = (accident) => {
-    let str = JSON.stringify(accident)
+    // let str = JSON.stringify(accident)
     return new Promise((resolve, reject) => {
-      vm.$http.post(`${BASE_URL}/compensation/report`, str).then(res => {
+      vm.$http.post(`${BASE_URL}/compensation/report`, {params: accident}).then(res => {
         resolve(res)
       })
     })
@@ -562,9 +562,26 @@ if (process.env.NODE_ENV !== 'development') {
   }
 
   var reportAccident = (accident) => {
-    let str = JSON.stringify(accident)
     return new Promise((resolve, reject) => {
-      vm.$http.post(`${BASE_URL}/compensation/report`, str).then(res => {
+      //`${BASE_URL}/compensation/report`
+      vm.$http({
+        url: `${BASE_URL}/compensation/report`,
+        method: 'post',
+        data: accident,
+        transformRequest: [
+          function (data) {
+            //遍历accident对象中的可枚举属性
+            let str = ''
+            for (let item in data) {
+              str += encodeURIComponent(item) + '=' + encodeURIComponent(data[item]) + '&'
+            }
+            return str
+          }
+        ],
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }).then(res => {
         resolve(res)
       })
     })

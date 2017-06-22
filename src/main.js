@@ -29,10 +29,10 @@ new Vue({
 conn.listen({
   onOpened: function (msg) {
     conn.setPresence()
-    conn.accessToken = msg.accessToken
+    // conn.accessToken = msg.accessToken
   },
   onTextMessage: function (message) {
-    alert(message)
+    console.log(message)
   },
   onClosed: function () {
     console.log('close')

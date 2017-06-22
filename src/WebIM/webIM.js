@@ -61,8 +61,9 @@ function loginIn() {
     //   WebIM.utils.setCookie('webim_' + encryptUsername, token, 1)
     // },
     // accessToken: WebIM.utils.getCookie(),
-    success(){
-      console.log('login success')
+    success(token){
+      window.localStorage.setItem('token', token.access_token)
+      console.log('login success' + new Date())
     },
     error(err){
       console.log(err + 'error')
@@ -71,6 +72,30 @@ function loginIn() {
   conn.open(options)
 }
 
+/*
+ *
+ * 使用token登录
+ *
+ * */
+function loginByToken() {
+  let user = getUserAccount()
+  let token = window.localStorage.getItem('token')
+  let options = {
+    apiUrl: WebIM.config.apiURL,
+    user: user.username,
+    accessToken: token,
+    autoReconnectNumMax: WebIM.config.autoReconnectNumMax,
+    autoReconnectInterval: WebIM.config.autoReconnectInterval,
+    appKey: WebIM.config.appkey,
+    success: function () {
+      console.log('login token success')
+    },
+    fail: function () {
+      console.log('login token error')
+    }
+  }
+  conn.open(options)
+}
 /*
  * 退出连接
  * */
@@ -86,14 +111,13 @@ function sendTextPrivate() {
   var msg = new WebIM.message('txt', id);      // 创建文本消息
   msg.set({
     msg: 'message content',                  // 消息内容
-    to: '13989862591', // 接收消息对象（用户id）
-    type: 'chat',
+    to: "13606711582", // 接收消息对象（用户id）
     roomType: false,
     success: function (id, serverMsgId) {
       console.log('send private text Success');
     },
-    fail: function (err) {
-      console.log(err)
+    fail: function () {
+      console.log('error')
     }
   })
   msg.body.chatType = 'singleChat'
@@ -117,4 +141,4 @@ function onTextMessage(message) {
   console.log(message)
 }
 
-export {conn, signIn, loginIn, close, sendTextPrivate}
+export {conn, signIn, loginIn, loginByToken, close, sendTextPrivate}

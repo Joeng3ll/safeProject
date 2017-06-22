@@ -94,5 +94,5 @@ WebIM.config = {
    * {type:'aes',mode: 'ebc',key: '123456789easemob',iv: '0000000000000000'} encrypt with aes(ebc)
    * {type:'aes',mode: 'cbc',key: '123456789easemob',iv: '0000000000000000'} encrypt with aes(cbc)
    */
-  encrypt: {type: 'none'}
+  encrypt: {type:'base64'}
 };
