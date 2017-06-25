@@ -31,6 +31,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   .loading-wrapper
     position fixed
+    z-index 200
     top 1.1733rem
     left 0
     width 100%

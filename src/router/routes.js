@@ -4,6 +4,8 @@
  */
 // import APP from '../App.vue'
 import Home from 'view/home/home.vue'
+import Honor from 'view/home/children/honor'
+import Accident from 'view/home/children/accident'
 import News from 'view/home/children/news.vue'
 import Communication from 'view/communication/communication.vue'
 import Interlocution from 'view/interlocution/interlocution.vue'
@@ -33,6 +35,22 @@ export default [
   {path: '', redirect: '/home'},
   {path: '/login', component: Login},
   {path: '/home', component: Home},
+  // 荣誉
+  {
+    path: '/honor',
+    meta: {
+      requireAuth: true
+    },
+    component: Honor
+  },
+  // 事故通报
+  {
+    path: '/accident',
+    meta: {
+      requireAuth: true
+    },
+    component: Accident
+  },
   {
     path: '/news/:id',
     meta: {
