@@ -47,6 +47,7 @@
       _initialData () {
         let orgId = getUserInfo().organizationId
         let arr = []
+        console.log(orgId)
 //        数据初始化 组织id 从后台拉取数据
         getSuperOrgId(orgId).then(res => {
           arr = res.data.slice(0)

@@ -203,9 +203,9 @@
         this.$refs.loadmore.onTopLoaded()
       },
       saveUserInfo () {
-        let loginInfo = getLoginStorage()
+        let loginInfo = getLoginStorage().data
         let user = {}
-        if (loginInfo === 'true') {
+        if (loginInfo === true) {
           getDriverInfo().then(res => {
             user = Object.assign(user, res)
             let {userId, organizationId, photo, realName} = user
@@ -213,6 +213,7 @@
               photo = 'http://08.imgmini.eastday.com/mobile/20170607/20170607122123_3ca1c7688b197ceb6e91a522153fa95f_1_mwpm_03200403.jpeg'
             }
             user = {userId, organizationId, photo, realName}
+            console.log(user)
             setUserInfo(user)
           })
           //      登录环信
