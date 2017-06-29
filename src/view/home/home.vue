@@ -137,8 +137,10 @@
         })
 //       不显示已经在banner里出现的新闻
         this.newsList.shift()
-        this.currentNews = res.data[0]
-        this.currentNews.pic = 'http://08.imgmini.eastday.com/mobile/20170617/20170617173207_47b5169b98330c9e6b307620f8e8c6a9_3_mwpm_03200403.jpeg'
+        if (res.data >= 1) {
+          this.currentNews = res.data[0]
+          this.currentNews.pic = 'http://08.imgmini.eastday.com/mobile/20170617/20170617173207_47b5169b98330c9e6b307620f8e8c6a9_3_mwpm_03200403.jpeg'
+        }
       })
       this.$nextTick(() => {
         this._initialSwiper()

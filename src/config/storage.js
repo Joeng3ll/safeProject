@@ -22,10 +22,29 @@ const WEBIM_INFO = 'webIMInfo'
 
 // 是否登录
 export function setLoginStorage(isLogin) {
-  window.localStorage.setItem(LOGIN_INFO, isLogin)
+  // 存登录状态时存入当前时间 ms
+  let date = new Date().getTime()
+  let obj = Object.assign({}, {data: isLogin, time: date})
+  console.log(JSON.stringify(obj))
+  window.localStorage.setItem(LOGIN_INFO, JSON.stringify(obj))
 }
 export function getLoginStorage() {
-  return window.localStorage.getItem(LOGIN_INFO || 'false')
+  // 过期时间 7小时
+  const expireHour = 7
+  // 当前时间 ms
+  let newDate = new Date().getTime()
+  // 过期时间 ms
+  let expireTime = expireHour * 60 * 60 * 1000
+  // 取出当前存放登录信息
+  let obj = JSON.parse(window.localStorage.getItem(LOGIN_INFO) || '{}')
+  // 保存登录信息时的时间
+  let oldDate = obj.time ? obj.time : expireTime
+  // 比较当前时间与存入时间的时间差和过期时间
+  let time = oldDate - newDate
+  if (time > expireTime) {
+    setLoginStorage(false)
+  }
+  return JSON.parse(window.localStorage.getItem(LOGIN_INFO) || '{}')
 }
 
 //环信是否登录
@@ -41,7 +60,7 @@ export function setUserInfo(user) {
   window.localStorage.setItem(USER_INFO, JSON.stringify(user))
 }
 export function getUserInfo() {
-  let user = {}
+  let user = '{}'
   return JSON.parse(window.localStorage.getItem(USER_INFO) || user)
 }
 
